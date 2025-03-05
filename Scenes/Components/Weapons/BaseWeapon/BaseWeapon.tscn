@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://k2rw4ncaxeki"]
+
+[ext_resource type="Script" uid="uid://c7t2ydqgtnpt5" path="res://Scenes/Components/Weapons/BaseWeapon/BaseWeapon.gd" id="1_ajkoj"]
+[ext_resource type="PackedScene" uid="uid://cccpsq0oessnx" path="res://Scenes/Objects/Projectile/Projectile.tscn" id="2_5p7ym"]
+
+[node name="BaseWeapon" type="Node2D"]
+script = ExtResource("1_ajkoj")
+scene_projectile = ExtResource("2_5p7ym")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="TEMPORARY" type="Sprite2D" parent="."]
+visible = false

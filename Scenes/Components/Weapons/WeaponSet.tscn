@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://deyupjall358h"]
+
+[ext_resource type="Script" uid="uid://b2ac45m6mwyal" path="res://Scenes/Components/Weapons/WeaponSet.gd" id="1_3nj6m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7ey1"]
+radius = 96.0
+
+[node name="WeaponSet" type="Node2D"]
+script = ExtResource("1_3nj6m")
+
+[node name="EntityDetectionHitbox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntityDetectionHitbox"]
+shape = SubResource("CircleShape2D_i7ey1")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8ybs7uak7xk4"]
+
+[ext_resource type="Texture2D" uid="uid://ctrkrtltlnwc0" path="res://Assets/Sprites/UI/UI_Frame_9Patch.png" id="1_fmrcr"]
+[ext_resource type="Script" uid="uid://chuisf43a3n0e" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgrade/UIUpgrade.gd" id="1_gb2nc"]
+[ext_resource type="Texture2D" uid="uid://36qprf2qrjxr" path="res://Assets/Sprites/UI/Icon/UI_Icon_Lightning_Yellow.png" id="2_gb2nc"]
+
+[sub_resource type="Animation" id="Animation_gb2nc"]
+resource_name = "Blinking"
+length = 0.2667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_c3cy8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cimky"]
+_data = {
+&"Blinking": SubResource("Animation_gb2nc"),
+&"RESET": SubResource("Animation_c3cy8")
+}
+
+[node name="UIUpgrade" type="Control"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gb2nc")
+
+[node name="Border" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fmrcr")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Border"]
+libraries = {
+&"": SubResource("AnimationLibrary_cimky")
+}
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gb2nc")

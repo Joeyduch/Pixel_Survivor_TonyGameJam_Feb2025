@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cccpsq0oessnx"]
+
+[ext_resource type="Script" uid="uid://cim480ydsfqjd" path="res://Scenes/Objects/Projectile/Projectile.gd" id="1_ruweo"]
+[ext_resource type="Texture2D" uid="uid://cym5jytf7igtl" path="res://Assets/Sprites/Projectiles/Projectile_0001.png" id="2_vku48"]
+[ext_resource type="Texture2D" uid="uid://ck8mcfask81o8" path="res://Assets/Sprites/Projectiles/Projectile_0002.png" id="3_ij2f1"]
+[ext_resource type="PackedScene" uid="uid://dy77attqw87sv" path="res://Scenes/Components/Life/Life.tscn" id="4_uksrr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0kbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vku48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ij2f1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5l122"]
+radius = 6.0
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ruweo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x0kbl")
+frame_progress = 0.901947
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5l122")
+
+[node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Life" parent="." instance=ExtResource("4_uksrr")]
+max_health = 1
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true

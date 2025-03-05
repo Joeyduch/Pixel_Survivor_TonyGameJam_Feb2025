@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://tyvg8xq7xn3j"]
+
+[ext_resource type="Script" uid="uid://w428n8tncj8k" path="res://Scenes/Objects/Entity/Entity.gd" id="1_jldnp"]
+[ext_resource type="Texture2D" uid="uid://bqaltv4iw07id" path="res://Assets/Sprites/Enemies/Enemy_Run_0001.png" id="2_c0417"]
+[ext_resource type="Texture2D" uid="uid://cegsnnylkkpbn" path="res://Assets/Sprites/Enemies/Enemy_Run_0002.png" id="3_2gdvg"]
+[ext_resource type="PackedScene" uid="uid://bqfromm427kjp" path="res://Scenes/Components/CharacterController/CharacterController.tscn" id="3_5mry1"]
+[ext_resource type="PackedScene" uid="uid://dy77attqw87sv" path="res://Scenes/Components/Life/Life.tscn" id="5_t7d87"]
+[ext_resource type="PackedScene" uid="uid://deyupjall358h" path="res://Scenes/Components/Weapons/WeaponSet.tscn" id="6_y85oe"]
+[ext_resource type="PackedScene" uid="uid://11ec5g85tc2i" path="res://Scenes/Components/EnemyDetector/EnemyDetector.tscn" id="7_kqdad"]
+[ext_resource type="PackedScene" uid="uid://cgcfs15kav156" path="res://Scenes/UserInterface/UISmallBar/UISmallBar.tscn" id="8_y2d3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuph2"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q62pj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c0417")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2gdvg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Entity" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_jldnp")
+
+[node name="HealthBar" parent="." instance=ExtResource("8_y2d3b")]
+
+[node name="PhysicsCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fuph2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q62pj")
+frame_progress = 0.518696
+
+[node name="CharacterController" parent="." instance=ExtResource("3_5mry1")]
+
+[node name="Life" parent="." instance=ExtResource("5_t7d87")]
+
+[node name="WeaponSet" parent="." instance=ExtResource("6_y85oe")]
+
+[node name="EnemyDetector" parent="." node_paths=PackedStringArray("linked_life") instance=ExtResource("7_kqdad")]
+linked_life = NodePath("../Life")
+team = 0

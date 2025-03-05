@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://smgphuk2esfq"]
+
+[ext_resource type="PackedScene" uid="uid://tyvg8xq7xn3j" path="res://Scenes/Objects/Entity/Entity.tscn" id="1_gq27m"]
+[ext_resource type="PackedScene" uid="uid://fhqiqubb8fwv" path="res://Scenes/Components/TargetFollower/TargetFollower.tscn" id="2_ufap5"]
+[ext_resource type="PackedScene" uid="uid://dvjc8mymroano" path="res://Scenes/Components/AIController/AIController.tscn" id="3_exe38"]
+
+[node name="Enemy" instance=ExtResource("1_gq27m")]
+exp_value = 1
+thorn_damage = 1
+
+[node name="HealthBar" parent="." index="0"]
+z_index = 1
+
+[node name="TargetFollower" parent="." index="3" instance=ExtResource("2_ufap5")]
+
+[node name="AIController" parent="." index="4" node_paths=PackedStringArray("character_controller", "target_follower") instance=ExtResource("3_exe38")]
+character_controller = NodePath("../CharacterController")
+target_follower = NodePath("../TargetFollower")
+
+[node name="CharacterController" parent="." index="5"]
+speed = 8

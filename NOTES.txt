@@ -1,0 +1,60 @@
+
+TO DO:
+
+- better "team" system
+
+- Tilemap
+	- Make 4 corners tiles for grass and dirt	*****	*****	*****
+
+- HUD
+	- show all weapons
+
+
+- expanded leveling up mechanics
+	- upgrades
+		- time scale to 0 (while choosing upgrades)
+		- upgrades menu
+	- enemies scaling
+	- 
+
+
+
+- Upgrades tree (in data)
+	-BaseUpgrade
+		- EntityUpgrade
+			- EntityThornDamageUpgrade
+		- MovementUpgrade
+			- MovementSpeedUpgrade
+		- LifeUpgrade
+			- LifeHealUpgrade
+			- LifeMaxHealthUpgrade
+		- WeaponUpgrade
+			- WeaponDamageUpgrade
+			- WeaponCooldownUpgrade
+			- WeaponProjectilePerShotUpgrade
+			- WeaponChangeProjectileUpgrade
+
+- Upgrades ideas
+	- Give Speed
+	- Give Max Health
+	- Heal
+	- Give Thorn Damage
+	- Give Weapon Upgrade
+		- cooldown
+		- damage
+		- projectiles per shot
+		- projectile type
+	- Give new weapon
+		- choose icon
+			- for HUD representation
+		- choose name
+		- choose base stats
+			- pistol -> 1 proj, medium cooldown, low spread, 2 dmg
+			- smg -> 1 proj, low cooldown, big spread, 1 dmg
+			- shotgun -> 3 proj, high cooldown, big spread, 1 dmg
+
+
+
+- main menu
+	- PlayerData init (if player quits to menu then returns)
+	- World/Main init (if player quits ...)

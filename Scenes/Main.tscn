@@ -1,0 +1,240 @@
+[gd_scene load_steps=21 format=3 uid="uid://cs3tfa5avgdx7"]
+
+[ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
+[ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
+[ext_resource type="PackedScene" uid="uid://dtetuew7g3wsd" path="res://Scenes/Objects/Entity/Player/Player.tscn" id="3_6cwc0"]
+[ext_resource type="PackedScene" uid="uid://smgphuk2esfq" path="res://Scenes/Objects/Entity/Enemy/Enemy.tscn" id="4_cak60"]
+[ext_resource type="PackedScene" uid="uid://bt2n8b20ciou2" path="res://Scenes/Objects/ExpDrop/ExpDrop.tscn" id="4_it0lb"]
+[ext_resource type="Texture2D" uid="uid://ca5r6opvyequb" path="res://Assets/Sprites/Background/Tilemap.png" id="5_1p5hy"]
+[ext_resource type="Script" uid="uid://dffgbtt0w0k6i" path="res://Classes/AutoTile/GenTileAutoMap.gd" id="5_frkhe"]
+[ext_resource type="Script" uid="uid://dwm56icapvtr4" path="res://Scenes/UserInterface/UI.gd" id="6_6qbe5"]
+[ext_resource type="PackedScene" uid="uid://ctkb1iqry1u2y" path="res://Scenes/UserInterface/UIBar/UIBar.tscn" id="6_kuhva"]
+[ext_resource type="Script" uid="uid://wjuldihp0oy5" path="res://Scenes/UserInterface/HUD.gd" id="7_ow6lx"]
+[ext_resource type="Script" uid="uid://cbuiq3t54sqey" path="res://Scenes/UserInterface/Menus.gd" id="9_6kjgy"]
+[ext_resource type="PackedScene" uid="uid://b8ybs7uak7xk4" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgrade/UIUpgrade.tscn" id="12_grg3l"]
+[ext_resource type="Script" uid="uid://brtglvwxo4pjv" path="res://Scenes/UserInterface/Menus/Upgrades/UpgradesMenu.gd" id="12_h1m7h"]
+[ext_resource type="Resource" uid="uid://cc4aa184vcudi" path="res://Resources/Upgrades/LifeHealUpgradeI.tres" id="13_frkhe"]
+[ext_resource type="Resource" uid="uid://bt2why220i73w" path="res://Resources/Upgrades/LifeHealUpgradeII.tres" id="14_1p5hy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1m7h"]
+texture = ExtResource("5_1p5hy")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_erwvk"]
+sources/0 = SubResource("TileSetAtlasSource_h1m7h")
+
+[sub_resource type="LabelSettings" id="LabelSettings_t0xen"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_tac5i"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_dejdl"]
+font_size = 8
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_fqa7p")
+metadata/_edit_horizontal_guides_ = [-63.0]
+
+[node name="Timers" type="Node" parent="."]
+process_mode = 1
+
+[node name="SpawnTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+autostart = true
+
+[node name="World" type="Node2D" parent="." node_paths=PackedStringArray("spawn_timer", "player")]
+process_mode = 1
+script = ExtResource("1_6xhlf")
+scene_enemy = ExtResource("4_cak60")
+scene_exp_drop = ExtResource("4_it0lb")
+spawn_timer = NodePath("../Timers/SpawnTimer")
+player = NodePath("Entities/Player")
+
+[node name="Background" type="Node2D" parent="World"]
+
+[node name="AutoTileMap" type="TileMapLayer" parent="World/Background"]
+tile_set = SubResource("TileSet_erwvk")
+script = ExtResource("5_frkhe")
+map_size = Vector2i(20, 12)
+
+[node name="Loot" type="Node" parent="World"]
+
+[node name="Entities" type="Node" parent="World"]
+
+[node name="Enemies" type="Node" parent="World/Entities"]
+
+[node name="Player" parent="World/Entities" instance=ExtResource("3_6cwc0")]
+position = Vector2(130, 96)
+
+[node name="SpawnLocations" type="Node" parent="World"]
+
+[node name="Marker2D" type="Marker2D" parent="World/SpawnLocations"]
+position = Vector2(-19, -20)
+
+[node name="Marker2D2" type="Marker2D" parent="World/SpawnLocations"]
+position = Vector2(335, -17)
+
+[node name="Marker2D3" type="Marker2D" parent="World/SpawnLocations"]
+position = Vector2(335, 195)
+
+[node name="Marker2D4" type="Marker2D" parent="World/SpawnLocations"]
+position = Vector2(-17, 195)
+
+[node name="Projectiles" type="Node" parent="World"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_6qbe5")
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_ow6lx")
+
+[node name="ExperienceContainer" type="HBoxContainer" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 4.0
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="LevelLabel" type="Label" parent="UI/HUD/ExperienceContainer"]
+layout_mode = 2
+text = "LEVEL: 0"
+label_settings = SubResource("LabelSettings_t0xen")
+
+[node name="ExpBar" parent="UI/HUD/ExperienceContainer" instance=ExtResource("6_kuhva")]
+layout_mode = 2
+label_prefix = "EXP"
+
+[node name="Menus" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_6kjgy")
+
+[node name="MenuShade" type="ColorRect" parent="UI/Menus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="PauseMenu" type="Control" parent="UI/Menus"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menus/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Menus/PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/Menus/PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Press ESCAPE to unpause"
+label_settings = SubResource("LabelSettings_tac5i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradesMenu" type="Control" parent="UI/Menus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_h1m7h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menus/UpgradesMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -37.5
+offset_right = 74.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UI/Menus/UpgradesMenu/VBoxContainer"]
+layout_mode = 2
+text = "UPGRADES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Menus/UpgradesMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="UIUpgrade" parent="UI/Menus/UpgradesMenu/VBoxContainer/HBoxContainer" instance=ExtResource("12_grg3l")]
+layout_mode = 2
+holding_upgrade = ExtResource("13_frkhe")
+
+[node name="UIUpgrade2" parent="UI/Menus/UpgradesMenu/VBoxContainer/HBoxContainer" instance=ExtResource("12_grg3l")]
+layout_mode = 2
+holding_upgrade = ExtResource("14_1p5hy")
+
+[node name="Description" type="Label" parent="UI/Menus/UpgradesMenu/VBoxContainer"]
+layout_mode = 2
+text = "Upgrade description lorem ipsum cool"
+label_settings = SubResource("LabelSettings_dejdl")
+horizontal_alignment = 1
+vertical_alignment = 1

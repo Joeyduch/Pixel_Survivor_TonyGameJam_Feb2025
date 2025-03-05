@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LifeHealUpgrade" load_steps=3 format=3 uid="uid://bt2why220i73w"]
+
+[ext_resource type="Script" uid="uid://ffnjmfrug180" path="res://Classes/Upgrades/LifeHealUpgrade.gd" id="1_uuxle"]
+[ext_resource type="Texture2D" uid="uid://c5wlr3y8425vc" path="res://Assets/Sprites/UI/Icon/UI_Icon_Heart_Yellow.png" id="2_1s3tw"]
+
+[resource]
+script = ExtResource("1_uuxle")
+health_bonus = 2
+upgrade_name = "Heal II"
+upgrade_icon = ExtResource("2_1s3tw")
+description = "Heals 2 damage."
