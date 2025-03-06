@@ -1,49 +1,34 @@
 
 TO DO:
 
-- better "team" system
-
-- Tilemap
-	- Make 4 corners tiles for grass and dirt	*****	*****	*****
 
 - HUD
-	- show all weapons
+	- show a list of all weapons
+	- show a list of all upgrades
+	- popup
+		- new upgrade popup
+			- upgrade name
+			- upgrade thumbnail
+			- upgrade description
 
 
 - expanded leveling up mechanics
-	- upgrades
-		- time scale to 0 (while choosing upgrades)
-		- upgrades menu
 	- enemies scaling
-	- 
+	- more enemy types
+	- different UpgradesList depending on level plateau (ex: every 5, 10, etc.)
 
 
-
-- Upgrades tree (in data)
-	-BaseUpgrade
-		- EntityUpgrade
-			- EntityThornDamageUpgrade
-		- MovementUpgrade
-			- MovementSpeedUpgrade
-		- LifeUpgrade
-			- LifeHealUpgrade
-			- LifeMaxHealthUpgrade
-		- WeaponUpgrade
-			- WeaponDamageUpgrade
-			- WeaponCooldownUpgrade
-			- WeaponProjectilePerShotUpgrade
-			- WeaponChangeProjectileUpgrade
-
-- Upgrades ideas
-	- Give Speed
-	- Give Max Health
-	- Heal
-	- Give Thorn Damage
+- Upgrades ('+' -> done | '-' -> not done)
+	+ Give Speed
+	+ Give Max Health
+	+ Heal
+	+ Give Thorn Damage
 	- Give Weapon Upgrade
-		- cooldown
-		- damage
-		- projectiles per shot
-		- projectile type
+		+ cooldown
+		+ damage
+		+ projectiles per shot
+		+ spread
+		- projectile health and/or projectile type
 	- Give new weapon
 		- choose icon
 			- for HUD representation
@@ -54,7 +39,43 @@ TO DO:
 			- shotgun -> 3 proj, high cooldown, big spread, 1 dmg
 
 
+- loot
+	- box that can be looted by player, can loot upgrades or big exp
+		- randomly spawn
+
+- audio
+	- music
+	- sound effects
+		- weapon fire
+		- player hit
+		- enemy hit
+		- player death
+		- enemy death
+		- level up
+		- loot
+			- exp
+			- loot box/upgrade
+
+
+- pause menu
+	- interactive menu to resume/settings/exit/etc.
+
 
 - main menu
 	- PlayerData init (if player quits to menu then returns)
 	- World/Main init (if player quits ...)
+
+
+- polish
+	- transitions
+	- animations
+	- particles
+	- shaders
+
+
+
+
+
+NOTES:
+
+* exp gain on Main's _ready method for testings

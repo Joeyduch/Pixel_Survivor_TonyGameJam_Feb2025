@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponSpreadUpgrade" load_steps=3 format=3 uid="uid://y7l1jyr7r044"]
+
+[ext_resource type="Script" uid="uid://d3ccq704mg5iw" path="res://Classes/Upgrades/WeaponSpreadUpgrade.gd" id="1_k730k"]
+[ext_resource type="Texture2D" uid="uid://c1505t1mongf7" path="res://Assets/Sprites/UI/Icon/UI_Icon_Charge_Red.png" id="2_hfhl2"]
+
+[resource]
+script = ExtResource("1_k730k")
+spread_scale = 0.8
+upgrade_name = "Spread I"
+upgrade_icon = ExtResource("2_hfhl2")
+description = "Scales the spread of a random weapon by a factor of 0.8."
+metadata/_custom_type_script = "uid://d3ccq704mg5iw"

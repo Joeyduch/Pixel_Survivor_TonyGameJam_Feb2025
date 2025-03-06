@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EntityThornUpgrade" load_steps=2 format=3 uid="uid://wmd6bu8mnkby"]
+
+[ext_resource type="Script" uid="uid://i84cx81fiqto" path="res://Classes/Upgrades/EntityThornUpgrade.gd" id="1_nk2yr"]
+
+[resource]
+script = ExtResource("1_nk2yr")
+thorn_damage_bonus = 1
+upgrade_name = "Base Upgrade"
+description = "Base upgrade description."
+metadata/_custom_type_script = "uid://i84cx81fiqto"

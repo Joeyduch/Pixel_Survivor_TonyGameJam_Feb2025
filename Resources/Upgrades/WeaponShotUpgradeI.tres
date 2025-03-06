@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponShotUpgrade" load_steps=3 format=3 uid="uid://bn4bjufkdnka4"]
+
+[ext_resource type="Script" uid="uid://b8innuvwarqvx" path="res://Classes/Upgrades/WeaponShotUpgrade.gd" id="1_cnpe5"]
+[ext_resource type="Texture2D" uid="uid://7ot2x3w530ak" path="res://Assets/Sprites/UI/Icon/UI_Icon_Plus_Red.png" id="2_f8nc6"]
+
+[resource]
+script = ExtResource("1_cnpe5")
+shot_amount_bonus = 1
+upgrade_name = "Multi-Shot I"
+upgrade_icon = ExtResource("2_f8nc6")
+description = "Adds 1 more projectile per shot for a random weapon."
+metadata/_custom_type_script = "uid://b8innuvwarqvx"

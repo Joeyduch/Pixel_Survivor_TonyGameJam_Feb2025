@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponCooldownUpgrade" load_steps=3 format=3 uid="uid://d10ri6t8kf7cv"]
+
+[ext_resource type="Script" uid="uid://b2mirlue6oljk" path="res://Classes/Upgrades/WeaponCooldownUpgrade.gd" id="1_r2v26"]
+[ext_resource type="Texture2D" uid="uid://1r7ucjc67c67" path="res://Assets/Sprites/UI/Icon/UI_Icon_Lightning_Red.png" id="2_1npfm"]
+
+[resource]
+script = ExtResource("1_r2v26")
+time_scale = 0.9
+upgrade_name = "Weapon Cooldown I"
+upgrade_icon = ExtResource("2_1npfm")
+description = "Scales the cooldown of a random weapon by a factor of 0.9."
+metadata/_custom_type_script = "uid://b2mirlue6oljk"

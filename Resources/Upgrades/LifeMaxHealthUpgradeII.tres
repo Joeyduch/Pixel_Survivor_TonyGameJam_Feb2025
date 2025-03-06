@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LifeMaxHealthUpgrade" load_steps=3 format=3 uid="uid://0mljol0myhue"]
+
+[ext_resource type="Script" uid="uid://e4wcyvigfg2x" path="res://Classes/Upgrades/LifeMaxHealthUpgrade.gd" id="1_kdaaf"]
+[ext_resource type="Texture2D" uid="uid://c5wlr3y8425vc" path="res://Assets/Sprites/UI/Icon/UI_Icon_Heart_Yellow.png" id="2_kdaaf"]
+
+[resource]
+script = ExtResource("1_kdaaf")
+max_health_bonus = 2
+upgrade_name = "Max-Health II"
+upgrade_icon = ExtResource("2_kdaaf")
+description = "Add 2 to max-health"
+metadata/_custom_type_script = "uid://e4wcyvigfg2x"

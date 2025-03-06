@@ -11,6 +11,8 @@ func _ready() -> void:
 	connect("game_paused", Callable(ui._main_game_paused))
 	PlayerData.connect("leveled_up", Callable(_player_data_leveled_up))
 	ui.ui_menus.upgrades_menu.connect("upgrade_chosen", Callable(_on_upgrades_menu_upgrade_chosen))
+	
+	PlayerData.gain_experience(3) # ***** TEST TEMPORARY TEST *****
 
 
 func _input(event: InputEvent) -> void:
@@ -32,5 +34,6 @@ func _player_data_leveled_up(_new_level:int, _exp_to_level_up:int) -> void:
 
 
 func _on_upgrades_menu_upgrade_chosen(upgrade:BaseUpgrade) -> void:
-	upgrade.apply(world.player)
+	if upgrade:
+		upgrade.apply(world.player)
 	toggle_pause()

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradesList" load_steps=8 format=3 uid="uid://b2kgj3ey24p2s"]
+
+[ext_resource type="Texture2D" uid="uid://dml7235a627d8" path="res://Assets/Sprites/UI/Icon/UI_Icon_Star_Green.png" id="1_b4oc6"]
+[ext_resource type="Script" uid="uid://dml77484382lg" path="res://Classes/Upgrades/UpgradesList.gd" id="2_mnr3b"]
+[ext_resource type="Script" uid="uid://0dn6fpu16miv" path="res://Classes/Upgrades/BaseUpgrade.gd" id="3_b4oc6"]
+[ext_resource type="Resource" uid="uid://dcpgfi0ldwpwj" path="res://Resources/Upgrades/CharacterSpeedUpgradeI.tres" id="4_mnr3b"]
+[ext_resource type="Resource" uid="uid://mgtbmdrkt1le" path="res://Resources/Upgrades/CharacterSpeedUpgradeII.tres" id="5_b4oc6"]
+[ext_resource type="Resource" uid="uid://wmd6bu8mnkby" path="res://Resources/Upgrades/EntityThornUpgradeI.tres" id="6_b4oc6"]
+[ext_resource type="Resource" uid="uid://ca0sx6oa24upf" path="res://Resources/Upgrades/EntityThornUpgradeII.tres" id="7_q50qu"]
+
+[resource]
+script = ExtResource("2_mnr3b")
+list_thumbnail = ExtResource("1_b4oc6")
+description = "Gain a random character upgrade."
+upgrades_list = Array[ExtResource("3_b4oc6")]([ExtResource("4_mnr3b"), ExtResource("5_b4oc6"), ExtResource("6_b4oc6"), ExtResource("7_q50qu")])
+chance_list = Array[float]([0.25, 0.25, 0.25, 0.25])
+metadata/_custom_type_script = "uid://dml77484382lg"

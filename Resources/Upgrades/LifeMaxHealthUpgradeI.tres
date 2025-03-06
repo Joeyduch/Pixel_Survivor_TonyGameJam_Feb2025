@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LifeMaxHealthUpgrade" load_steps=2 format=3 uid="uid://dsbihip8kco0l"]
+
+[ext_resource type="Script" uid="uid://e4wcyvigfg2x" path="res://Classes/Upgrades/LifeMaxHealthUpgrade.gd" id="1_pnvds"]
+
+[resource]
+script = ExtResource("1_pnvds")
+max_health_bonus = 1
+upgrade_name = "Base Upgrade"
+description = "Base upgrade description."
+metadata/_custom_type_script = "uid://e4wcyvigfg2x"

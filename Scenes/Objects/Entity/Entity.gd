@@ -19,8 +19,9 @@ func _ready() -> void:
 	set_team(team)
 	
 	# signals
-	life.connect("health_changed", Callable(on_life_health_changed))
-	life.connect("died", Callable(on_life_died))
+	life.connect("health_changed", Callable(_on_life_health_changed))
+	life.connect("max_health_changed", Callable(_on_life_max_health_changed))
+	life.connect("died", Callable(_on_life_died))
 
 
 func _process(_delta: float) -> void:
@@ -63,10 +64,14 @@ func update_sprite() -> void:
 
 # signals
 
-func on_life_health_changed(new_health:int) -> void:
+func _on_life_health_changed(new_health:int) -> void:
 	health_bar.set_value(new_health)
 
-func on_life_died() -> void:
+func _on_life_max_health_changed(new_max:int) -> void:
+	health_bar.set_maximum(new_max)
+
+
+func _on_life_died() -> void:
 	if self == get_world().player:
 		character_controller.is_active = false
 		weapon_set.is_active = false

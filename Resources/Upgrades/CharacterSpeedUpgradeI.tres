@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterSpeedUpgrade" load_steps=3 format=3 uid="uid://dcpgfi0ldwpwj"]
+
+[ext_resource type="Script" uid="uid://ppsj81q0t80i" path="res://Classes/Upgrades/CharacterSpeedUpgrade.gd" id="1_drftk"]
+[ext_resource type="Texture2D" uid="uid://dhe5nnmbvq0le" path="res://Assets/Sprites/UI/Icon/UI_Icon_Lightning_Green.png" id="2_c6dqn"]
+
+[resource]
+script = ExtResource("1_drftk")
+speed_bonus = 5
+upgrade_name = "Speed I"
+upgrade_icon = ExtResource("2_c6dqn")
+description = "Gives 5 Speed"
+metadata/_custom_type_script = "uid://ppsj81q0t80i"

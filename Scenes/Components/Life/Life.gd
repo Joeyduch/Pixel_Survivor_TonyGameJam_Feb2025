@@ -3,10 +3,11 @@ class_name Life extends Node
 signal died
 signal resurrected
 signal health_changed(new_amount:int)
+signal max_health_changed(new_max:int)
 signal got_hurt(hurt_amount:int)
 signal got_healed(heal_amount:int)
 
-@export var max_health:int = 3
+@export var max_health:int = 3: set = set_max_health
 
 @onready var health:int = max_health: set = set_health, get = get_health
 
@@ -28,6 +29,12 @@ func set_health(amount:int) -> void:
 
 func get_health() -> int:
 	return health
+
+func set_max_health(new_max:int) -> void:
+	max_health = new_max
+	if health > max_health:
+		health = max_health
+	max_health_changed.emit(max_health)
 
 
 func hurt(damage:int) -> void:

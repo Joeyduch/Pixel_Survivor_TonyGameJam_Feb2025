@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=19 format=3 uid="uid://cs3tfa5avgdx7"]
 
 [ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
 [ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
@@ -11,10 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ctkb1iqry1u2y" path="res://Scenes/UserInterface/UIBar/UIBar.tscn" id="6_kuhva"]
 [ext_resource type="Script" uid="uid://wjuldihp0oy5" path="res://Scenes/UserInterface/HUD.gd" id="7_ow6lx"]
 [ext_resource type="Script" uid="uid://cbuiq3t54sqey" path="res://Scenes/UserInterface/Menus.gd" id="9_6kjgy"]
-[ext_resource type="PackedScene" uid="uid://b8ybs7uak7xk4" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgrade/UIUpgrade.tscn" id="12_grg3l"]
 [ext_resource type="Script" uid="uid://brtglvwxo4pjv" path="res://Scenes/UserInterface/Menus/Upgrades/UpgradesMenu.gd" id="12_h1m7h"]
-[ext_resource type="Resource" uid="uid://cc4aa184vcudi" path="res://Resources/Upgrades/LifeHealUpgradeI.tres" id="13_frkhe"]
-[ext_resource type="Resource" uid="uid://bt2why220i73w" path="res://Resources/Upgrades/LifeHealUpgradeII.tres" id="14_1p5hy"]
+[ext_resource type="PackedScene" uid="uid://dpmq2rxs525k7" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgradesList/UIUpgradesList.tscn" id="13_frkhe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1m7h"]
 texture = ExtResource("5_1p5hy")
@@ -224,13 +222,8 @@ vertical_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="UIUpgrade" parent="UI/Menus/UpgradesMenu/VBoxContainer/HBoxContainer" instance=ExtResource("12_grg3l")]
+[node name="UIUpgradesList" parent="UI/Menus/UpgradesMenu/VBoxContainer/HBoxContainer" instance=ExtResource("13_frkhe")]
 layout_mode = 2
-holding_upgrade = ExtResource("13_frkhe")
-
-[node name="UIUpgrade2" parent="UI/Menus/UpgradesMenu/VBoxContainer/HBoxContainer" instance=ExtResource("12_grg3l")]
-layout_mode = 2
-holding_upgrade = ExtResource("14_1p5hy")
 
 [node name="Description" type="Label" parent="UI/Menus/UpgradesMenu/VBoxContainer"]
 layout_mode = 2

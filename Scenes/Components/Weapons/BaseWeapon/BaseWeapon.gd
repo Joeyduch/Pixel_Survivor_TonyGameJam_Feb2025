@@ -5,14 +5,29 @@ signal fire_ready(readied_weapon:BaseWeapon)
 @export var scene_projectile:PackedScene = null
 @export var is_auto_fire:bool = true
 @export var damage:int = 1
-@export var projectiles_per_shot:int = 1
-@export var cooldown_time:float = 1
-@export var spread:float = 15
+@export var projectiles_per_shot:int = 1: set = set_projectiles_per_shot
+@export var cooldown_time:float = 1: set = set_cooldown_time
+@export var spread:float = 15: set = set_spread
 
 
 @onready var cooldown_timer:Timer = $CooldownTimer
 
 var is_ready:bool = true
+
+
+
+func set_projectiles_per_shot(projectiles_amount:int) -> void:
+	projectiles_per_shot = max(1, projectiles_amount)
+
+
+func set_cooldown_time(time:float) -> void:
+	cooldown_time = max(0.05, time)
+	if cooldown_timer:
+		cooldown_timer.wait_time = cooldown_time
+
+
+func set_spread(new_spread:float) -> void:
+	spread = max(0, new_spread)
 
 
 

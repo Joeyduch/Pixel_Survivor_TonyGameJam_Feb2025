@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponDamageUpgrade" load_steps=3 format=3 uid="uid://cm3ob2e6lbc2v"]
+
+[ext_resource type="Script" uid="uid://dd25mh3a42s6u" path="res://Classes/Upgrades/WeaponDamageUpgrade.gd" id="1_ttrlv"]
+[ext_resource type="Texture2D" uid="uid://b36khosegembw" path="res://Assets/Sprites/UI/Icon/UI_Icon_Star_Red.png" id="2_c4jgd"]
+
+[resource]
+script = ExtResource("1_ttrlv")
+damage_bonus = 1
+upgrade_name = "Weapon Damage I"
+upgrade_icon = ExtResource("2_c4jgd")
+description = "Adds 1 damage to a random weapon."
+metadata/_custom_type_script = "uid://dd25mh3a42s6u"

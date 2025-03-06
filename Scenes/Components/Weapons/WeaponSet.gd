@@ -76,6 +76,15 @@ func get_entity_holder() -> Entity:
 	return null
 
 
+# returns all weapon children
+func get_weapons() -> Array[BaseWeapon]:
+	var weapons:Array[BaseWeapon] = []
+	for child:Node in get_children():
+		if child is BaseWeapon:
+			weapons.append(child)
+	return weapons
+
+
 
 #
 #	SIGNALS

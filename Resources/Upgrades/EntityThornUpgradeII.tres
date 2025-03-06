@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EntityThornUpgrade" load_steps=3 format=3 uid="uid://ca0sx6oa24upf"]
+
+[ext_resource type="Script" uid="uid://i84cx81fiqto" path="res://Classes/Upgrades/EntityThornUpgrade.gd" id="1_ugvap"]
+[ext_resource type="Texture2D" uid="uid://brjlmuuay8ofl" path="res://Assets/Sprites/UI/Icon/UI_Icon_Charge_Yellow.png" id="2_ugvap"]
+
+[resource]
+script = ExtResource("1_ugvap")
+thorn_damage_bonus = 2
+upgrade_name = "Thorn II"
+upgrade_icon = ExtResource("2_ugvap")
+description = "Add 2 Thorn Damage"
+metadata/_custom_type_script = "uid://i84cx81fiqto"
