@@ -10,6 +10,6 @@ func apply(receiver:Entity) -> void:
 	if chosen_weapon:
 		chosen_weapon.spread *= spread_scale
 	
-	print("SCALED THE SPREAD OF ONE OF %s'S WEAPONS BY %s, NOW AT %s" % [
-		receiver.name, spread_scale, chosen_weapon.spread
+	print("%s SCALED THE SPREAD OF WEAPON %s BY %s, NOW AT %s" % [
+		receiver.name, chosen_weapon.weapon_name, spread_scale, chosen_weapon.spread
 	])

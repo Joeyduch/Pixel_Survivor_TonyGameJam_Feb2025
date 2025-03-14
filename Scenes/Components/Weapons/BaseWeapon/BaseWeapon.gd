@@ -2,6 +2,7 @@ class_name BaseWeapon extends Node2D
 
 signal fire_ready(readied_weapon:BaseWeapon)
 
+@export var weapon_name:String = "Base Weapon"
 @export var scene_projectile:PackedScene = null
 @export var is_auto_fire:bool = true
 @export var damage:int = 1

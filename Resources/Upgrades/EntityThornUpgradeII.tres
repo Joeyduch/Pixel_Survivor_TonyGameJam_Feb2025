@@ -8,5 +8,5 @@ script = ExtResource("1_ugvap")
 thorn_damage_bonus = 2
 upgrade_name = "Thorn II"
 upgrade_icon = ExtResource("2_ugvap")
-description = "Add 2 Thorn Damage"
+description = "Adds 2 Thorn Damage to Player"
 metadata/_custom_type_script = "uid://i84cx81fiqto"

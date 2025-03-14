@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LifeHealUpgrade" load_steps=3 format=3 uid="uid://bt2why220i73w"]
 
 [ext_resource type="Script" uid="uid://ffnjmfrug180" path="res://Classes/Upgrades/LifeHealUpgrade.gd" id="1_uuxle"]
-[ext_resource type="Texture2D" uid="uid://cgik828xwbxqf" path="res://Assets/Sprites/UI/Icon/UI_Icon_Heart_Green.png" id="2_fyfb2"]
+[ext_resource type="Texture2D" uid="uid://dv656oamkh1ip" path="res://Assets/Sprites/UI/Icon/UI_Icon_Heart_Blue.png" id="2_fyfb2"]
 
 [resource]
 script = ExtResource("1_uuxle")

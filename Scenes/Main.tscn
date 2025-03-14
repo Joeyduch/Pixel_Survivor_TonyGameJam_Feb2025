@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=18 format=3 uid="uid://cs3tfa5avgdx7"]
 
 [ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
 [ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
@@ -10,9 +10,11 @@
 [ext_resource type="Script" uid="uid://dwm56icapvtr4" path="res://Scenes/UserInterface/UI.gd" id="6_6qbe5"]
 [ext_resource type="PackedScene" uid="uid://ctkb1iqry1u2y" path="res://Scenes/UserInterface/UIBar/UIBar.tscn" id="6_kuhva"]
 [ext_resource type="Script" uid="uid://wjuldihp0oy5" path="res://Scenes/UserInterface/HUD.gd" id="7_ow6lx"]
-[ext_resource type="Script" uid="uid://cbuiq3t54sqey" path="res://Scenes/UserInterface/Menus.gd" id="9_6kjgy"]
+[ext_resource type="Script" uid="uid://cbuiq3t54sqey" path="res://Scenes/UserInterface/Menus/Menus.gd" id="9_6kjgy"]
+[ext_resource type="LabelSettings" uid="uid://cbhpbidow6vis" path="res://Assets/LabelSettings/LSTitle.tres" id="10_erwvk"]
 [ext_resource type="Script" uid="uid://brtglvwxo4pjv" path="res://Scenes/UserInterface/Menus/Upgrades/UpgradesMenu.gd" id="12_h1m7h"]
 [ext_resource type="PackedScene" uid="uid://dpmq2rxs525k7" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgradesList/UIUpgradesList.tscn" id="13_frkhe"]
+[ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="14_erwvk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1m7h"]
 texture = ExtResource("5_1p5hy")
@@ -36,15 +38,6 @@ texture = ExtResource("5_1p5hy")
 
 [sub_resource type="TileSet" id="TileSet_erwvk"]
 sources/0 = SubResource("TileSetAtlasSource_h1m7h")
-
-[sub_resource type="LabelSettings" id="LabelSettings_t0xen"]
-font_size = 12
-
-[sub_resource type="LabelSettings" id="LabelSettings_tac5i"]
-font_size = 8
-
-[sub_resource type="LabelSettings" id="LabelSettings_dejdl"]
-font_size = 8
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -108,6 +101,7 @@ grow_vertical = 2
 script = ExtResource("6_6qbe5")
 
 [node name="HUD" type="Control" parent="UI"]
+process_mode = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,6 +109,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_ow6lx")
+
+[node name="Popups" type="Control" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ExperienceContainer" type="HBoxContainer" parent="UI/HUD"]
 layout_mode = 1
@@ -129,7 +131,7 @@ alignment = 1
 [node name="LevelLabel" type="Label" parent="UI/HUD/ExperienceContainer"]
 layout_mode = 2
 text = "LEVEL: 0"
-label_settings = SubResource("LabelSettings_t0xen")
+label_settings = ExtResource("10_erwvk")
 
 [node name="ExpBar" parent="UI/HUD/ExperienceContainer" instance=ExtResource("6_kuhva")]
 layout_mode = 2
@@ -145,6 +147,7 @@ grow_vertical = 2
 script = ExtResource("9_6kjgy")
 
 [node name="MenuShade" type="ColorRect" parent="UI/Menus"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,17 +182,21 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="UI/Menus/PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "PAUSE"
+label_settings = ExtResource("10_erwvk")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Label2" type="Label" parent="UI/Menus/PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "Press ESCAPE to unpause"
-label_settings = SubResource("LabelSettings_tac5i")
+label_settings = ExtResource("14_erwvk")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="UpgradesMenu" type="Control" parent="UI/Menus"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -215,8 +222,10 @@ grow_vertical = 2
 [node name="Title" type="Label" parent="UI/Menus/UpgradesMenu/VBoxContainer"]
 layout_mode = 2
 text = "UPGRADES"
+label_settings = ExtResource("10_erwvk")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Menus/UpgradesMenu/VBoxContainer"]
 layout_mode = 2
@@ -228,6 +237,7 @@ layout_mode = 2
 [node name="Description" type="Label" parent="UI/Menus/UpgradesMenu/VBoxContainer"]
 layout_mode = 2
 text = "Upgrade description lorem ipsum cool"
-label_settings = SubResource("LabelSettings_dejdl")
+label_settings = ExtResource("14_erwvk")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true

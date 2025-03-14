@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterSpeedUpgrade" load_steps=3 format=3 uid="uid://mgtbmdrkt1le"]
 
 [ext_resource type="Script" uid="uid://ppsj81q0t80i" path="res://Classes/Upgrades/CharacterSpeedUpgrade.gd" id="1_4isnt"]
-[ext_resource type="Texture2D" uid="uid://36qprf2qrjxr" path="res://Assets/Sprites/UI/Icon/UI_Icon_Lightning_Yellow.png" id="2_4isnt"]
+[ext_resource type="Texture2D" uid="uid://wyermh8i7qjm" path="res://Assets/Sprites/UI/Icon/UI_Icon_Lightning_Blue.png" id="2_4isnt"]
 
 [resource]
 script = ExtResource("1_4isnt")

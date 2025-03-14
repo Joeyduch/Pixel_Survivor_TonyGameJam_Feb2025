@@ -11,6 +11,6 @@ func apply(receiver:Entity) -> void:
 	if chosen_weapon:
 		chosen_weapon.projectiles_per_shot += shot_amount_bonus
 	
-	print("ADDED %s MORE PROJECTILE PER SHOT FOR ONE OF %s's RANDOM WEAPON" % [
-		shot_amount_bonus, receiver.name
+	print("%s ADDED %s MORE PROJECTILE PER SHOT FOR WEAPON %s" % [
+		receiver.name, shot_amount_bonus, chosen_weapon.weapon_name
 	])

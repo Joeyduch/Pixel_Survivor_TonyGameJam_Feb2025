@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c7pkkkm6vs40t"]
+
+[ext_resource type="FontFile" uid="uid://cbp318boivy2f" path="res://Assets/Fonts/pixelated.ttf" id="1_p6bjm"]
+
+[resource]
+font = ExtResource("1_p6bjm")
+font_size = 8
+shadow_color = Color(0, 0, 0, 0.294118)

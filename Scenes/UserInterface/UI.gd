@@ -2,6 +2,7 @@ class_name UI extends Control
 
 signal menu_asked(menu_enum:int)
 
+@onready var hud:UIHUD = $HUD
 @onready var ui_menus:UIMenus = $Menus
 
 

@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcuyc6kltgp8b"]
+
+[ext_resource type="Script" uid="uid://f7cdtaru8pkb" path="res://Scenes/UserInterface/UIPopup/UIPopup.gd" id="1_sso1f"]
+[ext_resource type="LabelSettings" uid="uid://cbhpbidow6vis" path="res://Assets/LabelSettings/LSTitle.tres" id="1_v7u15"]
+[ext_resource type="Texture2D" uid="uid://c7wxbpahj3e1y" path="res://Assets/Sprites/Misc/Diamond_0002.png" id="2_sso1f"]
+[ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="3_dfxo2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erwvk"]
+bg_color = Color(0.247059, 0.247059, 0.454902, 0.568627)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.34902)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="Animation" id="Animation_sso1f"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dfxo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3rjiw"]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rjiw"]
+_data = {
+&"FadeIn": SubResource("Animation_3rjiw"),
+&"FadeOut": SubResource("Animation_sso1f"),
+&"RESET": SubResource("Animation_dfxo2")
+}
+
+[node name="UIPopup" type="PanelContainer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -27.5
+offset_right = 25.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_erwvk")
+script = ExtResource("1_sso1f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3rjiw")
+}
+
+[node name="FadeoutWaitTimer" type="Timer" parent="."]
+
+[node name="ListContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Title" type="Label" parent="ListContainer"]
+layout_mode = 2
+text = "TITLE"
+label_settings = ExtResource("1_v7u15")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Icon" type="TextureRect" parent="ListContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_sso1f")
+
+[node name="Description" type="Label" parent="ListContainer"]
+layout_mode = 2
+text = "Description"
+label_settings = ExtResource("3_dfxo2")
+horizontal_alignment = 1
+uppercase = true

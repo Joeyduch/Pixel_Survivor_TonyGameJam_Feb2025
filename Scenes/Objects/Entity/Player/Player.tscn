@@ -32,3 +32,4 @@ frame_progress = 0.0
 is_input_controlled = true
 
 [node name="BaseWeapon" parent="WeaponSet" index="1" instance=ExtResource("4_la63f")]
+weapon_name = "First Weapon"

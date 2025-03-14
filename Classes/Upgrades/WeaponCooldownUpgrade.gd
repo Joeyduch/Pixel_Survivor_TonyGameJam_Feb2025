@@ -11,6 +11,6 @@ func apply(receiver:Entity) -> void:
 	if chosen_weapon:
 		chosen_weapon.cooldown_time *= time_scale
 	
-	print("SCALED THE COOLDOWN OF ONE OF %s'S WEAPONS BY %s, NOW AT %s" % [
-		receiver.name, time_scale, chosen_weapon.cooldown_time
+	print("%s SCALED THE COOLDOWN OF WEAPON %s BY %s, NOW AT %s" % [
+		receiver.name, chosen_weapon.weapon_name, time_scale, chosen_weapon.cooldown_time
 	])

@@ -1,15 +1,10 @@
-
+------------------------------
 TO DO:
 
 
 - HUD
 	- show a list of all weapons
 	- show a list of all upgrades
-	- popup
-		- new upgrade popup
-			- upgrade name
-			- upgrade thumbnail
-			- upgrade description
 
 
 - expanded leveling up mechanics
@@ -18,30 +13,28 @@ TO DO:
 	- different UpgradesList depending on level plateau (ex: every 5, 10, etc.)
 
 
+- New Weapon menu
+	- Player input for weapon name
+	- Player chooses icon
+		- icons menu
+	? Player chooses base stats ?
+		- pistol -> 1 proj, medium cooldown, low spread, 2 dmg
+		- smg -> 1 proj, low cooldown, big spread, 1 dmg
+		- shotgun -> 3 proj, high cooldown, big spread, 1 dmg
+
+
 - Upgrades ('+' -> done | '-' -> not done)
-	+ Give Speed
-	+ Give Max Health
-	+ Heal
-	+ Give Thorn Damage
 	- Give Weapon Upgrade
-		+ cooldown
-		+ damage
-		+ projectiles per shot
-		+ spread
-		- projectile health and/or projectile type
-	- Give new weapon
-		- choose icon
-			- for HUD representation
-		- choose name
-		- choose base stats
-			- pistol -> 1 proj, medium cooldown, low spread, 2 dmg
-			- smg -> 1 proj, low cooldown, big spread, 1 dmg
-			- shotgun -> 3 proj, high cooldown, big spread, 1 dmg
+		- new projectile type (random)
 
 
 - loot
 	- box that can be looted by player, can loot upgrades or big exp
 		- randomly spawn
+
+
+- more projectile types
+
 
 - audio
 	- music
@@ -55,6 +48,10 @@ TO DO:
 		- loot
 			- exp
 			- loot box/upgrade
+		- ui
+			- select next/previous
+			- select current
+			- cancel
 
 
 - pause menu
@@ -75,7 +72,7 @@ TO DO:
 
 
 
-
+------------------------------
 NOTES:
 
 * exp gain on Main's _ready method for testings

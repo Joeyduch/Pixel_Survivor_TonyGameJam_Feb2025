@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="EntityThornUpgrade" load_steps=2 format=3 uid="uid://wmd6bu8mnkby"]
+[gd_resource type="Resource" script_class="EntityThornUpgrade" load_steps=3 format=3 uid="uid://wmd6bu8mnkby"]
 
 [ext_resource type="Script" uid="uid://i84cx81fiqto" path="res://Classes/Upgrades/EntityThornUpgrade.gd" id="1_nk2yr"]
+[ext_resource type="Texture2D" uid="uid://bjnojwb7exht4" path="res://Assets/Sprites/UI/Icon/UI_Icon_Charge_Green.png" id="2_eyd8c"]
 
 [resource]
 script = ExtResource("1_nk2yr")
 thorn_damage_bonus = 1
-upgrade_name = "Base Upgrade"
-description = "Base upgrade description."
+upgrade_name = "Thorn I"
+upgrade_icon = ExtResource("2_eyd8c")
+description = "Adds 1 Thorn Damage to Player"
 metadata/_custom_type_script = "uid://i84cx81fiqto"

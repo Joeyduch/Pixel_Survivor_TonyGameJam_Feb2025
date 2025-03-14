@@ -12,7 +12,7 @@ func _ready() -> void:
 	PlayerData.connect("leveled_up", Callable(_player_data_leveled_up))
 	ui.ui_menus.upgrades_menu.connect("upgrade_chosen", Callable(_on_upgrades_menu_upgrade_chosen))
 	
-	PlayerData.gain_experience(3) # ***** TEST TEMPORARY TEST *****
+	#PlayerData.gain_experience(3) # ***** TEST TEMPORARY TEST *****
 
 
 func _input(event: InputEvent) -> void:
@@ -35,5 +35,8 @@ func _player_data_leveled_up(_new_level:int, _exp_to_level_up:int) -> void:
 
 func _on_upgrades_menu_upgrade_chosen(upgrade:BaseUpgrade) -> void:
 	if upgrade:
+		# apply upgrade to player
 		upgrade.apply(world.player)
+		# show upgrade HUD popup
+		ui.hud.create_popup(upgrade.upgrade_name, upgrade.description, upgrade.upgrade_icon)
 	toggle_pause()

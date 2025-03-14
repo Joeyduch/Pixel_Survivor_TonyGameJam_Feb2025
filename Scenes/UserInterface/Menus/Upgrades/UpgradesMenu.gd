@@ -16,7 +16,8 @@ func _ready() -> void:
 	upgrades_list = [
 		preload("res://Resources/Upgrades/UpgradesLists/LifeUpgradesList.tres"),
 		preload("res://Resources/Upgrades/UpgradesLists/CharacterUpgradesList.tres"),
-		preload("res://Resources/Upgrades/UpgradesLists/WeaponUpgradesList.tres")
+		preload("res://Resources/Upgrades/UpgradesLists/WeaponUpgradesList.tres"),
+		preload("res://Resources/Upgrades/UpgradesLists/NewWeaponUpgradesList.tres")
 	]
 
 

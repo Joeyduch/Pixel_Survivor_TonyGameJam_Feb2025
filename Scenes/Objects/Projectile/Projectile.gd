@@ -1,5 +1,6 @@
 class_name Projectile extends Area2D
 
+@export var base_health:int = 1
 @export var speed:int = 64
 
 @onready var life:Life = $Life
@@ -20,6 +21,8 @@ func _ready() -> void:
 	on_screen_notifier.connect("screen_exited", Callable(_on_screen_notifier_screen_exited))
 	lifetime_timer.connect("timeout", Callable(_lifetime_timer_timeout))
 	
+	life.set_max_health(base_health)
+	life.set_health(base_health)
 	animated_sprite.play()
 
 

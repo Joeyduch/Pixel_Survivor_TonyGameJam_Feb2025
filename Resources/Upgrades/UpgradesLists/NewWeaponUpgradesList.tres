@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradesList" load_steps=5 format=3 uid="uid://cpu7nruvuqsef"]
+
+[ext_resource type="Texture2D" uid="uid://cnljvg33bw5bc" path="res://Assets/Sprites/UI/Icon/UI_Icon_Plus_Yellow.png" id="1_nri2d"]
+[ext_resource type="Script" uid="uid://dml77484382lg" path="res://Classes/Upgrades/UpgradesList.gd" id="2_xpod2"]
+[ext_resource type="Script" uid="uid://0dn6fpu16miv" path="res://Classes/Upgrades/BaseUpgrade.gd" id="3_rbj4x"]
+[ext_resource type="Resource" uid="uid://c8iwkcmr7nc6m" path="res://Resources/Upgrades/NewWeaponUpgrade.tres" id="4_k5ahu"]
+
+[resource]
+script = ExtResource("2_xpod2")
+list_thumbnail = ExtResource("1_nri2d")
+description = "Gain a new base weapon."
+upgrades_list = Array[ExtResource("3_rbj4x")]([ExtResource("4_k5ahu")])
+chance_list = Array[float]([1.0])
+metadata/_custom_type_script = "uid://dml77484382lg"

@@ -2,11 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ctrkrtltlnwc0" path="res://Assets/Sprites/UI/UI_Frame_9Patch.png" id="1_afqwe"]
 [ext_resource type="Script" uid="uid://cesydwklwo6tr" path="res://Scenes/UserInterface/UIBar/UIBar.gd" id="2_6jdu1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7rijb"]
-font_size = 8
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 0.294118)
+[ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="3_skgdq"]
 
 [node name="UIBar" type="NinePatchRect"]
 custom_minimum_size = Vector2(128, 16)
@@ -48,6 +44,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "LABEL - 0/10"
-label_settings = SubResource("LabelSettings_7rijb")
+label_settings = ExtResource("3_skgdq")
 horizontal_alignment = 1
 vertical_alignment = 1

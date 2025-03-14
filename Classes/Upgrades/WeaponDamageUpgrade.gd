@@ -11,4 +11,6 @@ func apply(receiver:Entity) -> void:
 	if chosen_weapon:
 		chosen_weapon.damage += damage_bonus
 	
-	print("ADDED %s DAMAGE TO ONE OF %s 's WEAPONS" % [damage_bonus, receiver.name])
+	print("%s ADDED %s DAMAGE TO WEAPON %s" % [
+		receiver.name, damage_bonus, chosen_weapon.weapon_name
+	])

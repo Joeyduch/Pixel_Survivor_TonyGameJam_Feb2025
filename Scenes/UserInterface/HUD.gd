@@ -1,8 +1,11 @@
 class_name UIHUD extends Control
 
+var popup_scene:PackedScene = preload("res://Scenes/UserInterface/UIPopup/UIPopup.tscn")
 
 @onready var exp_bar:UIBar = $ExperienceContainer/ExpBar
 @onready var level_label:Label = $ExperienceContainer/LevelLabel
+
+@onready var popups:Control = $Popups
 
 
 
@@ -20,6 +23,15 @@ func setup_exp_bar() -> void:
 
 func setup_level_label() -> void:
 	level_label.text = "LEVEL: " + str(PlayerData.level)
+
+
+func create_popup(title:String, description:String, icon:Texture=null) -> void:
+	var popup:UIPopup = popup_scene.instantiate()
+	popup.title = title
+	popup.description = description
+	if icon:
+		popup.icon = icon
+	popups.add_child(popup)
 
 
 
