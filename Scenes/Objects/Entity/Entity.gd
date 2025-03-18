@@ -19,9 +19,9 @@ func _ready() -> void:
 	set_team(team)
 	
 	# signals
-	life.connect("health_changed", Callable(_on_life_health_changed))
-	life.connect("max_health_changed", Callable(_on_life_max_health_changed))
-	life.connect("died", Callable(_on_life_died))
+	life.connect("health_changed", _on_life_health_changed)
+	life.connect("max_health_changed", _on_life_max_health_changed)
+	life.connect("died", _on_life_died)
 
 
 func _process(_delta: float) -> void:
@@ -34,9 +34,19 @@ func set_team(new_value:int) -> void:
 	if enemy_detector:
 		enemy_detector.team = new_value
 
-func get_world() -> World:
+
+func get_main() -> Main:
 	var root:Window = get_tree().get_root()
 	var main:Main = root.get_node("Main")
+	
+	if main is Main:
+		return main
+	else:
+		return null
+
+
+func get_world() -> World:
+	var main:Main = get_main()
 	if not main: return
 	var world:World = main.get_node("World")
 	

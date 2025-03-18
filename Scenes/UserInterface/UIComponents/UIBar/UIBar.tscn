@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctkb1iqry1u2y"]
 
 [ext_resource type="Texture2D" uid="uid://ctrkrtltlnwc0" path="res://Assets/Sprites/UI/UI_Frame_9Patch.png" id="1_afqwe"]
-[ext_resource type="Script" uid="uid://cesydwklwo6tr" path="res://Scenes/UserInterface/UIBar/UIBar.gd" id="2_6jdu1"]
+[ext_resource type="Script" uid="uid://cesydwklwo6tr" path="res://Scenes/UserInterface/UIComponents/UIBar/UIBar.gd" id="2_6jdu1"]
 [ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="3_skgdq"]
 
 [node name="UIBar" type="NinePatchRect"]

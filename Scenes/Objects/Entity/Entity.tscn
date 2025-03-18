@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dy77attqw87sv" path="res://Scenes/Components/Life/Life.tscn" id="5_t7d87"]
 [ext_resource type="PackedScene" uid="uid://deyupjall358h" path="res://Scenes/Components/Weapons/WeaponSet.tscn" id="6_y85oe"]
 [ext_resource type="PackedScene" uid="uid://11ec5g85tc2i" path="res://Scenes/Components/EnemyDetector/EnemyDetector.tscn" id="7_kqdad"]
-[ext_resource type="PackedScene" uid="uid://cgcfs15kav156" path="res://Scenes/UserInterface/UISmallBar/UISmallBar.tscn" id="8_y2d3b"]
+[ext_resource type="PackedScene" uid="uid://cgcfs15kav156" path="res://Scenes/UserInterface/UIComponents/UISmallBar/UISmallBar.tscn" id="8_y2d3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuph2"]
 size = Vector2(16, 16)

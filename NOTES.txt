@@ -2,9 +2,7 @@
 TO DO:
 
 
-- HUD
-	- show a list of all weapons
-	- show a list of all upgrades
+- bigger map / free-cam around level
 
 
 - expanded leveling up mechanics
@@ -13,19 +11,8 @@ TO DO:
 	- different UpgradesList depending on level plateau (ex: every 5, 10, etc.)
 
 
-- New Weapon menu
-	- Player input for weapon name
-	- Player chooses icon
-		- icons menu
-	? Player chooses base stats ?
-		- pistol -> 1 proj, medium cooldown, low spread, 2 dmg
-		- smg -> 1 proj, low cooldown, big spread, 1 dmg
-		- shotgun -> 3 proj, high cooldown, big spread, 1 dmg
-
-
-- Upgrades ('+' -> done | '-' -> not done)
-	- Give Weapon Upgrade
-		- new projectile type (random)
+- Upgrades
+	- new projectile type (random)
 
 
 - loot
@@ -33,7 +20,10 @@ TO DO:
 		- randomly spawn
 
 
-- more projectile types
+- more sprites
+	- weapons
+	- enemies
+	- projectiles
 
 
 - audio
@@ -54,13 +44,13 @@ TO DO:
 			- cancel
 
 
-- pause menu
-	- interactive menu to resume/settings/exit/etc.
-
-
 - main menu
 	- PlayerData init (if player quits to menu then returns)
 	- World/Main init (if player quits ...)
+
+
+- pause menu
+	- interactive menu to resume/settings/exit/etc.
 
 
 - polish
@@ -68,7 +58,13 @@ TO DO:
 	- animations
 	- particles
 	- shaders
+	- menus
+		- show controls (UI)
 
+
+- misc.
+	- add timer to despawn exp drops after 60 seconds
+	- add timer to despawn loot boxes after 60 seconds if not already done
 
 
 

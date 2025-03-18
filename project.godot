@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="TonyGameJam_FEB2025"
+config/name="Pixel_Survivor_TonyGameJam_Feb2025"
+config/tags=PackedStringArray("tony_jam")
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/Sprites/icon.svg"

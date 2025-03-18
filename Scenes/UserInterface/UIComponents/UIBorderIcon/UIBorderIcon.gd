@@ -1,24 +1,26 @@
-class_name UIUpgrade extends Control
+@tool
+class_name UIBorderIcon extends Control
 
-@export var holding_upgrade:BaseUpgrade = null: set = set_holding_upgrade
+@export var icon:Texture2D = null
 
 @onready var ui_border:NinePatchRect = $Border
 @onready var ui_border_animation:AnimationPlayer = $Border/AnimationPlayer
 @onready var ui_icon:TextureRect = $Icon
 
 
-
 func _ready() -> void:
-	set_holding_upgrade(holding_upgrade)
+	if icon:
+		set_icon(icon)
+
+func _process(_delta:float) -> void:
+	if Engine.is_editor_hint() and icon:
+		set_icon(icon)
 
 
 
-func set_holding_upgrade(upgrade:BaseUpgrade) -> void:
-	holding_upgrade = upgrade
-	if not upgrade: return
-	
-	if ui_icon:
-		ui_icon.texture = upgrade.upgrade_icon
+func set_icon(texture:Texture2D) -> void:
+	if texture and ui_icon:
+		ui_icon.texture = texture
 
 
 func blink() -> void:

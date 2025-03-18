@@ -11,6 +11,8 @@ func apply(receiver:Entity) -> void:
 	if chosen_weapon:
 		chosen_weapon.damage += damage_bonus
 	
+	upgrade_icon = chosen_weapon.icon
+	
 	print("%s ADDED %s DAMAGE TO WEAPON %s" % [
 		receiver.name, damage_bonus, chosen_weapon.weapon_name
 	])

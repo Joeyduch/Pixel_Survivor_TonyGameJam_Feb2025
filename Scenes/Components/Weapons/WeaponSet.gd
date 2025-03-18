@@ -1,5 +1,7 @@
 class_name WeaponSet extends Node2D
 
+signal weapon_given(new_weapon:BaseWeapon, all_weapons:Array[BaseWeapon])
+
 @export var is_active:bool = true
 
 @onready var entity_detection_hitbox:Area2D = $EntityDetectionHitbox
@@ -83,6 +85,17 @@ func get_weapons() -> Array[BaseWeapon]:
 		if child is BaseWeapon:
 			weapons.append(child)
 	return weapons
+
+
+func give_weapon(weapon:BaseWeapon) -> void:
+	add_child(weapon)
+	
+	var weapon_list:Array[BaseWeapon] = []
+	for child:Node in get_children():
+		if child is BaseWeapon:
+			weapon_list.append(child)
+	
+	weapon_given.emit(weapon, weapon_list)
 
 
 

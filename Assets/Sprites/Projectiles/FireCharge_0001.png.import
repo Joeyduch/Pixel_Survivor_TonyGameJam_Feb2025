@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jxa205v122jk"
-path="res://.godot/imported/FireCharge_0001.png-2166ea2ce700a4b5f42318c88e543bb9.ctex"
+path="res://.godot/imported/FireCharge_0001.png-9a4149edff97055daac693b444d7b601.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Misc/FireCharge_0001.png"
-dest_files=["res://.godot/imported/FireCharge_0001.png-2166ea2ce700a4b5f42318c88e543bb9.ctex"]
+source_file="res://Assets/Sprites/Projectiles/FireCharge_0001.png"
+dest_files=["res://.godot/imported/FireCharge_0001.png-9a4149edff97055daac693b444d7b601.ctex"]
 
 [params]
 

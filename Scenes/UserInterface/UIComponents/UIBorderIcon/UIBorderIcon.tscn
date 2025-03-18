@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8ybs7uak7xk4"]
+[gd_scene load_steps=7 format=3 uid="uid://d3vuhsylt2ro2"]
 
-[ext_resource type="Texture2D" uid="uid://ctrkrtltlnwc0" path="res://Assets/Sprites/UI/UI_Frame_9Patch.png" id="1_fmrcr"]
-[ext_resource type="Script" uid="uid://chuisf43a3n0e" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgrade/UIUpgrade.gd" id="1_gb2nc"]
-[ext_resource type="Texture2D" uid="uid://36qprf2qrjxr" path="res://Assets/Sprites/UI/Icon/UI_Icon_Lightning_Yellow.png" id="2_gb2nc"]
+[ext_resource type="Script" uid="uid://cyocgw0lqo8cs" path="res://Scenes/UserInterface/UIComponents/UIBorderIcon/UIBorderIcon.gd" id="1_86sts"]
+[ext_resource type="Texture2D" uid="uid://ctrkrtltlnwc0" path="res://Assets/Sprites/UI/UI_Frame_9Patch.png" id="2_0syqp"]
+[ext_resource type="Texture2D" uid="uid://cnljvg33bw5bc" path="res://Assets/Sprites/UI/Icon/UI_Icon_Plus_Yellow.png" id="3_j4sqs"]
 
 [sub_resource type="Animation" id="Animation_gb2nc"]
 resource_name = "Blinking"
@@ -41,11 +41,13 @@ _data = {
 &"RESET": SubResource("Animation_c3cy8")
 }
 
-[node name="UIUpgrade" type="Control"]
+[node name="UIBorderIcon" type="Control"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_gb2nc")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_86sts")
 
 [node name="Border" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -54,7 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_fmrcr")
+texture = ExtResource("2_0syqp")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
@@ -78,4 +80,4 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_gb2nc")
+texture = ExtResource("3_j4sqs")

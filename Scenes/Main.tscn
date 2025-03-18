@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=25 format=3 uid="uid://cs3tfa5avgdx7"]
 
 [ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
 [ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
@@ -8,13 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://ca5r6opvyequb" path="res://Assets/Sprites/Background/Tilemap.png" id="5_1p5hy"]
 [ext_resource type="Script" uid="uid://dffgbtt0w0k6i" path="res://Classes/AutoTile/GenTileAutoMap.gd" id="5_frkhe"]
 [ext_resource type="Script" uid="uid://dwm56icapvtr4" path="res://Scenes/UserInterface/UI.gd" id="6_6qbe5"]
-[ext_resource type="PackedScene" uid="uid://ctkb1iqry1u2y" path="res://Scenes/UserInterface/UIBar/UIBar.tscn" id="6_kuhva"]
-[ext_resource type="Script" uid="uid://wjuldihp0oy5" path="res://Scenes/UserInterface/HUD.gd" id="7_ow6lx"]
+[ext_resource type="PackedScene" uid="uid://ctkb1iqry1u2y" path="res://Scenes/UserInterface/UIComponents/UIBar/UIBar.tscn" id="6_kuhva"]
+[ext_resource type="Script" uid="uid://wjuldihp0oy5" path="res://Scenes/UserInterface/HUD/HUD.gd" id="7_ow6lx"]
 [ext_resource type="Script" uid="uid://cbuiq3t54sqey" path="res://Scenes/UserInterface/Menus/Menus.gd" id="9_6kjgy"]
 [ext_resource type="LabelSettings" uid="uid://cbhpbidow6vis" path="res://Assets/LabelSettings/LSTitle.tres" id="10_erwvk"]
+[ext_resource type="PackedScene" uid="uid://cusy2xls8wkjt" path="res://Scenes/UserInterface/HUD/UIWeaponsList/UIWeaponsList.tscn" id="12_erwvk"]
 [ext_resource type="Script" uid="uid://brtglvwxo4pjv" path="res://Scenes/UserInterface/Menus/Upgrades/UpgradesMenu.gd" id="12_h1m7h"]
 [ext_resource type="PackedScene" uid="uid://dpmq2rxs525k7" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgradesList/UIUpgradesList.tscn" id="13_frkhe"]
 [ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="14_erwvk"]
+[ext_resource type="PackedScene" uid="uid://d3vuhsylt2ro2" path="res://Scenes/UserInterface/UIComponents/UIBorderIcon/UIBorderIcon.tscn" id="17_2w5on"]
+[ext_resource type="Script" uid="uid://05kboq8epbyr" path="res://Scenes/UserInterface/Menus/NewWeapon/NewWeaponMenu.gd" id="17_346fj"]
+[ext_resource type="Texture2D" uid="uid://danjgn8xgxh33" path="res://Assets/Sprites/Misc/Gun.png" id="19_0sclb"]
+[ext_resource type="Texture2D" uid="uid://cwd5hjrsajgoh" path="res://Assets/Sprites/Misc/Eye.png" id="20_hwpts"]
+[ext_resource type="Texture2D" uid="uid://c7wxbpahj3e1y" path="res://Assets/Sprites/Misc/Diamond_0002.png" id="22_3tgeq"]
+[ext_resource type="Texture2D" uid="uid://b8o6ssqfx2rjl" path="res://Assets/Sprites/Loot/Box_0001.png" id="22_aht7i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1m7h"]
 texture = ExtResource("5_1p5hy")
@@ -110,14 +117,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_ow6lx")
 
-[node name="Popups" type="Control" parent="UI/HUD"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="ExperienceContainer" type="HBoxContainer" parent="UI/HUD"]
 layout_mode = 1
 anchors_preset = 10
@@ -137,6 +136,17 @@ label_settings = ExtResource("10_erwvk")
 layout_mode = 2
 label_prefix = "EXP"
 
+[node name="UIWeaponsList" parent="UI/HUD" instance=ExtResource("12_erwvk")]
+layout_mode = 1
+
+[node name="PopupsContainer" type="Control" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Menus" type="Control" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
@@ -147,7 +157,6 @@ grow_vertical = 2
 script = ExtResource("9_6kjgy")
 
 [node name="MenuShade" type="ColorRect" parent="UI/Menus"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -241,3 +250,56 @@ label_settings = ExtResource("14_erwvk")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="NewWeaponMenu" type="Control" parent="UI/Menus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_346fj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menus/NewWeaponMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/Menus/NewWeaponMenu/VBoxContainer"]
+layout_mode = 2
+text = "Select new weapon icon"
+label_settings = ExtResource("10_erwvk")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="GridContainer" type="GridContainer" parent="UI/Menus/NewWeaponMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+
+[node name="UIBorderIcon" parent="UI/Menus/NewWeaponMenu/VBoxContainer/GridContainer" instance=ExtResource("17_2w5on")]
+layout_mode = 2
+icon = ExtResource("19_0sclb")
+
+[node name="UIBorderIcon2" parent="UI/Menus/NewWeaponMenu/VBoxContainer/GridContainer" instance=ExtResource("17_2w5on")]
+layout_mode = 2
+icon = ExtResource("20_hwpts")
+
+[node name="UIBorderIcon3" parent="UI/Menus/NewWeaponMenu/VBoxContainer/GridContainer" instance=ExtResource("17_2w5on")]
+layout_mode = 2
+icon = ExtResource("22_3tgeq")
+
+[node name="UIBorderIcon4" parent="UI/Menus/NewWeaponMenu/VBoxContainer/GridContainer" instance=ExtResource("17_2w5on")]
+layout_mode = 2
+icon = ExtResource("22_aht7i")

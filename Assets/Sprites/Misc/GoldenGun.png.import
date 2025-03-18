@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgf5g5pmv8bu8"
-path="res://.godot/imported/FireCharge_0002.png-87f8ffaaae088eebf31dfa826497d34c.ctex"
+uid="uid://c085mkc0futfw"
+path="res://.godot/imported/GoldenGun.png-0d41b8181e2e0d4812f1c187228cf25f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Misc/FireCharge_0002.png"
-dest_files=["res://.godot/imported/FireCharge_0002.png-87f8ffaaae088eebf31dfa826497d34c.ctex"]
+source_file="res://Assets/Sprites/Misc/GoldenGun.png"
+dest_files=["res://.godot/imported/GoldenGun.png-0d41b8181e2e0d4812f1c187228cf25f.ctex"]
 
 [params]
 

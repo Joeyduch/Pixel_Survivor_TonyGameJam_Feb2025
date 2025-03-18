@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgcfs15kav156"]
 
-[ext_resource type="Script" uid="uid://ggdoth5agdjh" path="res://Scenes/UserInterface/UISmallBar/UISmallBar.gd" id="1_b3d1s"]
+[ext_resource type="Script" uid="uid://ggdoth5agdjh" path="res://Scenes/UserInterface/UIComponents/UISmallBar/UISmallBar.gd" id="1_b3d1s"]
 
 [node name="UISmallBar" type="Control"]
 custom_minimum_size = Vector2(32, 2)

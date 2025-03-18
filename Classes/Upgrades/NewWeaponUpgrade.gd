@@ -6,10 +6,8 @@ class_name NewWeaponUpgrade extends BaseUpgrade
 func apply(receiver:Entity) -> void:
 	super(receiver)
 	
-	var weapon_name:String = "NO WEAPON NAME"
-	if base_weapon_scene:
-		var weapon_node:BaseWeapon = base_weapon_scene.instantiate()
-		weapon_name = weapon_node.weapon_name
-		receiver.weapon_set.add_child(weapon_node)
+	# The actual use of this upgrade is inside of the Main's
+	# on-upgrade-chosen signal where the new weapon menu is opened
 	
-	print("%s RECEIVED A NEW WEAPON NAMED %s" % [receiver.name, weapon_name])
+	# debug print
+	print("%s RECEIVED A NEW WEAPON" % [receiver.name])
