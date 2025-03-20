@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponShotUpgrade" load_steps=3 format=3 uid="uid://bn4bjufkdnka4"]
 
 [ext_resource type="Script" uid="uid://b8innuvwarqvx" path="res://Classes/Upgrades/WeaponShotUpgrade.gd" id="1_cnpe5"]
-[ext_resource type="Texture2D" uid="uid://bd7ng6dy3x7kx" path="res://Assets/Sprites/UI/Icon/UI_Icon_Plus_Blue.png" id="2_f8nc6"]
+[ext_resource type="Texture2D" uid="uid://brjlmuuay8ofl" path="res://Assets/Sprites/UI/Icon/UI_Icon_Charge_Yellow.png" id="2_f8nc6"]
 
 [resource]
 script = ExtResource("1_cnpe5")

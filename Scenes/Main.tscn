@@ -19,9 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://d3vuhsylt2ro2" path="res://Scenes/UserInterface/UIComponents/UIBorderIcon/UIBorderIcon.tscn" id="17_2w5on"]
 [ext_resource type="Script" uid="uid://05kboq8epbyr" path="res://Scenes/UserInterface/Menus/NewWeapon/NewWeaponMenu.gd" id="17_346fj"]
 [ext_resource type="Texture2D" uid="uid://danjgn8xgxh33" path="res://Assets/Sprites/Misc/Gun.png" id="19_0sclb"]
-[ext_resource type="Texture2D" uid="uid://cwd5hjrsajgoh" path="res://Assets/Sprites/Misc/Eye.png" id="20_hwpts"]
-[ext_resource type="Texture2D" uid="uid://c7wxbpahj3e1y" path="res://Assets/Sprites/Misc/Diamond_0002.png" id="22_3tgeq"]
-[ext_resource type="Texture2D" uid="uid://b8o6ssqfx2rjl" path="res://Assets/Sprites/Loot/Box_0001.png" id="22_aht7i"]
+[ext_resource type="Texture2D" uid="uid://ccmrdcxxih15c" path="res://Assets/Sprites/Misc/MachineGun.png" id="20_fq0cl"]
+[ext_resource type="Texture2D" uid="uid://b0vyuuw0cyxfq" path="res://Assets/Sprites/Misc/SMG.png" id="21_hwpts"]
+[ext_resource type="Texture2D" uid="uid://bqa6luawd2okr" path="res://Assets/Sprites/Misc/Shotgun.png" id="22_hwpts"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1m7h"]
 texture = ExtResource("5_1p5hy")
@@ -157,6 +157,7 @@ grow_vertical = 2
 script = ExtResource("9_6kjgy")
 
 [node name="MenuShade" type="ColorRect" parent="UI/Menus"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -252,6 +253,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="NewWeaponMenu" type="Control" parent="UI/Menus"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -294,12 +296,12 @@ icon = ExtResource("19_0sclb")
 
 [node name="UIBorderIcon2" parent="UI/Menus/NewWeaponMenu/VBoxContainer/GridContainer" instance=ExtResource("17_2w5on")]
 layout_mode = 2
-icon = ExtResource("20_hwpts")
+icon = ExtResource("21_hwpts")
 
 [node name="UIBorderIcon3" parent="UI/Menus/NewWeaponMenu/VBoxContainer/GridContainer" instance=ExtResource("17_2w5on")]
 layout_mode = 2
-icon = ExtResource("22_3tgeq")
+icon = ExtResource("20_fq0cl")
 
 [node name="UIBorderIcon4" parent="UI/Menus/NewWeaponMenu/VBoxContainer/GridContainer" instance=ExtResource("17_2w5on")]
 layout_mode = 2
-icon = ExtResource("22_aht7i")
+icon = ExtResource("22_hwpts")

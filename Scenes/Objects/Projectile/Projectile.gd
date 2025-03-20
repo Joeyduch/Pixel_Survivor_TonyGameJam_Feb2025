@@ -1,18 +1,19 @@
 class_name Projectile extends Area2D
 
 @export var base_health:int = 1
-@export var speed:int = 64
+@export var speed:int = 128
+@export var is_projectile_damaging:bool = true # can be turned off for special projectiles like bombs
+@export var base_damage:int = 1
 
 @onready var life:Life = $Life
 @onready var on_screen_notifier:VisibleOnScreenNotifier2D = $OnScreenNotifier
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
 @onready var lifetime_timer:Timer = $Lifetime
 
-var damage:int = 1 # changed by BaseWeapon when creating new projectile
-
 var creator:Entity = null
 var team:int = -1
 var direction:Vector2 = Vector2(0,0)
+
 
 
 func _ready() -> void:
@@ -32,22 +33,36 @@ func _physics_process(delta: float) -> void:
 
 
 
+#	--------------------
+#	METHODS
+#	--------------------
+
+func destroy() -> void:
+	queue_free()
+
+
+
+#	--------------------
+#	SIGNALS
+#	--------------------
+
 func _body_entered(body:Node2D) -> void:
 	if body == creator or not body is Entity: return
 	var entity:Entity = body
 	if team == entity.team: return
 	
-	entity.life.hurt(damage)
+	if is_projectile_damaging:
+		entity.life.hurt(base_damage)
 	life.hurt(1)
 
 
 func _on_screen_notifier_screen_exited() -> void:
-	queue_free()
+	destroy()
 
 
 func _life_died() -> void:
-	queue_free()
+	destroy()
 
 
 func _lifetime_timer_timeout() -> void:
-	queue_free()
+	destroy()

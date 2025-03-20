@@ -7,9 +7,9 @@ func apply(receiver:Entity) -> void:
 	super(receiver)
 	
 	var chosen_weapon:BaseWeapon = get_random_weapon(receiver)
-	if chosen_weapon:
-		chosen_weapon.spread *= spread_scale
+	if not chosen_weapon: return
 	
+	chosen_weapon.spread *= spread_scale
 	upgrade_icon = chosen_weapon.icon
 	
 	print("%s SCALED THE SPREAD OF WEAPON %s BY %s, NOW AT %s" % [

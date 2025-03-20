@@ -6,13 +6,10 @@ TO DO:
 
 
 - expanded leveling up mechanics
+	- setup upgrade-lists
 	- enemies scaling
 	- more enemy types
 	- different UpgradesList depending on level plateau (ex: every 5, 10, etc.)
-
-
-- Upgrades
-	- new projectile type (random)
 
 
 - loot

@@ -19,3 +19,6 @@ target_follower = NodePath("../TargetFollower")
 
 [node name="CharacterController" parent="." index="5"]
 speed = 8
+
+[node name="Life" parent="." index="6"]
+max_health = 4

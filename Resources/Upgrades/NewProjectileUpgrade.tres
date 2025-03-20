@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NewProjectileUpgrade" load_steps=3 format=3 uid="uid://dgi4mnxfxaae2"]
+
+[ext_resource type="Script" uid="uid://dkbtaxsejlwbo" path="res://Classes/Upgrades/NewProjectileUpgrade.gd" id="1_th5vh"]
+[ext_resource type="Texture2D" uid="uid://bd7ng6dy3x7kx" path="res://Assets/Sprites/UI/Icon/UI_Icon_Plus_Blue.png" id="2_xpnn6"]
+
+[resource]
+script = ExtResource("1_th5vh")
+upgrade_name = "New Projectile"
+upgrade_icon = ExtResource("2_xpnn6")
+description = "A random weapon gains a random projectile type."
+metadata/_custom_type_script = "uid://dkbtaxsejlwbo"

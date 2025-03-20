@@ -6,7 +6,7 @@ signal fire_ready(readied_weapon:BaseWeapon)
 @export var icon:Texture2D = null
 @export var scene_projectile:PackedScene = null
 @export var is_auto_fire:bool = true
-@export var damage:int = 1
+@export var damage_modifier:int = 0
 @export var projectiles_per_shot:int = 1: set = set_projectiles_per_shot
 @export var cooldown_time:float = 1: set = set_cooldown_time
 @export var spread:float = 15: set = set_spread
@@ -57,7 +57,7 @@ func fire(direction:Vector2, parent_node:Node=null) -> void:
 		var parent_entity:Entity = get_parent_weapon_set().get_entity_holder()
 		projectile.creator = parent_entity
 		projectile.team = parent_entity.team
-		projectile.damage = damage
+		projectile.base_damage += damage_modifier
 		# set direction (with spread)
 		var angle_offset:float = randf_range(-spread/2, spread/2)
 		if projectiles_per_shot > 1:
