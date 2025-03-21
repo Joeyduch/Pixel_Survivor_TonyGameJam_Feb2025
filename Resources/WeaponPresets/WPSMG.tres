@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponPreset" load_steps=3 format=3 uid="uid://bpuwb8r3kvp2u"]
+
+[ext_resource type="Texture2D" uid="uid://b0vyuuw0cyxfq" path="res://Assets/Sprites/Misc/SMG.png" id="1_en53u"]
+[ext_resource type="Script" uid="uid://1c7vk7gbhx6f" path="res://Classes/Weapons/WeaponPreset.gd" id="1_vgk1x"]
+
+[resource]
+script = ExtResource("1_vgk1x")
+icon = ExtResource("1_en53u")
+name = "SMG"
+damage_modifier = 0
+base_spread = 60
+base_cooldown_time = 0.3
+base_projectiles_per_shot = 1
+metadata/_custom_type_script = "uid://1c7vk7gbhx6f"

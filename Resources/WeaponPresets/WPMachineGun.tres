@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponPreset" load_steps=3 format=3 uid="uid://r350ghyodxts"]
+
+[ext_resource type="Texture2D" uid="uid://ccmrdcxxih15c" path="res://Assets/Sprites/Misc/MachineGun.png" id="1_1knrk"]
+[ext_resource type="Script" uid="uid://1c7vk7gbhx6f" path="res://Classes/Weapons/WeaponPreset.gd" id="1_6vqrs"]
+
+[resource]
+script = ExtResource("1_6vqrs")
+icon = ExtResource("1_1knrk")
+name = "MachineGun"
+damage_modifier = 0
+base_spread = 30
+base_cooldown_time = 0.5
+base_projectiles_per_shot = 1
+metadata/_custom_type_script = "uid://1c7vk7gbhx6f"

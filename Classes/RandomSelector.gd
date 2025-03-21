@@ -38,7 +38,8 @@ func roll_item() -> Variant:
 		var chance:float = item[1]
 		
 		chance_weight += chance
-		if randf() <= chance_weight:
+		var random:float = randf()
+		if random <= chance_weight:
 			chosen_value = value
 			break
 	

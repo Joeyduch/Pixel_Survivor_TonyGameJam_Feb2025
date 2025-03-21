@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponPreset" load_steps=3 format=3 uid="uid://cj00txsxadf6h"]
+
+[ext_resource type="Texture2D" uid="uid://danjgn8xgxh33" path="res://Assets/Sprites/Misc/Gun.png" id="1_6eyxc"]
+[ext_resource type="Script" uid="uid://1c7vk7gbhx6f" path="res://Classes/Weapons/WeaponPreset.gd" id="1_q5xwk"]
+
+[resource]
+script = ExtResource("1_q5xwk")
+icon = ExtResource("1_6eyxc")
+name = "Pistol"
+damage_modifier = 1
+base_spread = 15
+base_cooldown_time = 1.0
+base_projectiles_per_shot = 1
+metadata/_custom_type_script = "uid://1c7vk7gbhx6f"
