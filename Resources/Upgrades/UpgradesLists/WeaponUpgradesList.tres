@@ -14,5 +14,5 @@ script = ExtResource("1_2nibw")
 list_thumbnail = ExtResource("1_4yox4")
 description = "Gain a random weapon upgrade."
 upgrades_list = Array[ExtResource("2_s8i44")]([ExtResource("4_4yox4"), ExtResource("7_1bpo1"), ExtResource("6_jgb2s"), ExtResource("5_4yox4"), ExtResource("8_1bpo1")])
-chance_list = Array[float]([0.2, 0.0, 0.0, 0.0, 0.0])
+chance_list = Array[float]([0.2, 0.2, 0.2, 0.2, 0.2])
 metadata/_custom_type_script = "uid://dml77484382lg"

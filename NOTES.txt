@@ -9,10 +9,10 @@ TO DO:
 - bigger map / free-cam around level
 
 
-- more sprites
-	- weapons
-	- enemies
-	- projectiles
+- more enemies
+
+
+- more projectiles
 
 
 - audio
@@ -34,10 +34,16 @@ TO DO:
 
 
 - main menu
+	- start new game
+	- settings menu
+	? character selector ?
+	- quit to desktop
 
 
 - pause menu
-	- interactive menu to resume/settings/exit/etc.
+	- resume
+	- settings menu
+	- suicide (quit to main menu) (player character explodes)
 
 
 - polish
