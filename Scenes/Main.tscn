@@ -1,10 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=23 format=3 uid="uid://cs3tfa5avgdx7"]
 
 [ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
 [ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
 [ext_resource type="PackedScene" uid="uid://dtetuew7g3wsd" path="res://Scenes/Objects/Entity/Player/Player.tscn" id="3_6cwc0"]
-[ext_resource type="PackedScene" uid="uid://smgphuk2esfq" path="res://Scenes/Objects/Entity/Enemy/Enemy.tscn" id="4_cak60"]
-[ext_resource type="PackedScene" uid="uid://bt2n8b20ciou2" path="res://Scenes/Objects/ExpDrop/ExpDrop.tscn" id="4_it0lb"]
 [ext_resource type="Texture2D" uid="uid://ca5r6opvyequb" path="res://Assets/Sprites/Background/Tilemap.png" id="5_1p5hy"]
 [ext_resource type="Script" uid="uid://dffgbtt0w0k6i" path="res://Classes/AutoTile/GenTileAutoMap.gd" id="5_frkhe"]
 [ext_resource type="Script" uid="uid://dwm56icapvtr4" path="res://Scenes/UserInterface/UI.gd" id="6_6qbe5"]
@@ -54,16 +52,19 @@ metadata/_edit_horizontal_guides_ = [-63.0]
 [node name="Timers" type="Node" parent="."]
 process_mode = 1
 
-[node name="SpawnTimer" type="Timer" parent="Timers"]
+[node name="EnemySpawnTimer" type="Timer" parent="Timers"]
 wait_time = 2.0
 autostart = true
 
-[node name="World" type="Node2D" parent="." node_paths=PackedStringArray("spawn_timer", "player")]
+[node name="LootBoxSpawnTimer" type="Timer" parent="Timers"]
+wait_time = 30.0
+autostart = true
+
+[node name="World" type="Node2D" parent="." node_paths=PackedStringArray("enemy_spawn_timer", "lootbox_spawn_timer", "player")]
 process_mode = 1
 script = ExtResource("1_6xhlf")
-scene_enemy = ExtResource("4_cak60")
-scene_exp_drop = ExtResource("4_it0lb")
-spawn_timer = NodePath("../Timers/SpawnTimer")
+enemy_spawn_timer = NodePath("../Timers/EnemySpawnTimer")
+lootbox_spawn_timer = NodePath("../Timers/LootBoxSpawnTimer")
 player = NodePath("Entities/Player")
 
 [node name="Background" type="Node2D" parent="World"]
@@ -157,6 +158,7 @@ grow_vertical = 2
 script = ExtResource("9_6kjgy")
 
 [node name="MenuShade" type="ColorRect" parent="UI/Menus"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -252,6 +254,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="NewWeaponMenu" type="Control" parent="UI/Menus"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

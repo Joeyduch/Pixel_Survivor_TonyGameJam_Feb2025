@@ -1,6 +1,6 @@
 class_name RandomSelector extends Resource
 
-# item format: [value:Variant, chance:float]
+## item format: [value:Variant, chance:float]
 @export var item_list:Array[Array] = []: set = set_item_list
 
 

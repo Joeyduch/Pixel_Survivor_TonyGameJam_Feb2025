@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradesList" load_steps=8 format=3 uid="uid://clxe4bxeyv4b4"]
+
+[ext_resource type="Texture2D" uid="uid://b8o6ssqfx2rjl" path="res://Assets/Sprites/Loot/Box_0001.png" id="1_4tegw"]
+[ext_resource type="Script" uid="uid://dml77484382lg" path="res://Classes/Upgrades/UpgradesList.gd" id="1_feyps"]
+[ext_resource type="Script" uid="uid://0dn6fpu16miv" path="res://Classes/Upgrades/BaseUpgrade.gd" id="2_4tegw"]
+[ext_resource type="Resource" uid="uid://dgi4mnxfxaae2" path="res://Resources/Upgrades/NewProjectileUpgrade.tres" id="4_8pnwb"]
+[ext_resource type="Resource" uid="uid://cc4aa184vcudi" path="res://Resources/Upgrades/LifeHealUpgradeI.tres" id="4_kssv4"]
+[ext_resource type="Resource" uid="uid://dcpgfi0ldwpwj" path="res://Resources/Upgrades/CharacterSpeedUpgradeI.tres" id="5_dobcp"]
+[ext_resource type="Resource" uid="uid://y7l1jyr7r044" path="res://Resources/Upgrades/WeaponSpreadUpgradeI.tres" id="6_wcibw"]
+
+[resource]
+script = ExtResource("1_feyps")
+list_thumbnail = ExtResource("1_4tegw")
+description = "Gain a random upgrade."
+upgrades_list = Array[ExtResource("2_4tegw")]([ExtResource("4_kssv4"), ExtResource("5_dobcp"), ExtResource("6_wcibw"), ExtResource("4_8pnwb")])
+chance_list = Array[float]([0.25, 0.25, 0.25, 0.25])
+metadata/_custom_type_script = "uid://dml77484382lg"

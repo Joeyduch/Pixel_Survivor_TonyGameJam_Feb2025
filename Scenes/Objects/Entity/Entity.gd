@@ -16,6 +16,7 @@ class_name Entity extends CharacterBody2D
 func _ready() -> void:
 	health_bar.maximum = life.max_health
 	health_bar.set_value(life.get_health())
+	health_bar.set_visible(life.health < life.max_health)
 	set_team(team)
 	
 	# signals
@@ -76,6 +77,7 @@ func update_sprite() -> void:
 
 func _on_life_health_changed(new_health:int) -> void:
 	health_bar.set_value(new_health)
+	health_bar.set_visible(new_health < life.max_health)
 
 func _on_life_max_health_changed(new_max:int) -> void:
 	health_bar.set_maximum(new_max)

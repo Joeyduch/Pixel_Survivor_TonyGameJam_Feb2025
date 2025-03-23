@@ -6,6 +6,7 @@ class_name UpgradesList extends Resource
 @export var chance_list:Array[float] = []
 
 
+## returns a 2d array of the format [[value, chance], [value, chance], ...]
 func get_full_list() -> Array[Array]:
 	var list:Array[Array] = []
 	var index:int = 0

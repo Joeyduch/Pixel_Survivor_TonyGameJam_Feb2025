@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0a1nj3joue7q"]
+
+[ext_resource type="PackedScene" uid="uid://smgphuk2esfq" path="res://Scenes/Objects/Entity/Enemy/Enemy.tscn" id="1_gppge"]
+[ext_resource type="Texture2D" uid="uid://d38gf7xqr8teu" path="res://Assets/Sprites/Enemies/Slime_Run_0001.png" id="2_he530"]
+[ext_resource type="Texture2D" uid="uid://cqq5mw14pabpx" path="res://Assets/Sprites/Enemies/Slime_Run_0002.png" id="3_hwgdm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj6sm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_he530")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hwgdm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemySlime" instance=ExtResource("1_gppge")]
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_mj6sm")
+frame_progress = 0.0
+
+[node name="CharacterController" parent="." index="5"]
+speed = 4
+
+[node name="Life" parent="." index="6"]
+max_health = 8

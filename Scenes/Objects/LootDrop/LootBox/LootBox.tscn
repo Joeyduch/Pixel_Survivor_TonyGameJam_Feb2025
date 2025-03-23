@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxtc0yc3ek2lt"]
+
+[ext_resource type="PackedScene" uid="uid://bt2n8b20ciou2" path="res://Scenes/Objects/LootDrop/LootDrop.tscn" id="1_h0css"]
+[ext_resource type="Script" uid="uid://b4d41y50yeq2v" path="res://Scenes/Objects/LootDrop/LootBox/LootBox.gd" id="2_5g7gf"]
+[ext_resource type="Texture2D" uid="uid://b8o6ssqfx2rjl" path="res://Assets/Sprites/Loot/Box_0001.png" id="2_xbrh6"]
+[ext_resource type="Texture2D" uid="uid://dispedbuo0wxu" path="res://Assets/Sprites/Loot/Box_0002.png" id="3_5g7gf"]
+[ext_resource type="Resource" uid="uid://clxe4bxeyv4b4" path="res://Resources/Upgrades/UpgradesLists/LootBoxUpgradesList.tres" id="3_xxoa2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxoa2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xbrh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5g7gf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_81v4y"]
+radius = 8.0
+
+[node name="LootBox" instance=ExtResource("1_h0css")]
+script = ExtResource("2_5g7gf")
+loot_upgrades_list = ExtResource("3_xxoa2")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_xxoa2")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_81v4y")

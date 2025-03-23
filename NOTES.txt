@@ -2,19 +2,14 @@
 TO DO:
 
 
-- bigger map / free-cam around level
-
-
 - expanded leveling up mechanics
-	- setup upgrade-lists
-	- enemies scaling
-	- more enemy types
 	- different UpgradesList depending on level plateau (ex: every 5, 10, etc.)
 
 
-- loot
-	- box that can be looted by player, can loot upgrades or big exp
-		- randomly spawn
+- player's death
+
+
+- bigger map / free-cam around level
 
 
 - more sprites
@@ -57,11 +52,16 @@ TO DO:
 	- shaders
 	- menus
 		- show controls (UI)
+	- better descriptions
+		- upgrades
 
 
 - misc.
-	- add timer to despawn exp drops after 60 seconds
-	- add timer to despawn loot boxes after 60 seconds if not already done
+	- make enemy skulls not physically interact with other Entities
+
+
+- BUGS :(
+	- nothing in here :D
 
 
 
