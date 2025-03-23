@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=26 format=3 uid="uid://cs3tfa5avgdx7"]
 
 [ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
 [ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
@@ -10,8 +10,10 @@
 [ext_resource type="Script" uid="uid://wjuldihp0oy5" path="res://Scenes/UserInterface/HUD/HUD.gd" id="7_ow6lx"]
 [ext_resource type="Script" uid="uid://cbuiq3t54sqey" path="res://Scenes/UserInterface/Menus/Menus.gd" id="9_6kjgy"]
 [ext_resource type="LabelSettings" uid="uid://cbhpbidow6vis" path="res://Assets/LabelSettings/LSTitle.tres" id="10_erwvk"]
+[ext_resource type="PackedScene" uid="uid://cr6lft4c1ostv" path="res://Scenes/UserInterface/UIComponents/UIColorOverlay/UIColorOverlay.tscn" id="11_fq0cl"]
 [ext_resource type="PackedScene" uid="uid://cusy2xls8wkjt" path="res://Scenes/UserInterface/HUD/UIWeaponsList/UIWeaponsList.tscn" id="12_erwvk"]
 [ext_resource type="Script" uid="uid://brtglvwxo4pjv" path="res://Scenes/UserInterface/Menus/Upgrades/UpgradesMenu.gd" id="12_h1m7h"]
+[ext_resource type="FontFile" uid="uid://cbp318boivy2f" path="res://Assets/Fonts/pixelated.ttf" id="12_hwpts"]
 [ext_resource type="PackedScene" uid="uid://dpmq2rxs525k7" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgradesList/UIUpgradesList.tscn" id="13_frkhe"]
 [ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="14_erwvk"]
 [ext_resource type="PackedScene" uid="uid://d3vuhsylt2ro2" path="res://Scenes/UserInterface/UIComponents/UIBorderIcon/UIBorderIcon.tscn" id="17_2w5on"]
@@ -43,6 +45,11 @@ texture = ExtResource("5_1p5hy")
 
 [sub_resource type="TileSet" id="TileSet_erwvk"]
 sources/0 = SubResource("TileSetAtlasSource_h1m7h")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyqft"]
+font = ExtResource("12_hwpts")
+font_color = Color(0.67451, 0.192157, 0.192157, 1)
+shadow_color = Color(0, 0, 0, 0.337255)
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -147,6 +154,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="UIColorOverlay" parent="UI/HUD" instance=ExtResource("11_fq0cl")]
+layout_mode = 1
+
+[node name="DeathScreen" type="Control" parent="UI/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/DeathScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="UI/HUD/DeathScreen/VBoxContainer"]
+layout_mode = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_jyqft")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label" type="Label" parent="UI/HUD/DeathScreen/VBoxContainer"]
+layout_mode = 2
+text = "press [action] to continue..."
+label_settings = ExtResource("14_erwvk")
+horizontal_alignment = 1
+uppercase = true
 
 [node name="Menus" type="Control" parent="UI"]
 layout_mode = 1

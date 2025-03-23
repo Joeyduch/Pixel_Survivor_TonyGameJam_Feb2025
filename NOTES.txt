@@ -6,9 +6,6 @@ TO DO:
 	- different UpgradesList depending on level plateau (ex: every 5, 10, etc.)
 
 
-- player's death
-
-
 - bigger map / free-cam around level
 
 
@@ -37,8 +34,6 @@ TO DO:
 
 
 - main menu
-	- PlayerData init (if player quits to menu then returns)
-	- World/Main init (if player quits ...)
 
 
 - pause menu

@@ -6,16 +6,19 @@ var popup_scene:PackedScene = preload("res://Scenes/UserInterface/UIComponents/U
 @onready var level_label:Label = $ExperienceContainer/LevelLabel
 
 @onready var weapons_list:UIWeaponsList = $UIWeaponsList
-
 @onready var popups_container:Control = $PopupsContainer
+@onready var color_overlay:UIColorOverlay = $UIColorOverlay
+@onready var death_screen:Control = $DeathScreen
 
 
 
 func _ready() -> void:
 	PlayerData.connect("experience_gained", Callable(_player_data_experience_gained))
 	PlayerData.connect("leveled_up", Callable(_player_data_leveled_up))
+	
 	setup_exp_bar()
 	setup_level_label()
+	color_overlay.fade_out()
 
 
 

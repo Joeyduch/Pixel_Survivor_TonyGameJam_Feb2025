@@ -10,6 +10,12 @@ var experience_for_level_up:int = calculate_experience_for_level_up()
 
 
 
+func reset() -> void:
+	experience = 0
+	level = 0
+	experience_for_level_up = calculate_experience_for_level_up()
+
+
 func calculate_experience_for_level_up() -> int:
 	return 3 + (5*level)
 

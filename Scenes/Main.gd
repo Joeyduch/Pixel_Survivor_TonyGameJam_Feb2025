@@ -20,13 +20,22 @@ func _ready() -> void:
 		# update weapons list
 		world.player.weapon_set.connect("weapon_given", _on_player_weapon_given)
 		_on_player_weapon_given(null, world.player.weapon_set.get_weapons())
+		# death screen
+		world.player.life.connect("died", _on_player_life_died)
 	
 	#PlayerData.gain_experience(3) # ***** TEST TEMPORARY TEST *****
 
 
 func _input(event: InputEvent) -> void:
+	# pause game
 	if event.is_action_pressed("Control_Escape"):
 		toggle_pause()
+	
+	# reload on player death
+	if (event.is_action_pressed("Control_A") or event.is_action_pressed("Control_B")) and world.player:
+		if world.player.life.is_dead:
+			PlayerData.reset()
+			get_tree().reload_current_scene()
 
 
 
@@ -88,3 +97,9 @@ func _on_new_weapon_menu_weapon_confirmed(weapon:BaseWeapon) -> void:
 # when player receives new weapon
 func _on_player_weapon_given(_new_weapon:BaseWeapon, all_weapons:Array[BaseWeapon]) -> void:
 	ui.hud.weapons_list.update_list(all_weapons)
+
+
+# when player dies
+func _on_player_life_died() -> void:
+	ui.hud.color_overlay.fade_in()
+	ui.hud.death_screen.set_visible(true)
