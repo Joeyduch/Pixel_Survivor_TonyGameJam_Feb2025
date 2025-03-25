@@ -1,17 +1,15 @@
-[gd_resource type="Resource" script_class="UpgradesList" load_steps=8 format=3 uid="uid://db88lshpavhu0"]
+[gd_resource type="Resource" script_class="UpgradesList" load_steps=6 format=3 uid="uid://db88lshpavhu0"]
 
 [ext_resource type="Texture2D" uid="uid://inv6ruddq2ak" path="res://Assets/Sprites/UI/Icon/UI_Icon_Heart_Red.png" id="1_8wlgl"]
 [ext_resource type="Script" uid="uid://dml77484382lg" path="res://Classes/Upgrades/UpgradesList.gd" id="1_ob4nw"]
 [ext_resource type="Script" uid="uid://0dn6fpu16miv" path="res://Classes/Upgrades/BaseUpgrade.gd" id="2_vga83"]
 [ext_resource type="Resource" uid="uid://cc4aa184vcudi" path="res://Resources/Upgrades/LifeHealUpgradeI.tres" id="3_71nki"]
 [ext_resource type="Resource" uid="uid://bt2why220i73w" path="res://Resources/Upgrades/LifeHealUpgradeII.tres" id="4_8wlgl"]
-[ext_resource type="Resource" uid="uid://dsbihip8kco0l" path="res://Resources/Upgrades/LifeMaxHealthUpgradeI.tres" id="6_8wlgl"]
-[ext_resource type="Resource" uid="uid://0mljol0myhue" path="res://Resources/Upgrades/LifeMaxHealthUpgradeII.tres" id="7_j2a50"]
 
 [resource]
 script = ExtResource("1_ob4nw")
 list_thumbnail = ExtResource("1_8wlgl")
 description = "Gain a random life upgrade."
-upgrades_list = Array[ExtResource("2_vga83")]([ExtResource("3_71nki"), ExtResource("4_8wlgl"), ExtResource("6_8wlgl"), ExtResource("7_j2a50")])
-chance_list = Array[float]([0.25, 0.25, 0.25, 0.25])
+upgrades_list = Array[ExtResource("2_vga83")]([ExtResource("3_71nki"), ExtResource("4_8wlgl")])
+chance_list = Array[float]([0.5, 0.5])
 metadata/_custom_type_script = "uid://dml77484382lg"

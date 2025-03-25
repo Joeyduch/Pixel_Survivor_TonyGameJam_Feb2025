@@ -2,14 +2,12 @@
 TO DO:
 
 
-- expanded leveling up mechanics
-	- different UpgradesList depending on level plateau (ex: every 5, 10, etc.)
-
-
 - bigger map / free-cam around level
 
 
-- more enemies
+- enemies
+	- more enemy types
+	- make some types spawn only at certain levels
 
 
 - more projectiles

@@ -13,6 +13,7 @@ var selected_upgrade:int = 0: set = set_selected_upgrade
 
 
 func _ready() -> void:
+	# this is the basic list of UpgradesList, but it gets replaced in Main by leveling up
 	upgrades_list = [
 		preload("res://Resources/Upgrades/UpgradesLists/LifeUpgradesList.tres"),
 		preload("res://Resources/Upgrades/UpgradesLists/CharacterUpgradesList.tres"),

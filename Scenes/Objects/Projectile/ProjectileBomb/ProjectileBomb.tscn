@@ -31,6 +31,8 @@ animations = [{
 [node name="ProjectileBomb" instance=ExtResource("1_7ddsr")]
 script = ExtResource("2_tcbg2")
 explosion_scene = ExtResource("3_cucpl")
+explosion_range = 20
+extra_explosion_amount = 2
 speed = 64
 is_projectile_damaging = false
 base_damage = 4

@@ -6,7 +6,7 @@ enum MENUS {NONE, PAUSE, UPGRADES, NEWWEAPON}
 
 @onready var menu_shade:ColorRect = $MenuShade
 @onready var pause_menu:Control = $PauseMenu
-@onready var upgrades_menu:Control = $UpgradesMenu
+@onready var upgrades_menu:UpgradesMenu = $UpgradesMenu
 @onready var new_weapon_menu:Control = $NewWeaponMenu
 
 @onready var menus:Dictionary = {
