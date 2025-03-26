@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsr7xtakvuyxg"]
+
+[ext_resource type="PackedScene" uid="uid://cccpsq0oessnx" path="res://Scenes/Objects/Projectile/Projectile.tscn" id="1_wgycu"]
+
+[node name="ProjectileGunner" instance=ExtResource("1_wgycu")]
+speed = 64
+base_damage = 1

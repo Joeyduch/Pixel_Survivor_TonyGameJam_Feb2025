@@ -7,9 +7,8 @@ TO DO:
 
 - enemies
 	- more enemy types
-		- gunner robot
 		- mama-slime (mega-slime that bursts into multiple slimes at death)
-	- make some types spawn only at certain levels
+		- a player clone once the player dies
 
 
 - more projectiles
@@ -56,6 +55,7 @@ TO DO:
 		- show controls (UI)
 	- better descriptions
 		- upgrades
+	- better enemy / upgradeslist progression
 
 
 - misc.
@@ -63,7 +63,7 @@ TO DO:
 
 
 - BUGS :(
-	- nothing in here :D
+	- unnpausing inside the upgredes selection menu when leveling up multiple times rapidly
 
 
 

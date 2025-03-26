@@ -30,5 +30,8 @@ thorn_damage = 0
 sprite_frames = SubResource("SpriteFrames_jw446")
 frame_progress = 0.187236
 
+[node name="CharacterController" parent="." index="5"]
+speed = 16
+
 [node name="Life" parent="." index="6"]
 max_health = 1

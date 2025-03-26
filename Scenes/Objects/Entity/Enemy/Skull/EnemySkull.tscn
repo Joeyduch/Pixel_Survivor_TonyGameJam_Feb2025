@@ -27,7 +27,7 @@ frame = 1
 frame_progress = 0.181485
 
 [node name="CharacterController" parent="." index="5"]
-speed = 16
+speed = 12
 
 [node name="Life" parent="." index="6"]
 max_health = 2

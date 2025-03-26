@@ -1,13 +1,32 @@
 class_name World extends Node2D
 
-var scenes_enemies:Array[PackedScene] = [
-	preload("res://Scenes/Objects/Entity/Enemy/Enemy.tscn"),
-	preload("res://Scenes/Objects/Entity/Enemy/Slime/EnemySlime.tscn"),
-	preload("res://Scenes/Objects/Entity/Enemy/Skull/EnemySkull.tscn"),
-	preload("res://Scenes/Objects/Entity/Enemy/Bomby/EnemyBomby.tscn"),
-]
+var scenes_enemies:Dictionary[String, PackedScene] = {
+	"zombie": preload("res://Scenes/Objects/Entity/Enemy/Enemy.tscn"),
+	"slime": preload("res://Scenes/Objects/Entity/Enemy/Slime/EnemySlime.tscn"),
+	"skull": preload("res://Scenes/Objects/Entity/Enemy/Skull/EnemySkull.tscn"),
+	"bomby": preload("res://Scenes/Objects/Entity/Enemy/Bomby/EnemyBomby.tscn"),
+	"gunner": preload("res://Scenes/Objects/Entity/Enemy/Gunner/EnemyGunner.tscn"),
+}
 var scene_exp_drop:PackedScene = preload("res://Scenes/Objects/LootDrop/ExpDrop/ExpDrop.tscn")
 var scene_lootbox:PackedScene = preload("res://Scenes/Objects/LootDrop/LootBox/LootBox.tscn")
+
+var enemy_levels_map:Dictionary[int, Array] = {
+	0: [
+		scenes_enemies["zombie"],
+	],
+	1: [
+		scenes_enemies["slime"],
+	],
+	2: [
+		scenes_enemies["skull"],
+	],
+	3: [
+		scenes_enemies["bomby"],
+	],
+	4: [
+		scenes_enemies["gunner"],
+	],
+}
 
 ## this adds (or substracts) to the base enemy health. Goes up every level up
 var enemy_health_modifier:int = 0
@@ -58,14 +77,26 @@ func spawn_enemy() -> void:
 	# get nodes
 	var spawn_locations_node:Node = get_node("SpawnLocations")
 	if not enemies_parent or not spawn_locations_node: return
+	
 	# spawn limitations
 	if enemies_parent.get_children().size() >= max_enemy_spawned: return
-	# get new position by randomly selection a location
+	
+	# get new position by randomly selecting a location
 	var spawn_locations:Array[Node] = spawn_locations_node.get_children()
 	var index:int = randi_range(0, spawn_locations.size()-1)
 	var new_position:Vector2 = spawn_locations[index].position
-	# create new enemy
-	var enemy_scene:PackedScene = scenes_enemies[randi_range(0, scenes_enemies.size()-1)]
+	
+	# choose enemy type
+	var enemy_candidates:Array[PackedScene] = []
+	for enemy_level:int in enemy_levels_map:
+		if enemy_level > PlayerData.level: continue
+		var enemy_scenes:Array[Variant] = enemy_levels_map[enemy_level]
+		enemy_candidates.append_array(enemy_scenes)
+	if enemy_candidates.size() <= 0: return
+	
+	var enemy_scene:PackedScene = enemy_candidates[randi_range(0, enemy_candidates.size()-1)]
+	
+	# create + setup new enemy
 	var enemy:Entity = enemy_scene.instantiate()
 	enemies_parent.add_child(enemy)
 	enemy.life.max_health += enemy_health_modifier
