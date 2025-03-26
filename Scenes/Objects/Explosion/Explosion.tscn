@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://hahb1xigo1di" path="res://Assets/Sprites/Effects/Explosion_0006.png" id="6_uk8c3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btdce"]
-radius = 24.0
+radius = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_11aqx"]
 animations = [{
@@ -47,3 +47,5 @@ shape = SubResource("CircleShape2D_btdce")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_11aqx")
+frame = 5
+frame_progress = 1.0

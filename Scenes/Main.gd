@@ -44,14 +44,18 @@ func _input(event: InputEvent) -> void:
 	# reload on player death
 	if (event.is_action_pressed("Control_A") or event.is_action_pressed("Control_B")) and world.player:
 		if world.player.life.is_dead:
-			PlayerData.reset()
-			get_tree().reload_current_scene()
+			reload_scene()
 
 
 
 #	------------------
 #	METHODS
 #	------------------
+
+func reload_scene() -> void:
+	PlayerData.reset()
+	get_tree().reload_current_scene()
+
 
 func toggle_pause() -> void:
 	var is_now_paused:bool = !get_tree().paused

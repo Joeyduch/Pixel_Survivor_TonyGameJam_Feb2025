@@ -4,6 +4,7 @@ var scenes_enemies:Array[PackedScene] = [
 	preload("res://Scenes/Objects/Entity/Enemy/Enemy.tscn"),
 	preload("res://Scenes/Objects/Entity/Enemy/Slime/EnemySlime.tscn"),
 	preload("res://Scenes/Objects/Entity/Enemy/Skull/EnemySkull.tscn"),
+	preload("res://Scenes/Objects/Entity/Enemy/Bomby/EnemyBomby.tscn"),
 ]
 var scene_exp_drop:PackedScene = preload("res://Scenes/Objects/LootDrop/ExpDrop/ExpDrop.tscn")
 var scene_lootbox:PackedScene = preload("res://Scenes/Objects/LootDrop/LootBox/LootBox.tscn")

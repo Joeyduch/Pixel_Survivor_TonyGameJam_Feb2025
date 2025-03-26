@@ -7,10 +7,13 @@ TO DO:
 
 - enemies
 	- more enemy types
+		- gunner robot
+		- mama-slime (mega-slime that bursts into multiple slimes at death)
 	- make some types spawn only at certain levels
 
 
 - more projectiles
+	- one that auto-targets the nearest enemies (chain attack)
 
 
 - audio

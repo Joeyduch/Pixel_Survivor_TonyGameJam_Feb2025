@@ -88,7 +88,7 @@ map_size = Vector2i(20, 12)
 [node name="Enemies" type="Node" parent="World/Entities"]
 
 [node name="Player" parent="World/Entities" instance=ExtResource("3_6cwc0")]
-position = Vector2(130, 96)
+position = Vector2(158, 91)
 
 [node name="SpawnLocations" type="Node" parent="World"]
 

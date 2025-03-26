@@ -72,6 +72,10 @@ func update_sprite() -> void:
 		sprite.stop()
 
 
+func die() -> void:
+	pass
+
+
 
 # signals
 
@@ -84,10 +88,4 @@ func _on_life_max_health_changed(new_max:int) -> void:
 
 
 func _on_life_died() -> void:
-	if self == get_world().player:
-		character_controller.is_active = false
-		weapon_set.is_active = false
-	else:
-		if exp_value > 0:
-			get_world().spawn_exp_drop(global_position, exp_value)
-		queue_free()
+	die()
