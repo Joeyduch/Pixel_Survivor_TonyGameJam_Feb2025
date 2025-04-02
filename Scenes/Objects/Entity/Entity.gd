@@ -48,7 +48,7 @@ func get_main() -> Main:
 
 func get_world() -> World:
 	var main:Main = get_main()
-	if not main: return
+	if not main: return null
 	var world:World = main.get_node("World")
 	
 	if world is World:

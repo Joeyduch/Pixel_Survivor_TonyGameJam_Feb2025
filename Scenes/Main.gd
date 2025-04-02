@@ -9,8 +9,8 @@ signal game_paused(is_paused:bool)
 @onready var upgrades_list_plateau:Array[Array] = [
 	[preload("res://Resources/Upgrades/UpgradesLists/LifeUpgradesList.tres"), 1],
 	[preload("res://Resources/Upgrades/UpgradesLists/CharacterUpgradesList.tres"), 2],
-	[preload("res://Resources/Upgrades/UpgradesLists/WeaponUpgradesList.tres"), 4],
-	[preload("res://Resources/Upgrades/UpgradesLists/NewWeaponUpgradesList.tres"), 8],
+	[preload("res://Resources/Upgrades/UpgradesLists/WeaponUpgradesList.tres"), 3],
+	[preload("res://Resources/Upgrades/UpgradesLists/NewWeaponUpgradesList.tres"), 4],
 ]
 var lootbox_upgrades_list:UpgradesList = preload("res://Resources/Upgrades/UpgradesLists/LootBoxUpgradesList.tres")
 var lootbox_upgrades_list_chance:float = 0.2

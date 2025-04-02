@@ -12,3 +12,5 @@ class_name WeaponPreset extends Resource
 @export var base_cooldown_time:float = 1
 ## sets the weapon's amount of projectiles per shot
 @export var base_projectiles_per_shot:int = 1
+## sets the weapon's projectile type (in PackedScene form)
+@export var projectile_scene:PackedScene = preload("res://Scenes/Objects/Projectile/Projectile.tscn")

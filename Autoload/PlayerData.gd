@@ -17,7 +17,7 @@ func reset() -> void:
 
 
 func calculate_experience_for_level_up() -> int:
-	return 3 + (5*level)
+	return 2 + (3*level)
 
 
 func gain_experience(exp_amount:int) -> void:

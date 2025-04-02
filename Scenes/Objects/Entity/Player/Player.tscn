@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtetuew7g3wsd"]
+[gd_scene load_steps=7 format=3 uid="uid://dtetuew7g3wsd"]
 
 [ext_resource type="PackedScene" uid="uid://tyvg8xq7xn3j" path="res://Scenes/Objects/Entity/Entity.tscn" id="1_gnkun"]
 [ext_resource type="Texture2D" uid="uid://boeuny6esu2nw" path="res://Assets/Sprites/Player/Player_Run_0001.png" id="2_8qlc0"]
 [ext_resource type="Script" uid="uid://bc5yaudko3xkf" path="res://Scenes/Objects/Entity/Player/Player.gd" id="2_px1df"]
 [ext_resource type="Texture2D" uid="uid://g12edcadusak" path="res://Assets/Sprites/Player/Player_Run_0002.png" id="3_bphrv"]
 [ext_resource type="PackedScene" uid="uid://k2rw4ncaxeki" path="res://Scenes/Components/Weapons/BaseWeapon/BaseWeapon.tscn" id="4_la63f"]
-[ext_resource type="Texture2D" uid="uid://c085mkc0futfw" path="res://Assets/Sprites/Misc/GoldenGun.png" id="5_g2bjd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ytqml"]
 animations = [{
@@ -36,4 +35,3 @@ is_input_controlled = true
 
 [node name="BaseWeapon" parent="WeaponSet" index="1" instance=ExtResource("4_la63f")]
 weapon_name = "First Weapon"
-icon = ExtResource("5_g2bjd")

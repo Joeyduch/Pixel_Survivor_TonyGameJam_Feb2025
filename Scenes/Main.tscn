@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=27 format=3 uid="uid://cs3tfa5avgdx7"]
 
 [ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
 [ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
 [ext_resource type="PackedScene" uid="uid://dtetuew7g3wsd" path="res://Scenes/Objects/Entity/Player/Player.tscn" id="3_6cwc0"]
+[ext_resource type="PackedScene" uid="uid://cwj635oh1vrhs" path="res://Scenes/Cameras/GameCamera/GameCamera.tscn" id="3_jyqft"]
 [ext_resource type="Texture2D" uid="uid://ca5r6opvyequb" path="res://Assets/Sprites/Background/Tilemap.png" id="5_1p5hy"]
 [ext_resource type="Script" uid="uid://dffgbtt0w0k6i" path="res://Classes/AutoTile/GenTileAutoMap.gd" id="5_frkhe"]
 [ext_resource type="Script" uid="uid://dwm56icapvtr4" path="res://Scenes/UserInterface/UI.gd" id="6_6qbe5"]
@@ -54,7 +55,6 @@ shadow_color = Color(0, 0, 0, 0.337255)
 [node name="Main" type="Node"]
 process_mode = 3
 script = ExtResource("1_fqa7p")
-metadata/_edit_horizontal_guides_ = [-63.0]
 
 [node name="Timers" type="Node" parent="."]
 process_mode = 1
@@ -74,6 +74,10 @@ enemy_spawn_timer = NodePath("../Timers/EnemySpawnTimer")
 lootbox_spawn_timer = NodePath("../Timers/LootBoxSpawnTimer")
 player = NodePath("Entities/Player")
 
+[node name="GameCamera" parent="World" instance=ExtResource("3_jyqft")]
+limit_left = 0
+limit_top = 0
+
 [node name="Background" type="Node2D" parent="World"]
 
 [node name="AutoTileMap" type="TileMapLayer" parent="World/Background"]
@@ -90,34 +94,14 @@ map_size = Vector2i(20, 12)
 [node name="Player" parent="World/Entities" instance=ExtResource("3_6cwc0")]
 position = Vector2(158, 91)
 
-[node name="SpawnLocations" type="Node" parent="World"]
-
-[node name="Marker2D" type="Marker2D" parent="World/SpawnLocations"]
-position = Vector2(-19, -20)
-
-[node name="Marker2D2" type="Marker2D" parent="World/SpawnLocations"]
-position = Vector2(335, -17)
-
-[node name="Marker2D3" type="Marker2D" parent="World/SpawnLocations"]
-position = Vector2(335, 195)
-
-[node name="Marker2D4" type="Marker2D" parent="World/SpawnLocations"]
-position = Vector2(-17, 195)
-
 [node name="Projectiles" type="Node" parent="World"]
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("6_6qbe5")
 
 [node name="HUD" type="Control" parent="UI"]
 process_mode = 1
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -197,7 +181,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Menus" type="Control" parent="UI"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

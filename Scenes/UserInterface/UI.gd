@@ -1,12 +1,12 @@
-class_name UI extends Control
+class_name UI extends CanvasLayer
 
 @onready var hud:UIHUD = $HUD
 @onready var menus:UIMenus = $Menus
 
 
 
-func _ready() -> void:
-	z_index = 10
+#func _ready() -> void:
+	#z_index = 10
 
 
 

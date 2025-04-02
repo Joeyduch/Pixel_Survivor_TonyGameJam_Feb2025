@@ -2,9 +2,6 @@
 TO DO:
 
 
-- bigger map / free-cam around level
-
-
 - enemies
 	- more enemy types
 		- mama-slime (mega-slime that bursts into multiple slimes at death)
@@ -12,7 +9,7 @@ TO DO:
 
 
 - more projectiles
-	- one that auto-targets the nearest enemies (chain attack)
+	- mines (doesnt move and explode after X seconds)
 
 
 - audio
@@ -23,6 +20,7 @@ TO DO:
 		- enemy hit
 		- player death
 		- enemy death
+		- explosions
 		- level up
 		- loot
 			- exp
@@ -60,10 +58,15 @@ TO DO:
 
 - misc.
 	- make enemy skulls not physically interact with other Entities
+	- set player in the middle of map on World ready
+	- get_main / get_world on Autoload node instead of all classes
+		- Entity
+		- GameCamera
 
 
 - BUGS :(
 	- unnpausing inside the upgredes selection menu when leveling up multiple times rapidly
+	- player can go out of bounds
 
 
 

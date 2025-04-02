@@ -105,6 +105,7 @@ func get_weapon_from_preset(preset:WeaponPreset) -> BaseWeapon:
 	weapon.spread = preset.base_spread
 	weapon.cooldown_time = preset.base_cooldown_time
 	weapon.projectiles_per_shot = preset.base_projectiles_per_shot
+	weapon.scene_projectile = preset.projectile_scene
 	
 	return weapon
 

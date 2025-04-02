@@ -14,16 +14,16 @@ var enemy_levels_map:Dictionary[int, Array] = {
 	0: [
 		scenes_enemies["zombie"],
 	],
-	1: [
+	3: [
 		scenes_enemies["slime"],
 	],
-	2: [
+	5: [
 		scenes_enemies["skull"],
 	],
-	3: [
+	7: [
 		scenes_enemies["bomby"],
 	],
-	4: [
+	10: [
 		scenes_enemies["gunner"],
 	],
 }
@@ -33,9 +33,12 @@ var enemy_health_modifier:int = 0
 
 @export var enemy_spawn_timer:Timer = null
 @export var lootbox_spawn_timer:Timer = null
-@export var player:Entity = null
-@export var max_enemy_spawned:int = 16
+@export var player:Entity = null 
+@export var max_enemy_spawned:int = 32
+@export var map_size:Vector2i = Vector2i(32,24)
 
+@onready var game_camera:GameCamera = $GameCamera
+@onready var background_tilemap:AutoTileMap = $Background/AutoTileMap
 @onready var loot_parent:Node = $Loot
 @onready var enemies_parent:Node = $Entities/Enemies
 @onready var projectile_parent:Node = $Projectiles
@@ -43,13 +46,63 @@ var enemy_health_modifier:int = 0
 
 
 func _ready() -> void:
+	# connecting signals
 	if enemy_spawn_timer:
 		enemy_spawn_timer.connect("timeout", _on_enemy_spawn_timer_timeout)
 	if lootbox_spawn_timer:
 		lootbox_spawn_timer.connect("timeout", _on_lootbox_spawn_timer_timeout)
+	
+	# setup camera
+	if player:
+		# target
+		game_camera.target_node = player
+		# limits
+		var TILE_PIXEL_SIZE:int = 16
+		game_camera.limit_right = map_size.x * TILE_PIXEL_SIZE
+		game_camera.limit_bottom = map_size.y * TILE_PIXEL_SIZE
+	
+	# generate world
+	background_tilemap.map_size = map_size
+	background_tilemap.generate()
 
 
 
+#	----------
+#	METHODS
+#	----------
+
+## returns a random position outside the viewport with an added outside margin,
+## useful for spawning enemies right outside the viewport
+func get_random_position_outside_viewport(outside_margin_size:int=0) -> Vector2:
+	var new_position:Vector2 = Vector2(0,0)
+	var is_spawning_horizontally:bool = randf() <= 0.5
+	if is_spawning_horizontally:
+		var min_y_location:int = int(game_camera.global_position.y)
+		var max_y_location:int = min_y_location + int(get_viewport_rect().size.y)
+		var y_location:int = randi_range(min_y_location, max_y_location)
+		
+		var x_location:int = int(game_camera.global_position.x) - outside_margin_size
+		var is_spawning_right:bool = randf() <= 0.5
+		if is_spawning_right:
+			x_location = int(game_camera.global_position.x + get_viewport_rect().size.x) + outside_margin_size
+		
+		new_position = Vector2(x_location, y_location)
+	else:
+		var min_x_location:int = int(game_camera.global_position.x)
+		var max_x_location:int = min_x_location + int(get_viewport_rect().size.x)
+		var x_location:int = randi_range(min_x_location, max_x_location)
+		
+		var y_location:int = int(game_camera.global_position.y) - outside_margin_size
+		var is_spawning_down:bool = randf() <= 0.5
+		if is_spawning_down:
+			y_location = int(game_camera.global_position.y + get_viewport_rect().size.y) + outside_margin_size
+		
+		new_position = Vector2(x_location, y_location)
+	
+	return new_position
+
+
+# spawn methods
 func spawn_loot_drop(loot_drop_scene:PackedScene, spawn_position:Vector2) -> LootDrop:
 	if not loot_drop_scene or not loot_parent:
 		print("ERROR: no scene_exp_drop PackedScene or no loot_parent Node")
@@ -74,17 +127,9 @@ func spawn_loot_box(spawn_position:Vector2) -> void:
 
 
 func spawn_enemy() -> void:
-	# get nodes
-	var spawn_locations_node:Node = get_node("SpawnLocations")
-	if not enemies_parent or not spawn_locations_node: return
-	
 	# spawn limitations
+	if not enemies_parent: return
 	if enemies_parent.get_children().size() >= max_enemy_spawned: return
-	
-	# get new position by randomly selecting a location
-	var spawn_locations:Array[Node] = spawn_locations_node.get_children()
-	var index:int = randi_range(0, spawn_locations.size()-1)
-	var new_position:Vector2 = spawn_locations[index].position
 	
 	# choose enemy type
 	var enemy_candidates:Array[PackedScene] = []
@@ -101,19 +146,29 @@ func spawn_enemy() -> void:
 	enemies_parent.add_child(enemy)
 	enemy.life.max_health += enemy_health_modifier
 	enemy.life.health = enemy.life.max_health
-	enemy.position = new_position
+	enemy.position = get_random_position_outside_viewport(32)
 
 
 
-# SIGNALS
+#	----------
+#	SIGNALS
+#	----------
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
 
 
 func _on_lootbox_spawn_timer_timeout() -> void:
+	const MARGIN_PIXEL_SIZE:int = 16
+	var viewport_size:Vector2i = get_viewport().get_visible_rect().size
 	var spawn_position:Vector2 = Vector2(
-		randi_range(0, int(get_viewport().get_visible_rect().size.x)),
-		randi_range(0, int(get_viewport().get_visible_rect().size.y)),
+		randi_range(
+			int(game_camera.position.x)+MARGIN_PIXEL_SIZE,
+			int(game_camera.position.x + viewport_size.x)-MARGIN_PIXEL_SIZE
+		),
+		randi_range(
+			int(game_camera.position.y)+MARGIN_PIXEL_SIZE,
+			int(game_camera.position.y + viewport_size.y)-MARGIN_PIXEL_SIZE
+		),
 	)
 	spawn_loot_box(spawn_position)
