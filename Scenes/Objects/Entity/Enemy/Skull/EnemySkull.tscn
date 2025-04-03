@@ -19,6 +19,8 @@ animations = [{
 }]
 
 [node name="EnemySkull" instance=ExtResource("1_73y6m")]
+collision_layer = 4
+collision_mask = 4
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(-1, 0)
@@ -27,7 +29,7 @@ frame = 1
 frame_progress = 0.181485
 
 [node name="CharacterController" parent="." index="5"]
-speed = 12
+speed = 16
 
 [node name="Life" parent="." index="6"]
 max_health = 2

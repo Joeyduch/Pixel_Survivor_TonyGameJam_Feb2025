@@ -12,6 +12,9 @@ TO DO:
 	- mines (doesnt move and explode after X seconds)
 
 
+- Tier 2 Upgrade lists at higher levels
+
+
 - audio
 	- music
 	- sound effects
@@ -57,7 +60,7 @@ TO DO:
 
 
 - misc.
-	- make enemy skulls not physically interact with other Entities
+	- enemies go slightly faster each round/level ?
 	- set player in the middle of map on World ready
 	- get_main / get_world on Autoload node instead of all classes
 		- Entity
