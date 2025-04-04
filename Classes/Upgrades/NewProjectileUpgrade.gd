@@ -3,6 +3,7 @@ class_name NewProjectileUpgrade extends WeaponBaseUpgrade
 var projectile_scenes:Array[PackedScene] = [
 	preload("res://Scenes/Objects/Projectile/ProjectileFire/ProjectileFire.tscn"),
 	preload("res://Scenes/Objects/Projectile/ProjectileBomb/ProjectileBomb.tscn"),
+	preload("res://Scenes/Objects/Projectile/ProjectileBomb/ProjectileMine/ProjectileMine.tscn"),
 ]
 
 

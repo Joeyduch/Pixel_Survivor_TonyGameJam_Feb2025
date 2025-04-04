@@ -22,5 +22,6 @@ func _process(delta: float) -> void:
 	if not entity is Entity: return
 	
 	# move towards player
-	character_controller.set_direction(target_follower.get_direction_to_target(entity.position))
-	character_controller.move(delta)
+	if character_controller.is_active:
+		character_controller.set_direction(target_follower.get_direction_to_target(entity.position))
+		character_controller.move(delta)

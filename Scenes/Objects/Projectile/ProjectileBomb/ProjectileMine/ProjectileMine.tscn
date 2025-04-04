@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8d1jwd32cfx4"]
+
+[ext_resource type="PackedScene" uid="uid://bc6fe2cich48o" path="res://Scenes/Objects/Projectile/ProjectileBomb/ProjectileBomb.tscn" id="1_jxeui"]
+[ext_resource type="Texture2D" uid="uid://d0dmnqhrlkxe7" path="res://Assets/Sprites/Projectiles/Mine_0001.png" id="2_3e16d"]
+[ext_resource type="Texture2D" uid="uid://bnqyuwv11ajth" path="res://Assets/Sprites/Projectiles/Mine_0002.png" id="3_c70bq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehikl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3e16d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c70bq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ProjectileMine" instance=ExtResource("1_jxeui")]
+explosion_range = 0
+extra_explosion_amount = 0
+speed = 0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ehikl")
+frame_progress = 0.297495

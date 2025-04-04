@@ -35,7 +35,7 @@ explosion_range = 20
 extra_explosion_amount = 2
 speed = 64
 is_projectile_damaging = false
-base_damage = 4
+base_damage = 8
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_8vyf5")

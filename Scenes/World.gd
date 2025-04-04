@@ -1,16 +1,21 @@
 class_name World extends Node2D
 
-var scenes_enemies:Dictionary[String, PackedScene] = {
+## size of a tile in pixels (they are designed at 8 pixels but exported at 16)
+const TILE_PIXEL_SIZE:int = 16
+
+# scenes
+const scenes_enemies:Dictionary[String, PackedScene] = {
 	"zombie": preload("res://Scenes/Objects/Entity/Enemy/Enemy.tscn"),
 	"slime": preload("res://Scenes/Objects/Entity/Enemy/Slime/EnemySlime.tscn"),
 	"skull": preload("res://Scenes/Objects/Entity/Enemy/Skull/EnemySkull.tscn"),
 	"bomby": preload("res://Scenes/Objects/Entity/Enemy/Bomby/EnemyBomby.tscn"),
 	"gunner": preload("res://Scenes/Objects/Entity/Enemy/Gunner/EnemyGunner.tscn"),
 }
-var scene_exp_drop:PackedScene = preload("res://Scenes/Objects/LootDrop/ExpDrop/ExpDrop.tscn")
-var scene_lootbox:PackedScene = preload("res://Scenes/Objects/LootDrop/LootBox/LootBox.tscn")
+const scene_exp_drop:PackedScene = preload("res://Scenes/Objects/LootDrop/ExpDrop/ExpDrop.tscn")
+const scene_lootbox:PackedScene = preload("res://Scenes/Objects/LootDrop/LootBox/LootBox.tscn")
 
-var enemy_levels_map:Dictionary[int, Array] = {
+## a dictionary of all the Enemy types that spawns at Level <KEY> {LevelSpawned:int, Array[PackedScene]}
+const enemy_levels_map:Dictionary[int, Array] = {
 	0: [
 		scenes_enemies["zombie"],
 	],
@@ -52,12 +57,16 @@ func _ready() -> void:
 	if lootbox_spawn_timer:
 		lootbox_spawn_timer.connect("timeout", _on_lootbox_spawn_timer_timeout)
 	
-	# setup camera
+	# setup camera & player
 	if player:
-		# target
+		# player spawn position
+		player.position = Vector2(
+			float(map_size.x) / 2 * TILE_PIXEL_SIZE,
+			float(map_size.y) / 2 * TILE_PIXEL_SIZE
+		)
+		# camera target
 		game_camera.target_node = player
-		# limits
-		var TILE_PIXEL_SIZE:int = 16
+		# camera limits
 		game_camera.limit_right = map_size.x * TILE_PIXEL_SIZE
 		game_camera.limit_bottom = map_size.y * TILE_PIXEL_SIZE
 	

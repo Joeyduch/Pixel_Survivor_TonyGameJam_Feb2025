@@ -6,10 +6,7 @@ TO DO:
 	- more enemy types
 		- mama-slime (mega-slime that bursts into multiple slimes at death)
 		- a player clone once the player dies
-
-
-- more projectiles
-	- mines (doesnt move and explode after X seconds)
+	- change slime movement pattern (fast dash in intervals)
 
 
 - Tier 2 Upgrade lists at higher levels
@@ -36,8 +33,9 @@ TO DO:
 
 - main menu
 	- start new game
-	- settings menu
-	? character selector ?
+	? map size setting ?
+	? character selector settings ?
+	- mute sound / music settings
 	- quit to desktop
 
 
@@ -61,7 +59,6 @@ TO DO:
 
 - misc.
 	- enemies go slightly faster each round/level ?
-	- set player in the middle of map on World ready
 	- get_main / get_world on Autoload node instead of all classes
 		- Entity
 		- GameCamera
