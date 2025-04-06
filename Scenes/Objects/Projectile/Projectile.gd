@@ -52,7 +52,7 @@ func _body_entered(body:Node2D) -> void:
 	if team == entity.team: return
 	
 	if is_projectile_damaging:
-		entity.life.hurt(base_damage)
+		entity.hurt(base_damage)
 	life.hurt(1)
 
 

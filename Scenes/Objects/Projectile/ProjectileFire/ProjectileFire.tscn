@@ -21,9 +21,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1aeij"]
 
 [node name="ProjectileFire" instance=ExtResource("1_2u5tu")]
-base_health = 7
-speed = 64
-base_damage = 1
+base_health = 8
+speed = 96
+is_projectile_damaging = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_rm7qp")

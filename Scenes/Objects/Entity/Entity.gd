@@ -8,6 +8,7 @@ class_name Entity extends CharacterBody2D
 @onready var character_controller:CharacterController = $CharacterController
 @onready var life:Life = $Life
 @onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var enemy_detector:EnemyDetector = $EnemyDetector
 @onready var health_bar:UISmallBar = $HealthBar
 
@@ -70,6 +71,13 @@ func update_sprite() -> void:
 		sprite.play()
 	else:
 		sprite.stop()
+
+
+func hurt(damage_amount:int) -> void:
+	if damage_amount > 0:
+		life.hurt(damage_amount)
+		animation_player.stop()
+		animation_player.play("Hurt")
 
 
 func die() -> void:

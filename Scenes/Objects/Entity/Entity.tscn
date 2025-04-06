@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tyvg8xq7xn3j"]
+[gd_scene load_steps=14 format=3 uid="uid://tyvg8xq7xn3j"]
 
 [ext_resource type="Script" uid="uid://w428n8tncj8k" path="res://Scenes/Objects/Entity/Entity.gd" id="1_jldnp"]
 [ext_resource type="Texture2D" uid="uid://bqaltv4iw07id" path="res://Assets/Sprites/Enemies/Enemy_Run_0001.png" id="2_c0417"]
@@ -26,6 +26,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_2fdih"]
+resource_name = "Hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_38qlq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iq6ul"]
+_data = {
+&"Hurt": SubResource("Animation_2fdih"),
+&"RESET": SubResource("Animation_38qlq")
+}
+
 [node name="Entity" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_jldnp")
@@ -45,6 +81,11 @@ frame_progress = 0.518696
 
 [node name="WeaponSet" parent="." instance=ExtResource("6_y85oe")]
 
-[node name="EnemyDetector" parent="." node_paths=PackedStringArray("linked_life") instance=ExtResource("7_kqdad")]
-linked_life = NodePath("../Life")
+[node name="EnemyDetector" parent="." node_paths=PackedStringArray("linked_entity") instance=ExtResource("7_kqdad")]
+linked_entity = NodePath("..")
 team = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_iq6ul")
+}

@@ -6,10 +6,14 @@ TO DO:
 	- more enemy types
 		- mama-slime (mega-slime that bursts into multiple slimes at death)
 		- a player clone once the player dies
-	- change slime movement pattern (fast dash in intervals)
+	- make bomby auto-explode after X seconds of being spawned
+	- make enemies go slightly faster each round (level-based speed boost)
 
 
-- Tier 2 Upgrade lists at higher levels
+- Upgrades rebalances
+	- Make Tier 2 upgradelists
+	- Rename healing upgradelist
+	- Rebalance upgrades in upgradelists
 
 
 - audio
@@ -29,6 +33,13 @@ TO DO:
 			- select next/previous
 			- select current
 			- cancel
+
+
+- particles
+	- on hit
+	- on death (gibs)
+	- collecting xp
+	- getting new upgrade
 
 
 - main menu
@@ -58,7 +69,6 @@ TO DO:
 
 
 - misc.
-	- enemies go slightly faster each round/level ?
 	- get_main / get_world on Autoload node instead of all classes
 		- Entity
 		- GameCamera
