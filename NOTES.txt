@@ -37,6 +37,7 @@ TO DO:
 
 - particles
 	- on hit
+		- select color for every Entity (slime should have green blood, gunners blue, etc.)
 	- on death (gibs)
 	- collecting xp
 	- getting new upgrade

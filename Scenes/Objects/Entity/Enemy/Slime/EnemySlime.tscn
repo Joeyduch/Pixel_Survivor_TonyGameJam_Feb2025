@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0a1nj3joue7q"]
+[gd_scene load_steps=9 format=3 uid="uid://d0a1nj3joue7q"]
 
 [ext_resource type="PackedScene" uid="uid://smgphuk2esfq" path="res://Scenes/Objects/Entity/Enemy/Enemy.tscn" id="1_gppge"]
 [ext_resource type="Texture2D" uid="uid://d38gf7xqr8teu" path="res://Assets/Sprites/Enemies/Slime_Run_0001.png" id="2_he530"]
@@ -19,8 +19,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_2fdih"]
+colors = PackedColorArray(0.67451, 0.192157, 0.192157, 1, 0.67451, 0.192157, 0.192157, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_38qlq"]
+gradient = SubResource("Gradient_2fdih")
+width = 2
+height = 2
+fill_from = Vector2(0, 0.0042735)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iq6ul"]
+lifetime_randomness = 0.87
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 63.83
+initial_velocity_max = 200.0
+
 [node name="EnemySlime" instance=ExtResource("1_gppge")]
 script = ExtResource("2_hwgdm")
+blood_color = Color(0.411765, 0.741176, 0.184314, 1)
 
 [node name="StatusTimer" type="Timer" parent="." index="0"]
 
@@ -33,3 +51,14 @@ speed = 32
 
 [node name="Life" parent="." index="7"]
 max_health = 8
+
+[node name="Particles" type="Node2D" parent="." index="11"]
+
+[node name="HurtParticles" type="GPUParticles2D" parent="Particles" index="0"]
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_38qlq")
+lifetime = 0.12
+one_shot = true
+explosiveness = 0.6
+process_material = SubResource("ParticleProcessMaterial_iq6ul")

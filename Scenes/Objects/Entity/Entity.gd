@@ -3,6 +3,7 @@ class_name Entity extends CharacterBody2D
 @export var team:int = 0: set = set_team
 @export var exp_value:int = 0
 @export var thorn_damage:int = 0 # physical contact damage to other teams
+@export var blood_color:Color = Color(172.0/255, 49.0/255, 49.0/255) # a red from the color palette
 
 @onready var weapon_set:WeaponSet = $WeaponSet
 @onready var character_controller:CharacterController = $CharacterController
@@ -76,8 +77,11 @@ func update_sprite() -> void:
 func hurt(damage_amount:int) -> void:
 	if damage_amount > 0:
 		life.hurt(damage_amount)
+		
 		animation_player.stop()
 		animation_player.play("Hurt")
+		
+		get_world().spawn_blood_particles(position, blood_color)
 
 
 func die() -> void:

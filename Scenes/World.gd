@@ -33,6 +33,12 @@ const enemy_levels_map:Dictionary[int, Array] = {
 	],
 }
 
+## a dictionary of all the GPUParticles2D or OneShotParticles scenes,
+## in the format {ParticleNameString : ParticlePackedScene}
+var scenes_particles:Dictionary[String, PackedScene] = {
+	"blood": preload("res://Scenes/Objects/Particle/OneShotParticles/BloodParticles/BloodParticles.tscn"),
+}
+
 ## this adds (or substracts) to the base enemy health. Goes up every level up
 var enemy_health_modifier:int = 0
 
@@ -47,6 +53,7 @@ var enemy_health_modifier:int = 0
 @onready var loot_parent:Node = $Loot
 @onready var enemies_parent:Node = $Entities/Enemies
 @onready var projectile_parent:Node = $Projectiles
+@onready var particles_parent:Node = $Particles
 
 
 
@@ -156,6 +163,25 @@ func spawn_enemy() -> void:
 	enemy.life.max_health += enemy_health_modifier
 	enemy.life.health = enemy.life.max_health
 	enemy.position = get_random_position_outside_viewport(32)
+
+
+func spawn_particles(particles_name:String, spawn_position:Vector2) -> GPUParticles2D:
+	if not scenes_particles.has(particles_name):
+		push_error("particles name %s is invalid / not found." % [particles_name])
+		return
+	
+	var particles_scene:PackedScene = scenes_particles[particles_name]
+	var particles:GPUParticles2D = particles_scene.instantiate()
+	particles_parent.add_child(particles)
+	particles.position = spawn_position
+	
+	return particles
+
+
+func spawn_blood_particles(spawn_position:Vector2, color:Variant=null) -> void:
+	var blood_particles:GPUParticles2D = spawn_particles("blood", spawn_position)
+	if blood_particles is BloodParticles and color is Color:
+		blood_particles.set_blood_color(color)
 
 
 

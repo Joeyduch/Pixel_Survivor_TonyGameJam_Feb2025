@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvvmiy1mvmn8d"]
+
+[ext_resource type="Script" uid="uid://d35hps1hqlejy" path="res://Scenes/Objects/Particle/OneShotParticles/BloodParticles/BloodParticles.gd" id="1_hyp0d"]
+
+[sub_resource type="Gradient" id="Gradient_2fdih"]
+colors = PackedColorArray(0.67451, 0.192157, 0.192157, 1, 0.67451, 0.192157, 0.192157, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_38qlq"]
+gradient = SubResource("Gradient_2fdih")
+width = 2
+height = 2
+fill_from = Vector2(0, 0.0042735)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iq6ul"]
+lifetime_randomness = 0.87
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 63.83
+initial_velocity_max = 200.0
+
+[node name="BloodParticles" type="GPUParticles2D"]
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_38qlq")
+lifetime = 0.12
+one_shot = true
+explosiveness = 0.6
+process_material = SubResource("ParticleProcessMaterial_iq6ul")
+script = ExtResource("1_hyp0d")
+metadata/_custom_type_script = "uid://owex6es8yxkf"

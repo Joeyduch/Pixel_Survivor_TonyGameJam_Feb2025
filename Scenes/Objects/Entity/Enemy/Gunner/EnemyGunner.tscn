@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp4140xerevad"]
+[gd_scene load_steps=10 format=3 uid="uid://cp4140xerevad"]
 
 [ext_resource type="PackedScene" uid="uid://smgphuk2esfq" path="res://Scenes/Objects/Entity/Enemy/Enemy.tscn" id="1_c0nr5"]
 [ext_resource type="Texture2D" uid="uid://cfio7ehlirypd" path="res://Assets/Sprites/Enemies/Gunner_Run_0001.png" id="2_ytbvd"]
@@ -20,7 +20,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_2fdih"]
+colors = PackedColorArray(0.67451, 0.192157, 0.192157, 1, 0.67451, 0.192157, 0.192157, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_38qlq"]
+gradient = SubResource("Gradient_2fdih")
+width = 2
+height = 2
+fill_from = Vector2(0, 0.0042735)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iq6ul"]
+lifetime_randomness = 0.87
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 63.83
+initial_velocity_max = 200.0
+
 [node name="EnemyGunner" instance=ExtResource("1_c0nr5")]
+blood_color = Color(0.984314, 0.94902, 0.211765, 1)
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_jr2g7")
@@ -29,3 +47,14 @@ frame_progress = 0.0
 [node name="BaseWeapon" parent="WeaponSet" index="1" instance=ExtResource("4_ytbvd")]
 scene_projectile = ExtResource("5_8wdho")
 cooldown_time = 2.0
+
+[node name="Particles" type="Node2D" parent="." index="10"]
+
+[node name="HurtParticles" type="GPUParticles2D" parent="Particles" index="0"]
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_38qlq")
+lifetime = 0.12
+one_shot = true
+explosiveness = 0.6
+process_material = SubResource("ParticleProcessMaterial_iq6ul")

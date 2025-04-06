@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bikvdgjqdx2jd"]
+[gd_scene load_steps=8 format=3 uid="uid://bikvdgjqdx2jd"]
 
 [ext_resource type="PackedScene" uid="uid://smgphuk2esfq" path="res://Scenes/Objects/Entity/Enemy/Enemy.tscn" id="1_73y6m"]
 [ext_resource type="Texture2D" uid="uid://cd4ynwm0gc3w" path="res://Assets/Sprites/Enemies/GoldSkull_Run_0001.png" id="2_h2vfu"]
@@ -18,9 +18,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_2fdih"]
+colors = PackedColorArray(0.67451, 0.192157, 0.192157, 1, 0.67451, 0.192157, 0.192157, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_38qlq"]
+gradient = SubResource("Gradient_2fdih")
+width = 2
+height = 2
+fill_from = Vector2(0, 0.0042735)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iq6ul"]
+lifetime_randomness = 0.87
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 63.83
+initial_velocity_max = 200.0
+
 [node name="EnemySkull" instance=ExtResource("1_73y6m")]
 collision_layer = 4
 collision_mask = 4
+blood_color = Color(0.87451, 0.439216, 0.14902, 1)
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(-1, 0)
@@ -33,3 +51,14 @@ speed = 16
 
 [node name="Life" parent="." index="6"]
 max_health = 2
+
+[node name="Particles" type="Node2D" parent="." index="10"]
+
+[node name="HurtParticles" type="GPUParticles2D" parent="Particles" index="0"]
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_38qlq")
+lifetime = 0.12
+one_shot = true
+explosiveness = 0.6
+process_material = SubResource("ParticleProcessMaterial_iq6ul")

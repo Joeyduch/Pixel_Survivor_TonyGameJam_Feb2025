@@ -23,7 +23,6 @@ animations = [{
 [node name="ProjectileFire" instance=ExtResource("1_2u5tu")]
 base_health = 8
 speed = 96
-is_projectile_damaging = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_rm7qp")

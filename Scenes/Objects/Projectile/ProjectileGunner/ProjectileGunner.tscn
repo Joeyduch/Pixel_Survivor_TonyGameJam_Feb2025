@@ -3,7 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://cccpsq0oessnx" path="res://Scenes/Objects/Projectile/Projectile.tscn" id="1_wgycu"]
 
 [node name="ProjectileGunner" instance=ExtResource("1_wgycu")]
-base_health = null
 speed = 64
-is_projectile_damaging = null
 base_damage = null
