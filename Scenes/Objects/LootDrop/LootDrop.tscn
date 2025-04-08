@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt2n8b20ciou2"]
+[gd_scene load_steps=10 format=3 uid="uid://bt2n8b20ciou2"]
 
 [ext_resource type="Script" uid="uid://b4i1ev1d44r1l" path="res://Scenes/Objects/LootDrop/LootDrop.gd" id="1_fupr8"]
 [ext_resource type="Texture2D" uid="uid://bcugflqdgy7rb" path="res://Assets/Sprites/Loot/ExpDrop_0001.png" id="2_3hn43"]
 [ext_resource type="Texture2D" uid="uid://hwq36yceomwl" path="res://Assets/Sprites/Loot/ExpDrop_0002.png" id="3_cxly7"]
 [ext_resource type="Texture2D" uid="uid://bkimvkk8oon4o" path="res://Assets/Sprites/Loot/ExpDrop_0003.png" id="4_l7lb1"]
 [ext_resource type="Texture2D" uid="uid://bnjlm0bkmeewq" path="res://Assets/Sprites/Loot/ExpDrop_0004.png" id="5_408mp"]
+[ext_resource type="AudioStream" uid="uid://db7pcq5qd7dh1" path="res://Assets/Sounds/CollectExp.wav" id="6_cxly7"]
+[ext_resource type="Script" uid="uid://co1y556k10i3g" path="res://Scenes/Audio/AudioStreamPitched2D/AudioStreamPitched2D.gd" id="7_l7lb1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dlvor"]
 animations = [{
@@ -43,3 +45,8 @@ shape = SubResource("CircleShape2D_v4uok")
 [node name="Lifetime" type="Timer" parent="."]
 wait_time = 30.0
 autostart = true
+
+[node name="CollectAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_cxly7")
+script = ExtResource("7_l7lb1")
+metadata/_custom_type_script = "uid://co1y556k10i3g"

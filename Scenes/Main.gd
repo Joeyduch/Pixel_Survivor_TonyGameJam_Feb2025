@@ -99,6 +99,8 @@ func _player_data_leveled_up(new_level:int, _exp_to_level_up:int) -> void:
 	ui.menus.upgrades_menu.set_upgrades_list(upgrades_lists_array)
 	# call upgrade menu
 	ui.menus.set_menu(ui.menus.MENUS.UPGRADES)
+	# play level_up sound
+	ui.audio.play_audio("level_up")
 	# sets difficulty up
 	world.enemy_health_modifier += 1
 

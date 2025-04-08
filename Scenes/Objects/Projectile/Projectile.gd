@@ -4,6 +4,7 @@ class_name Projectile extends Area2D
 @export var speed:int = 128
 @export var is_projectile_damaging:bool = true # can be turned off for special projectiles like bombs
 @export var base_damage:int = 1
+@export var audio_shoot:AudioStream = preload("res://Assets/Sounds/ShootProjectile.wav")
 
 @onready var life:Life = $Life
 @onready var on_screen_notifier:VisibleOnScreenNotifier2D = $OnScreenNotifier

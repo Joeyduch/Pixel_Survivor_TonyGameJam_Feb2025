@@ -11,8 +11,8 @@ signal fire_ready(readied_weapon:BaseWeapon)
 @export var cooldown_time:float = 1: set = set_cooldown_time
 @export var spread:float = 15: set = set_spread
 
-
 @onready var cooldown_timer:Timer = $CooldownTimer
+@onready var audio_stream_player:AudioStreamPitched2D = $AudioStreamPitched2D
 
 var is_ready:bool = true
 
@@ -71,6 +71,13 @@ func fire(direction:Vector2, parent_node:Node=null) -> void:
 			parent = parent_entity.get_world().projectile_parent
 		projectile.position = global_position
 		parent.add_child(projectile)
+	
+	# play audio
+	var projectile_instance:Projectile = scene_projectile.instantiate()
+	var audio:AudioStream = projectile_instance.audio_shoot
+	if audio:
+		audio_stream_player.stream = audio
+		audio_stream_player.play_random_pitched(0.3)
 
 
 # returns parent WeaponSet if it exists (or else returns null)

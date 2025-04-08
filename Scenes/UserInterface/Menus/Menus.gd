@@ -1,6 +1,7 @@
 class_name UIMenus extends Control
 
 signal menu_changed(current_menu_node:MENUS)
+signal request_audio_play(audio_name:String)
 
 enum MENUS {NONE, PAUSE, UPGRADES, NEWWEAPON}
 
@@ -32,28 +33,36 @@ func _ready() -> void:
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("Control_Right"):
 		if current_menu == MENUS.UPGRADES:
+			request_audio_play.emit("menu_tick")
 			upgrades_menu.select_next()
 		elif current_menu == MENUS.NEWWEAPON:
+			request_audio_play.emit("menu_tick")
 			new_weapon_menu.select_next()
 	
 	elif event.is_action_pressed("Control_Left"):
 		if current_menu == MENUS.UPGRADES:
+			request_audio_play.emit("menu_tick")
 			upgrades_menu.select_previous()
 		elif current_menu == MENUS.NEWWEAPON:
+			request_audio_play.emit("menu_tick")
 			new_weapon_menu.select_previous()
 	
 	elif event.is_action_pressed("Control_Up"):
 		if current_menu == MENUS.NEWWEAPON:
+			request_audio_play.emit("menu_tick")
 			new_weapon_menu.jump_next()
 	
 	elif event.is_action_pressed("Control_Down"):
 		if current_menu == MENUS.NEWWEAPON:
+			request_audio_play.emit("menu_tick")
 			new_weapon_menu.jump_previous()
 	
 	elif event.is_action_pressed("Control_A"):
 		if current_menu == MENUS.UPGRADES:
+			request_audio_play.emit("menu_select")
 			upgrades_menu.choose_upgrade()
 		elif current_menu == MENUS.NEWWEAPON:
+			request_audio_play.emit("menu_select")
 			new_weapon_menu.confirm_selection()
 
 

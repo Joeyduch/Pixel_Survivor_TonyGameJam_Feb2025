@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://k2rw4ncaxeki"]
+[gd_scene load_steps=5 format=3 uid="uid://k2rw4ncaxeki"]
 
 [ext_resource type="Script" uid="uid://c7t2ydqgtnpt5" path="res://Scenes/Components/Weapons/BaseWeapon/BaseWeapon.gd" id="1_ajkoj"]
 [ext_resource type="PackedScene" uid="uid://cccpsq0oessnx" path="res://Scenes/Objects/Projectile/Projectile.tscn" id="2_5p7ym"]
 [ext_resource type="Texture2D" uid="uid://danjgn8xgxh33" path="res://Assets/Sprites/Misc/Gun.png" id="2_nkksy"]
+[ext_resource type="PackedScene" uid="uid://bjqt288gnj6ys" path="res://Scenes/Audio/AudioStreamPitched2D/AudioStreamPitched2D.tscn" id="4_jsqv5"]
 
 [node name="BaseWeapon" type="Node2D"]
 script = ExtResource("1_ajkoj")
 icon = ExtResource("2_nkksy")
 scene_projectile = ExtResource("2_5p7ym")
 
+[node name="AudioStreamPitched2D" parent="." instance=ExtResource("4_jsqv5")]
+
 [node name="CooldownTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="TEMPORARY" type="Sprite2D" parent="."]
-visible = false

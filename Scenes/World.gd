@@ -92,26 +92,29 @@ func _ready() -> void:
 func get_random_position_outside_viewport(outside_margin_size:int=0) -> Vector2:
 	var new_position:Vector2 = Vector2(0,0)
 	var is_spawning_horizontally:bool = randf() <= 0.5
+	var center_screen_position:Vector2 = game_camera.get_screen_center_position()
+	var viewport_size:Vector2 = get_viewport_rect().size
+	
 	if is_spawning_horizontally:
-		var min_y_location:int = int(game_camera.global_position.y)
-		var max_y_location:int = min_y_location + int(get_viewport_rect().size.y)
+		var min_y_location:int = int(center_screen_position.y - viewport_size.y/2) # top
+		var max_y_location:int = min_y_location + int(viewport_size.y) # bottom
 		var y_location:int = randi_range(min_y_location, max_y_location)
 		
-		var x_location:int = int(game_camera.global_position.x) - outside_margin_size
+		var x_location:int = int(center_screen_position.x - viewport_size.x/2) - outside_margin_size #left
 		var is_spawning_right:bool = randf() <= 0.5
 		if is_spawning_right:
-			x_location = int(game_camera.global_position.x + get_viewport_rect().size.x) + outside_margin_size
+			x_location = int(center_screen_position.x + viewport_size.x/2) + outside_margin_size # right
 		
 		new_position = Vector2(x_location, y_location)
 	else:
-		var min_x_location:int = int(game_camera.global_position.x)
-		var max_x_location:int = min_x_location + int(get_viewport_rect().size.x)
+		var min_x_location:int = int(center_screen_position.x - viewport_size.x/2) # left
+		var max_x_location:int = min_x_location + int(viewport_size.x) # right
 		var x_location:int = randi_range(min_x_location, max_x_location)
 		
-		var y_location:int = int(game_camera.global_position.y) - outside_margin_size
+		var y_location:int = int(center_screen_position.y - viewport_size.y/2) - outside_margin_size # top
 		var is_spawning_down:bool = randf() <= 0.5
 		if is_spawning_down:
-			y_location = int(game_camera.global_position.y + get_viewport_rect().size.y) + outside_margin_size
+			y_location = int(center_screen_position.y + viewport_size.y/2) + outside_margin_size
 		
 		new_position = Vector2(x_location, y_location)
 	

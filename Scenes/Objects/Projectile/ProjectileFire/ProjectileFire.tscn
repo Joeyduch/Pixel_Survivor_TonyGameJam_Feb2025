@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://uusdhnxasej6"]
+[gd_scene load_steps=7 format=3 uid="uid://uusdhnxasej6"]
 
 [ext_resource type="PackedScene" uid="uid://cccpsq0oessnx" path="res://Scenes/Objects/Projectile/Projectile.tscn" id="1_2u5tu"]
 [ext_resource type="Texture2D" uid="uid://jxa205v122jk" path="res://Assets/Sprites/Projectiles/FireCharge_0001.png" id="2_ri6e3"]
+[ext_resource type="AudioStream" uid="uid://cxvnu1mk2dkbl" path="res://Assets/Sounds/ShootProjectileFire.wav" id="2_tdamx"]
 [ext_resource type="Texture2D" uid="uid://cgf5g5pmv8bu8" path="res://Assets/Sprites/Projectiles/FireCharge_0002.png" id="3_tdamx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rm7qp"]
@@ -23,6 +24,8 @@ animations = [{
 [node name="ProjectileFire" instance=ExtResource("1_2u5tu")]
 base_health = 8
 speed = 96
+base_damage = 2
+audio_shoot = ExtResource("2_tdamx")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_rm7qp")

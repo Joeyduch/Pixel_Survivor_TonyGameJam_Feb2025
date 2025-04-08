@@ -5,6 +5,7 @@ class_name Entity extends CharacterBody2D
 @export var thorn_damage:int = 0 # physical contact damage to other teams
 @export var blood_color:Color = Color(172.0/255, 49.0/255, 49.0/255) # a red from the color palette
 
+@onready var physics_collision:CollisionShape2D = $PhysicsCollision
 @onready var weapon_set:WeaponSet = $WeaponSet
 @onready var character_controller:CharacterController = $CharacterController
 @onready var life:Life = $Life
@@ -12,6 +13,8 @@ class_name Entity extends CharacterBody2D
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var enemy_detector:EnemyDetector = $EnemyDetector
 @onready var health_bar:UISmallBar = $HealthBar
+@onready var hit_pitched_audio:AudioStreamPitched2D = $HitPitchedAudio
+@onready var death_pitched_audio:AudioStreamPitched2D = $DeathPitchedAudio
 
 
 
@@ -82,10 +85,13 @@ func hurt(damage_amount:int) -> void:
 		animation_player.play("Hurt")
 		
 		get_world().spawn_blood_particles(position, blood_color)
+		
+		hit_pitched_audio.play_random_pitched(0.3)
 
 
 func die() -> void:
-	pass
+	death_pitched_audio.connect("finished", _on_death_pitched_audio_finished)
+	death_pitched_audio.play_random_pitched(0.3)
 
 
 
@@ -101,3 +107,7 @@ func _on_life_max_health_changed(new_max:int) -> void:
 
 func _on_life_died() -> void:
 	die()
+
+
+func _on_death_pitched_audio_finished() -> void:
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tyvg8xq7xn3j"]
+[gd_scene load_steps=17 format=3 uid="uid://tyvg8xq7xn3j"]
 
 [ext_resource type="Script" uid="uid://w428n8tncj8k" path="res://Scenes/Objects/Entity/Entity.gd" id="1_jldnp"]
 [ext_resource type="Texture2D" uid="uid://bqaltv4iw07id" path="res://Assets/Sprites/Enemies/Enemy_Run_0001.png" id="2_c0417"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://deyupjall358h" path="res://Scenes/Components/Weapons/WeaponSet.tscn" id="6_y85oe"]
 [ext_resource type="PackedScene" uid="uid://11ec5g85tc2i" path="res://Scenes/Components/EnemyDetector/EnemyDetector.tscn" id="7_kqdad"]
 [ext_resource type="PackedScene" uid="uid://cgcfs15kav156" path="res://Scenes/UserInterface/UIComponents/UISmallBar/UISmallBar.tscn" id="8_y2d3b"]
+[ext_resource type="Script" uid="uid://co1y556k10i3g" path="res://Scenes/Audio/AudioStreamPitched2D/AudioStreamPitched2D.gd" id="9_38qlq"]
+[ext_resource type="AudioStream" uid="uid://cshhuba33af7" path="res://Assets/Sounds/EnemyHit.wav" id="9_iq6ul"]
+[ext_resource type="AudioStream" uid="uid://bmnaop60ns16e" path="res://Assets/Sounds/EnemyDeath.wav" id="11_pwvt6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuph2"]
 size = Vector2(16, 16)
@@ -89,3 +92,13 @@ team = 0
 libraries = {
 &"": SubResource("AnimationLibrary_iq6ul")
 }
+
+[node name="HitPitchedAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_iq6ul")
+script = ExtResource("9_38qlq")
+metadata/_custom_type_script = "uid://co1y556k10i3g"
+
+[node name="DeathPitchedAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_pwvt6")
+script = ExtResource("9_38qlq")
+metadata/_custom_type_script = "uid://co1y556k10i3g"

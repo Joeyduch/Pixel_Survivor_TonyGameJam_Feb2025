@@ -7,4 +7,3 @@ class_name ExpDrop extends LootDrop
 func collect(player_body:Entity) -> void:
 	super(player_body)
 	PlayerData.gain_experience(value)
-	queue_free()

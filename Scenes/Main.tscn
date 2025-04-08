@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=28 format=3 uid="uid://cs3tfa5avgdx7"]
 
 [ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
 [ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dwm56icapvtr4" path="res://Scenes/UserInterface/UI.gd" id="6_6qbe5"]
 [ext_resource type="PackedScene" uid="uid://ctkb1iqry1u2y" path="res://Scenes/UserInterface/UIComponents/UIBar/UIBar.tscn" id="6_kuhva"]
 [ext_resource type="Script" uid="uid://wjuldihp0oy5" path="res://Scenes/UserInterface/HUD/HUD.gd" id="7_ow6lx"]
+[ext_resource type="PackedScene" uid="uid://j5uofynniln" path="res://Scenes/Audio/UIAudio/UIAudio.tscn" id="8_3tgeq"]
 [ext_resource type="Script" uid="uid://cbuiq3t54sqey" path="res://Scenes/UserInterface/Menus/Menus.gd" id="9_6kjgy"]
 [ext_resource type="LabelSettings" uid="uid://cbhpbidow6vis" path="res://Assets/LabelSettings/LSTitle.tres" id="10_erwvk"]
 [ext_resource type="PackedScene" uid="uid://cr6lft4c1ostv" path="res://Scenes/UserInterface/UIComponents/UIColorOverlay/UIColorOverlay.tscn" id="11_fq0cl"]
@@ -100,6 +101,8 @@ position = Vector2(158, 91)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("6_6qbe5")
+
+[node name="UIAudio" parent="UI" instance=ExtResource("8_3tgeq")]
 
 [node name="HUD" type="Control" parent="UI"]
 process_mode = 1

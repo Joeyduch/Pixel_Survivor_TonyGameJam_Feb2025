@@ -19,25 +19,10 @@ TO DO:
 - audio
 	- music
 	- sound effects
-		- weapon fire
-		- player hit
-		- enemy hit
-		- player death
-		- enemy death
-		- explosions
-		- level up
-		- loot
-			- exp
-			- loot box/upgrade
-		- ui
-			- select next/previous
-			- select current
-			- cancel
+		- ???
 
 
 - particles
-	- on hit
-		- select color for every Entity (slime should have green blood, gunners blue, etc.)
 	- on death (gibs)
 	- collecting xp
 	- getting new upgrade
@@ -78,6 +63,8 @@ TO DO:
 - BUGS :(
 	- unnpausing inside the upgredes selection menu when leveling up multiple times rapidly
 	- player can go out of bounds
+	- we can see enemies spawn when player is near map border
+	- upgradesmenu selection not wrapping
 
 
 

@@ -9,6 +9,3 @@ func collect(player_body:Entity) -> void:
 	var upgrade:BaseUpgrade = randomSelector.roll_item()
 	
 	player_body.get_main().give_upgrade(upgrade)
-	
-	print("COLLECTED LOOT BOX")
-	queue_free()

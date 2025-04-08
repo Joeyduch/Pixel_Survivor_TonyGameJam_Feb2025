@@ -21,7 +21,6 @@ animations = [{
 [node name="ProjectileMine" instance=ExtResource("1_jxeui")]
 explosion_range = 0
 extra_explosion_amount = 0
-base_health = 1
 speed = 0
 
 [node name="AnimatedSprite2D" parent="." index="0"]

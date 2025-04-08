@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsr7xtakvuyxg"]
+[gd_scene load_steps=3 format=3 uid="uid://dsr7xtakvuyxg"]
 
 [ext_resource type="PackedScene" uid="uid://cccpsq0oessnx" path="res://Scenes/Objects/Projectile/Projectile.tscn" id="1_wgycu"]
+[ext_resource type="AudioStream" uid="uid://cqwblxokusp3w" path="res://Assets/Sounds/ShootProjectileGunner.wav" id="2_77h1g"]
 
 [node name="ProjectileGunner" instance=ExtResource("1_wgycu")]
 speed = 64
-base_damage = null
+base_damage = 1
+audio_shoot = ExtResource("2_77h1g")
