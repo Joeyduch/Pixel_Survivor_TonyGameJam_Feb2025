@@ -78,6 +78,7 @@ func fire(direction:Vector2, parent_node:Node=null) -> void:
 	if audio:
 		audio_stream_player.stream = audio
 		audio_stream_player.play_random_pitched(0.3)
+	projectile_instance.queue_free()
 
 
 # returns parent WeaponSet if it exists (or else returns null)
