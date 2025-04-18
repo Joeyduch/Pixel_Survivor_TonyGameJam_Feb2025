@@ -1,5 +1,6 @@
 class_name UI extends CanvasLayer
 
+@onready var main:Main = get_parent() as Main
 @onready var hud:UIHUD = $HUD
 @onready var menus:UIMenus = $Menus
 @onready var audio:UIAudio = $UIAudio

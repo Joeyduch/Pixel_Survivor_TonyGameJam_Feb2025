@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://clyyc83rf35k0"]
+
+[ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="1_7op5f"]
+[ext_resource type="Script" uid="uid://7iylpc8633x4" path="res://Scenes/MainScenes/MainMenu/ChoicesContainer/MenuChoiceLabel/MenuChoiceLabel.gd" id="2_hrcp0"]
+
+[node name="MenuChoiceLabel" type="Label"]
+text = "menu choice label"
+label_settings = ExtResource("1_7op5f")
+horizontal_alignment = 1
+uppercase = true
+script = ExtResource("2_hrcp0")

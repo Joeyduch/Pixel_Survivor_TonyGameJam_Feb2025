@@ -46,7 +46,6 @@ var enemy_health_modifier:int = 0
 @export var lootbox_spawn_timer:Timer = null
 @export var player:Entity = null 
 @export var max_enemy_spawned:int = 32
-@export var map_size:Vector2i = Vector2i(32,24)
 
 @onready var game_camera:GameCamera = $GameCamera
 @onready var background_tilemap:AutoTileMap = $Background/AutoTileMap
@@ -65,6 +64,7 @@ func _ready() -> void:
 		lootbox_spawn_timer.connect("timeout", _on_lootbox_spawn_timer_timeout)
 	
 	# setup camera & player
+	var map_size:Vector2i = GameData.settings["map_size"]
 	if player:
 		# player spawn position
 		player.position = Vector2(

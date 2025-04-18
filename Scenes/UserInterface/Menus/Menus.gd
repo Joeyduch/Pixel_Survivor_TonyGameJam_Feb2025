@@ -5,6 +5,7 @@ signal request_audio_play(audio_name:String)
 
 enum MENUS {NONE, PAUSE, UPGRADES, NEWWEAPON}
 
+@onready var ui:UI = get_parent() as UI
 @onready var menu_shade:ColorRect = $MenuShade
 @onready var pause_menu:Control = $PauseMenu
 @onready var upgrades_menu:UpgradesMenu = $UpgradesMenu
@@ -64,6 +65,10 @@ func _input(event:InputEvent) -> void:
 		elif current_menu == MENUS.NEWWEAPON:
 			request_audio_play.emit("menu_select")
 			new_weapon_menu.confirm_selection()
+	
+	elif event.is_action_pressed("Control_B"):
+		if current_menu == MENUS.PAUSE:
+			ui.main.quit_to_menu()
 
 
 

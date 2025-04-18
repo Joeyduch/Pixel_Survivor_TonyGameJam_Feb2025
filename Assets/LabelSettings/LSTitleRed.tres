@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cssfecsc7m5cq"]
+
+[ext_resource type="FontFile" uid="uid://cbp318boivy2f" path="res://Assets/Fonts/pixelated.ttf" id="1_1pxbf"]
+
+[resource]
+font = ExtResource("1_1pxbf")
+font_color = Color(1, 0.25, 0.25, 1)
+shadow_color = Color(0, 0, 0, 0.337255)

@@ -1,7 +1,7 @@
 ------------------------------
 TO DO:
 
-
+ 
 - enemies
 	- more enemy types
 		- mama-slime (mega-slime that bursts into multiple slimes at death)
@@ -10,7 +10,12 @@ TO DO:
 	- make enemies go slightly faster each round (level-based speed boost)
 
 
+- Better new weapons list
+	- remove machinegun
+	- add mines
+
 - Upgrades rebalances
+	- Rework Tier 1 upgradelists
 	- Make Tier 2 upgradelists
 	- Rename healing upgradelist
 	- Rebalance upgrades in upgradelists
@@ -18,8 +23,7 @@ TO DO:
 
 - audio
 	- music
-	- sound effects
-		- ???
+	- main menu
 
 
 - particles
@@ -29,35 +33,32 @@ TO DO:
 
 
 - main menu
-	- start new game
-	? map size setting ?
-	? character selector settings ?
-	- mute sound / music settings
-	- quit to desktop
+	- moving background
+	- functionality
 
 
-- pause menu
-	- resume
-	- settings menu
-	- suicide (quit to main menu) (player character explodes)
+- random events
+	- mini-boss (mama-slime)
+	- horde spawn
 
 
 - polish
-	- transitions
-	- animations
+	- transitions (between scenes)
 	- particles
-	- shaders
 	- menus
 		- show controls (UI)
 	- better descriptions
 		- upgrades
 	- better enemy / upgradeslist progression
+	- camera shake ?
+	- re-fetch enemy spawn position of too close to player
+		- ex: player is near border/corner and enemy spawns near that corner
 
 
 - misc.
 	- get_main / get_world on Autoload node instead of all classes
-		- Entity
-		- GameCamera
+		> Entity
+		> GameCamera
 
 
 - BUGS :(
@@ -73,3 +74,11 @@ TO DO:
 NOTES:
 
 * exp gain on Main's _ready method for testings
+
+
+
+- Notes for next game / project
+	- Better menu/ui management
+		- Menu classes
+	- Better audio management
+		- Audio mixer

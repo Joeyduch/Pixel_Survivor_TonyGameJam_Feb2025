@@ -1,10 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=25 format=3 uid="uid://cs3tfa5avgdx7"]
 
-[ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/World.gd" id="1_6xhlf"]
-[ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/Main.gd" id="1_fqa7p"]
+[ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/MainScenes/Game/World.gd" id="1_6xhlf"]
+[ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/MainScenes/Game/Main.gd" id="1_fqa7p"]
 [ext_resource type="PackedScene" uid="uid://dtetuew7g3wsd" path="res://Scenes/Objects/Entity/Player/Player.tscn" id="3_6cwc0"]
 [ext_resource type="PackedScene" uid="uid://cwj635oh1vrhs" path="res://Scenes/Cameras/GameCamera/GameCamera.tscn" id="3_jyqft"]
-[ext_resource type="Texture2D" uid="uid://ca5r6opvyequb" path="res://Assets/Sprites/Background/Tilemap.png" id="5_1p5hy"]
+[ext_resource type="TileSet" uid="uid://bnlt5mmx0go03" path="res://Assets/TileSet/TileSetDefault.tres" id="4_du0fr"]
 [ext_resource type="Script" uid="uid://dffgbtt0w0k6i" path="res://Classes/AutoTile/GenTileAutoMap.gd" id="5_frkhe"]
 [ext_resource type="Script" uid="uid://dwm56icapvtr4" path="res://Scenes/UserInterface/UI.gd" id="6_6qbe5"]
 [ext_resource type="PackedScene" uid="uid://ctkb1iqry1u2y" path="res://Scenes/UserInterface/UIComponents/UIBar/UIBar.tscn" id="6_kuhva"]
@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cr6lft4c1ostv" path="res://Scenes/UserInterface/UIComponents/UIColorOverlay/UIColorOverlay.tscn" id="11_fq0cl"]
 [ext_resource type="PackedScene" uid="uid://cusy2xls8wkjt" path="res://Scenes/UserInterface/HUD/UIWeaponsList/UIWeaponsList.tscn" id="12_erwvk"]
 [ext_resource type="Script" uid="uid://brtglvwxo4pjv" path="res://Scenes/UserInterface/Menus/Upgrades/UpgradesMenu.gd" id="12_h1m7h"]
-[ext_resource type="FontFile" uid="uid://cbp318boivy2f" path="res://Assets/Fonts/pixelated.ttf" id="12_hwpts"]
 [ext_resource type="PackedScene" uid="uid://dpmq2rxs525k7" path="res://Scenes/UserInterface/Menus/Upgrades/UIUpgradesList/UIUpgradesList.tscn" id="13_frkhe"]
+[ext_resource type="LabelSettings" uid="uid://cssfecsc7m5cq" path="res://Assets/LabelSettings/LSTitleRed.tres" id="14_du0fr"]
 [ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="14_erwvk"]
 [ext_resource type="PackedScene" uid="uid://d3vuhsylt2ro2" path="res://Scenes/UserInterface/UIComponents/UIBorderIcon/UIBorderIcon.tscn" id="17_2w5on"]
 [ext_resource type="Script" uid="uid://05kboq8epbyr" path="res://Scenes/UserInterface/Menus/NewWeapon/NewWeaponMenu.gd" id="17_346fj"]
@@ -24,34 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://ccmrdcxxih15c" path="res://Assets/Sprites/Misc/MachineGun.png" id="20_fq0cl"]
 [ext_resource type="Texture2D" uid="uid://b0vyuuw0cyxfq" path="res://Assets/Sprites/Misc/SMG.png" id="21_hwpts"]
 [ext_resource type="Texture2D" uid="uid://bqa6luawd2okr" path="res://Assets/Sprites/Misc/Shotgun.png" id="22_hwpts"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1m7h"]
-texture = ExtResource("5_1p5hy")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_erwvk"]
-sources/0 = SubResource("TileSetAtlasSource_h1m7h")
-
-[sub_resource type="LabelSettings" id="LabelSettings_jyqft"]
-font = ExtResource("12_hwpts")
-font_color = Color(0.67451, 0.192157, 0.192157, 1)
-shadow_color = Color(0, 0, 0, 0.337255)
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -82,7 +54,7 @@ limit_top = 0
 [node name="Background" type="Node2D" parent="World"]
 
 [node name="AutoTileMap" type="TileMapLayer" parent="World/Background"]
-tile_set = SubResource("TileSet_erwvk")
+tile_set = ExtResource("4_du0fr")
 script = ExtResource("5_frkhe")
 map_size = Vector2i(20, 12)
 
@@ -174,7 +146,7 @@ alignment = 1
 [node name="Title" type="Label" parent="UI/HUD/DeathScreen/VBoxContainer"]
 layout_mode = 2
 text = "YOU DIED"
-label_settings = SubResource("LabelSettings_jyqft")
+label_settings = ExtResource("14_du0fr")
 horizontal_alignment = 1
 uppercase = true
 

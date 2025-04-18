@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bnlt5mmx0go03"]
+
+[ext_resource type="Texture2D" uid="uid://ca5r6opvyequb" path="res://Assets/Sprites/Background/Tilemap.png" id="1_vwgpi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1m7h"]
+texture = ExtResource("1_vwgpi")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_h1m7h")

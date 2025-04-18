@@ -8,9 +8,9 @@
 script = ExtResource("1_q5xwk")
 icon = ExtResource("1_tfcaf")
 name = "Fire Pistol"
-damage_modifier = 1
+damage_modifier = 0
 base_spread = 15
-base_cooldown_time = 1.0
+base_cooldown_time = 0.75
 base_projectiles_per_shot = 1
 projectile_scene = ExtResource("2_tfcaf")
 metadata/_custom_type_script = "uid://1c7vk7gbhx6f"

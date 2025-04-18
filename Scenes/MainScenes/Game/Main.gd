@@ -2,6 +2,8 @@ class_name Main extends Node
 
 signal game_paused(is_paused:bool)
 
+var scene_main_menu:PackedScene = load("res://Scenes/MainScenes/MainMenu/MainMenu.tscn")
+
 @onready var world:World = $World
 @onready var ui:UI = $UI
 
@@ -55,6 +57,14 @@ func _input(event: InputEvent) -> void:
 func reload_scene() -> void:
 	PlayerData.reset()
 	get_tree().reload_current_scene()
+
+
+func quit_to_menu() -> void:
+	toggle_pause()
+	ui.hud.color_overlay.fade_in()
+	await ui.hud.color_overlay.animation_player.animation_finished
+	PlayerData.reset()
+	get_tree().change_scene_to_packed(scene_main_menu)
 
 
 func toggle_pause() -> void:

@@ -12,13 +12,14 @@ config_version=5
 
 config/name="Pixel_Survivor_TonyGameJam_Feb2025"
 config/tags=PackedStringArray("tony_jam")
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="uid://bravplvuk1u48"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/Sprites/icon.svg"
 
 [autoload]
 
 PlayerData="*res://Autoload/PlayerData.gd"
+GameData="*res://Autoload/GameData.gd"
 
 [debug]
 
