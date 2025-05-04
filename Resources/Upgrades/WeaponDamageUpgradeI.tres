@@ -8,5 +8,5 @@ script = ExtResource("1_ttrlv")
 damage_bonus = 1
 upgrade_name = "Weapon Damage I"
 upgrade_icon = ExtResource("2_c4jgd")
-description = "Adds 1 damage to a random weapon."
+description = "Give 1 extra damage to a random weapon"
 metadata/_custom_type_script = "uid://dd25mh3a42s6u"

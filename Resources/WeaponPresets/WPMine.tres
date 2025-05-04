@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponPreset" load_steps=4 format=3 uid="uid://r350ghyodxts"]
+
+[ext_resource type="Texture2D" uid="uid://d0dmnqhrlkxe7" path="res://Assets/Sprites/Projectiles/Mine_0001.png" id="1_x06rf"]
+[ext_resource type="PackedScene" uid="uid://b8d1jwd32cfx4" path="res://Scenes/Objects/Projectile/ProjectileBomb/ProjectileMine/ProjectileMine.tscn" id="2_1otay"]
+[ext_resource type="Script" uid="uid://1c7vk7gbhx6f" path="res://Classes/Weapons/WeaponPreset.gd" id="3_qjek7"]
+
+[resource]
+script = ExtResource("3_qjek7")
+icon = ExtResource("1_x06rf")
+name = "Mines"
+damage_modifier = 0
+base_spread = 0
+base_cooldown_time = 8.0
+base_projectiles_per_shot = 1
+projectile_scene = ExtResource("2_1otay")
+metadata/_custom_type_script = "uid://1c7vk7gbhx6f"

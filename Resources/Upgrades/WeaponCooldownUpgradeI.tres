@@ -8,5 +8,5 @@ script = ExtResource("1_r2v26")
 time_scale = 0.9
 upgrade_name = "Weapon Cooldown I"
 upgrade_icon = ExtResource("2_1npfm")
-description = "Scales the cooldown of a random weapon by a factor of 0.9."
+description = "Scales the cooldown of a random weapon by a factor of 0.9"
 metadata/_custom_type_script = "uid://b2mirlue6oljk"

@@ -1,6 +1,6 @@
 class_name MainMenu extends CanvasLayer
 
-const scene_main_game:PackedScene = preload("res://Scenes/MainScenes/Game/Main.tscn")
+var scene_main_game:PackedScene = preload("res://Scenes/MainScenes/Game/Main.tscn")
 
 @onready var audio_selection:AudioStreamPlayer = $Audio/SelectionAudio
 @onready var audio_confirm:AudioStreamPlayer = $Audio/ConfirmAudio
@@ -10,7 +10,8 @@ const scene_main_game:PackedScene = preload("res://Scenes/MainScenes/Game/Main.t
 @onready var choices_container:MainMenuChoicesContainer = $MenuContainer/Menu/ChoicesContainer
 
 const map_sizes:Array[Array] = [
-	["small", Vector2i(20, 12)],
+	["tiny", Vector2i(20, 12)],
+	["small", Vector2i(24, 16)],
 	["medium", Vector2i(32, 24)],
 	["large", Vector2i(48, 32)],
 	["x-large", Vector2i(64, 48)]
@@ -27,7 +28,7 @@ func _ready() -> void:
 	background_map.generate()
 	
 	choices_container.connect("selection_confirmed", _on_choices_container_selection_confirmed)
-	map_size_index = 1
+	map_size_index = 2
 
 
 func _input(event:InputEvent) -> void:
@@ -44,6 +45,9 @@ func _input(event:InputEvent) -> void:
 	elif event.is_action_pressed("Control_A"):
 		audio_confirm.play()
 		choices_container.confirm_selection()
+	
+	elif event.is_action_pressed("Control_Escape"):
+		exit_game()
 
 
 
@@ -62,11 +66,18 @@ func set_map_size_index(index:int) -> void:
 	
 	var new_map_size_name:String = map_sizes[map_size_index][0]
 	var new_map_size:Vector2i = map_sizes[map_size_index][1]
-	choices_container.map_choice_label.text = "map size: %s" % [new_map_size_name]
+	choices_container.map_choice_label.text = "map size : %s" % [new_map_size_name]
 	GameData.settings["map_size"] = new_map_size
 
 func get_map_size_index() -> int:
 	return map_size_index
+
+
+func exit_game() -> void:
+	is_ignoring_inputs = true
+	color_overlay.fade_in()
+	await color_overlay.animation_player.animation_finished
+	get_tree().quit()
 
 
 
@@ -81,7 +92,4 @@ func _on_choices_container_selection_confirmed(selected_menu_label:String) -> vo
 		map_size_index += 1
 	
 	elif selected_menu_label == "Quit":
-		is_ignoring_inputs = true
-		color_overlay.fade_in()
-		await color_overlay.animation_player.animation_finished
-		get_tree().quit()
+		exit_game()

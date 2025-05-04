@@ -8,4 +8,4 @@ script = ExtResource("1_7svpx")
 health_bonus = 1
 upgrade_name = "Heal I"
 upgrade_icon = ExtResource("2_0xem8")
-description = "Heals 1 damage."
+description = "Heal 1 health point"

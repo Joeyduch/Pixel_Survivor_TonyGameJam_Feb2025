@@ -7,10 +7,12 @@ var ui_border_icon_scene:PackedScene = preload("res://Scenes/UserInterface/UICom
 
 var selection_index:int = 0: set = set_selection_index
 var weapon_preset_list:Array[WeaponPreset] = [
-	preload("res://Resources/WeaponPresets/WPPistol.tres"),
 	preload("res://Resources/WeaponPresets/WPShotgun.tres"),
 	preload("res://Resources/WeaponPresets/WPSMG.tres"),
-	preload("res://Resources/WeaponPresets/WPMachineGun.tres"),
+	preload("res://Resources/WeaponPresets/WPPistol.tres"),
+	preload("res://Resources/WeaponPresets/WPFire.tres"),
+	preload("res://Resources/WeaponPresets/WPBomb.tres"),
+	preload("res://Resources/WeaponPresets/WPMine.tres"),
 ]
 
 @onready var container:GridContainer = $VBoxContainer/GridContainer

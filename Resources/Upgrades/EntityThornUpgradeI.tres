@@ -8,5 +8,5 @@ script = ExtResource("1_nk2yr")
 thorn_damage_bonus = 1
 upgrade_name = "Thorn I"
 upgrade_icon = ExtResource("2_eyd8c")
-description = "Adds 1 Thorn Damage to Player"
+description = "Give 1 damage back to enemies on contact"
 metadata/_custom_type_script = "uid://i84cx81fiqto"

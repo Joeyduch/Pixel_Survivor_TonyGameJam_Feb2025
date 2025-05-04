@@ -8,5 +8,5 @@ script = ExtResource("1_k730k")
 spread_scale = 0.8
 upgrade_name = "Spread I"
 upgrade_icon = ExtResource("2_hfhl2")
-description = "Scales the spread of a random weapon by a factor of 0.8."
+description = "Slightly reduce the spread of a random weapon"
 metadata/_custom_type_script = "uid://d3ccq704mg5iw"

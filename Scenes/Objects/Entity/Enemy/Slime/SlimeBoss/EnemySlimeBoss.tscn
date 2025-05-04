@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bccoyeosuuuf4"]
+
+[ext_resource type="PackedScene" uid="uid://d0a1nj3joue7q" path="res://Scenes/Objects/Entity/Enemy/Slime/EnemySlime.tscn" id="1_munut"]
+[ext_resource type="Script" uid="uid://cq1kkkgvocnsl" path="res://Scenes/Objects/Entity/Enemy/Slime/SlimeBoss/EnemySlimeBoss.gd" id="2_f2r2o"]
+[ext_resource type="Texture2D" uid="uid://dt5u7g4ftovy7" path="res://Assets/Sprites/Enemies/MamaSlime_0001.png" id="3_aeq7s"]
+[ext_resource type="Texture2D" uid="uid://c24erjh1bx360" path="res://Assets/Sprites/Enemies/MamaSlime_0002.png" id="4_idpne"]
+[ext_resource type="Texture2D" uid="uid://b3wvxm0dvxdrn" path="res://Assets/Sprites/Enemies/MamaSlime_0003.png" id="5_jvham"]
+[ext_resource type="Texture2D" uid="uid://bdo1sedsb40nf" path="res://Assets/Sprites/Enemies/MamaSlime_0004.png" id="6_1govh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uuqm"]
+size = Vector2(24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e77oh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_aeq7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_idpne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jvham")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1govh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_no5fe"]
+radius = 14.0
+
+[node name="EnemySlimeBoss" instance=ExtResource("1_munut")]
+script = ExtResource("2_f2r2o")
+slimelings_spawn_count = 4
+slimelings_spawn_offset_range = 8.0
+exp_value = 3
+thorn_damage = 2
+
+[node name="StatusTimer" parent="." index="0"]
+wait_time = 1.5
+
+[node name="HealthBar" parent="." index="1"]
+offset_top = -20.0
+offset_bottom = -18.0
+
+[node name="PhysicsCollision" parent="." index="2"]
+shape = SubResource("RectangleShape2D_2uuqm")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_e77oh")
+
+[node name="CharacterController" parent="." index="6"]
+speed = 24
+
+[node name="Life" parent="." index="7"]
+max_health = 32
+
+[node name="CollisionShape2D" parent="EnemyDetector" index="0"]
+shape = SubResource("CircleShape2D_no5fe")
+
+[editable path="EnemyDetector"]

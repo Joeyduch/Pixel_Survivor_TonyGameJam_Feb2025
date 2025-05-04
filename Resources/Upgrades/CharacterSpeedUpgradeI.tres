@@ -8,5 +8,5 @@ script = ExtResource("1_drftk")
 speed_bonus = 5
 upgrade_name = "Speed I"
 upgrade_icon = ExtResource("2_c6dqn")
-description = "Gives 5 Speed"
+description = "Slightly Boosts Character Speed"
 metadata/_custom_type_script = "uid://ppsj81q0t80i"

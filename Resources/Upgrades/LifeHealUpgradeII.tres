@@ -8,4 +8,4 @@ script = ExtResource("1_uuxle")
 health_bonus = 2
 upgrade_name = "Heal II"
 upgrade_icon = ExtResource("2_fyfb2")
-description = "Heals 2 damage."
+description = "Heal 2 health point"

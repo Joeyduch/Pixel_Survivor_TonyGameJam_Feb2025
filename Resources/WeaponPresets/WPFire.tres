@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponPreset" load_steps=4 format=3 uid="uid://cj00txsxadf6h"]
+
+[ext_resource type="Texture2D" uid="uid://bnlobvs266in6" path="res://Assets/Sprites/Misc/GoldenMachineGun.png" id="1_7a3ip"]
+[ext_resource type="PackedScene" uid="uid://uusdhnxasej6" path="res://Scenes/Objects/Projectile/ProjectileFire/ProjectileFire.tscn" id="2_efjoq"]
+[ext_resource type="Script" uid="uid://1c7vk7gbhx6f" path="res://Classes/Weapons/WeaponPreset.gd" id="3_ts8js"]
+
+[resource]
+script = ExtResource("3_ts8js")
+icon = ExtResource("1_7a3ip")
+name = "Flamer"
+damage_modifier = 0
+base_spread = 15
+base_cooldown_time = 0.75
+base_projectiles_per_shot = 1
+projectile_scene = ExtResource("2_efjoq")
+metadata/_custom_type_script = "uid://1c7vk7gbhx6f"

@@ -1,70 +1,18 @@
 ------------------------------
 TO DO:
 
- 
-- enemies
-	- more enemy types
-		- mama-slime (mega-slime that bursts into multiple slimes at death)
-		- a player clone once the player dies
-	- make bomby auto-explode after X seconds of being spawned
-	- make enemies go slightly faster each round (level-based speed boost)
 
-
-- Better new weapons list
-	- remove machinegun
-	- add mines
-
-- Upgrades rebalances
-	- Rework Tier 1 upgradelists
-	- Make Tier 2 upgradelists
-	- Rename healing upgradelist
-	- Rebalance upgrades in upgradelists
-
-
-- audio
-	- music
+- music
+	- in-game
 	- main menu
 
 
-- particles
-	- on death (gibs)
-	- collecting xp
-	- getting new upgrade
-
-
-- main menu
-	- moving background
-	- functionality
-
-
-- random events
-	- mini-boss (mama-slime)
-	- horde spawn
-
-
-- polish
-	- transitions (between scenes)
-	- particles
-	- menus
-		- show controls (UI)
-	- better descriptions
-		- upgrades
-	- better enemy / upgradeslist progression
-	- camera shake ?
-	- re-fetch enemy spawn position of too close to player
-		- ex: player is near border/corner and enemy spawns near that corner
-
-
 - misc.
-	- get_main / get_world on Autoload node instead of all classes
-		> Entity
-		> GameCamera
+	- stop player from going out of bounds
 
 
 - BUGS :(
 	- unnpausing inside the upgredes selection menu when leveling up multiple times rapidly
-	- player can go out of bounds
-	- we can see enemies spawn when player is near map border
 	- upgradesmenu selection not wrapping
 	- ui audio cutting one-another (ex: level-up sound cut by menu select sound)
 
@@ -74,11 +22,4 @@ TO DO:
 NOTES:
 
 * exp gain on Main's _ready method for testings
-
-
-
-- Notes for next game / project
-	- Better menu/ui management
-		- Menu classes
-	- Better audio management
-		- Audio mixer
+* boss spawn on Main's _ready method for testings

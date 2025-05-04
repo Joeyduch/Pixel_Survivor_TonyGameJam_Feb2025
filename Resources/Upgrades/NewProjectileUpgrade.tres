@@ -7,5 +7,5 @@
 script = ExtResource("1_th5vh")
 upgrade_name = "New Projectile"
 upgrade_icon = ExtResource("2_xpnn6")
-description = "A random weapon gains a random projectile type."
+description = "A random weapon will switch ammo type"
 metadata/_custom_type_script = "uid://dkbtaxsejlwbo"

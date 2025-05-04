@@ -40,11 +40,16 @@ autostart = true
 wait_time = 30.0
 autostart = true
 
-[node name="World" type="Node2D" parent="." node_paths=PackedStringArray("enemy_spawn_timer", "lootbox_spawn_timer", "player")]
+[node name="EventTimer" type="Timer" parent="Timers"]
+wait_time = 45.0
+autostart = true
+
+[node name="World" type="Node2D" parent="." node_paths=PackedStringArray("enemy_spawn_timer", "lootbox_spawn_timer", "event_timer", "player")]
 process_mode = 1
 script = ExtResource("1_6xhlf")
 enemy_spawn_timer = NodePath("../Timers/EnemySpawnTimer")
 lootbox_spawn_timer = NodePath("../Timers/LootBoxSpawnTimer")
+event_timer = NodePath("../Timers/EventTimer")
 player = NodePath("Entities/Player")
 
 [node name="GameCamera" parent="World" instance=ExtResource("3_jyqft")]
@@ -209,7 +214,8 @@ uppercase = true
 
 [node name="Label2" type="Label" parent="UI/Menus/PauseMenu/VBoxContainer"]
 layout_mode = 2
-text = "Press ESCAPE to unpause"
+text = "Press (ESCAPE) to unpause
+Press (TAB)/(ctrl) to go back to main menu"
 label_settings = ExtResource("14_erwvk")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -298,7 +304,7 @@ uppercase = true
 [node name="GridContainer" type="GridContainer" parent="UI/Menus/NewWeaponMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-columns = 4
+columns = 3
 
 [node name="UIBorderIcon" parent="UI/Menus/NewWeaponMenu/VBoxContainer/GridContainer" instance=ExtResource("17_2w5on")]
 layout_mode = 2

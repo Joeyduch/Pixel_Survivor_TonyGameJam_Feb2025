@@ -54,6 +54,7 @@ grow_vertical = 2
 
 [node name="Title" type="Label" parent="MenuContainer/Menu"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "pixel survival"
 label_settings = ExtResource("4_408d7")
 horizontal_alignment = 1

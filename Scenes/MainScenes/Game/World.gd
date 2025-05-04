@@ -10,6 +10,7 @@ const scenes_enemies:Dictionary[String, PackedScene] = {
 	"skull": preload("res://Scenes/Objects/Entity/Enemy/Skull/EnemySkull.tscn"),
 	"bomby": preload("res://Scenes/Objects/Entity/Enemy/Bomby/EnemyBomby.tscn"),
 	"gunner": preload("res://Scenes/Objects/Entity/Enemy/Gunner/EnemyGunner.tscn"),
+	"slimeboss": preload("res://Scenes/Objects/Entity/Enemy/Slime/SlimeBoss/EnemySlimeBoss.tscn"),
 }
 const scene_exp_drop:PackedScene = preload("res://Scenes/Objects/LootDrop/ExpDrop/ExpDrop.tscn")
 const scene_lootbox:PackedScene = preload("res://Scenes/Objects/LootDrop/LootBox/LootBox.tscn")
@@ -42,8 +43,16 @@ var scenes_particles:Dictionary[String, PackedScene] = {
 ## this adds (or substracts) to the base enemy health. Goes up every level up
 var enemy_health_modifier:int = 0
 
+# event variables
+const HORDE_SIZE_MINIMUM:int = 4
+const HORDE_SIZE_MAXIMUM:int = 16
+const BOSS_SPAWN_LEVEL:int = 12
+
+@export_category("Timers")
 @export var enemy_spawn_timer:Timer = null
 @export var lootbox_spawn_timer:Timer = null
+@export var event_timer:Timer = null
+@export_category("World")
 @export var player:Entity = null 
 @export var max_enemy_spawned:int = 32
 
@@ -57,11 +66,14 @@ var enemy_health_modifier:int = 0
 
 
 func _ready() -> void:
+	print("WORLD READY")
 	# connecting signals
 	if enemy_spawn_timer:
 		enemy_spawn_timer.connect("timeout", _on_enemy_spawn_timer_timeout)
 	if lootbox_spawn_timer:
 		lootbox_spawn_timer.connect("timeout", _on_lootbox_spawn_timer_timeout)
+	if event_timer:
+		event_timer.connect("timeout", _on_event_timer_timeout)
 	
 	# setup camera & player
 	var map_size:Vector2i = GameData.settings["map_size"]
@@ -145,27 +157,35 @@ func spawn_loot_box(spawn_position:Vector2) -> void:
 	spawn_loot_drop(scene_lootbox, spawn_position)
 
 
-func spawn_enemy() -> void:
-	# spawn limitations
-	if not enemies_parent: return
-	if enemies_parent.get_children().size() >= max_enemy_spawned: return
-	
+func choose_random_enemy_scene() -> PackedScene:
 	# choose enemy type
 	var enemy_candidates:Array[PackedScene] = []
 	for enemy_level:int in enemy_levels_map:
 		if enemy_level > PlayerData.level: continue
 		var enemy_scenes:Array[Variant] = enemy_levels_map[enemy_level]
 		enemy_candidates.append_array(enemy_scenes)
-	if enemy_candidates.size() <= 0: return
+	if enemy_candidates.size() <= 0: return null
+	# return enemy scene
+	return enemy_candidates[randi_range(0, enemy_candidates.size()-1)]
+
+func spawn_enemy(enemy_scene:PackedScene, spawn_position:Vector2, ignore_enemy_limit:bool=false) -> void:
+	# spawn limitations
+	if not enemies_parent: return
 	
-	var enemy_scene:PackedScene = enemy_candidates[randi_range(0, enemy_candidates.size()-1)]
+	if not ignore_enemy_limit:
+		if enemies_parent.get_children().size() >= max_enemy_spawned: return
 	
 	# create + setup new enemy
 	var enemy:Entity = enemy_scene.instantiate()
 	enemies_parent.add_child(enemy)
 	enemy.life.max_health += enemy_health_modifier
 	enemy.life.health = enemy.life.max_health
-	enemy.position = get_random_position_outside_viewport(32)
+	enemy.position = spawn_position
+
+func spawn_enemy_random(spawn_position:Vector2, ignore_enemy_limit:bool=false) -> void:
+	var random_enemy:PackedScene = choose_random_enemy_scene()
+	if random_enemy:
+		spawn_enemy(random_enemy, spawn_position, ignore_enemy_limit)
 
 
 func spawn_particles(particles_name:String, spawn_position:Vector2) -> GPUParticles2D:
@@ -187,13 +207,27 @@ func spawn_blood_particles(spawn_position:Vector2, color:Variant=null) -> void:
 		blood_particles.set_blood_color(color)
 
 
+# event methods
+func trigger_event_horde() -> void:
+	var horde_size:int = clamp(PlayerData.level, HORDE_SIZE_MINIMUM, HORDE_SIZE_MAXIMUM)
+	for i:int in range(horde_size):
+		spawn_enemy_random(get_random_position_outside_viewport(32))
+	print("HORDE EVENT TRIGGERED (SIZE:%s)" % [horde_size])
+
+func trigger_event_boss() -> void:
+	var boss_scene:PackedScene = scenes_enemies["slimeboss"]
+	if boss_scene:
+		spawn_enemy(boss_scene, get_random_position_outside_viewport(32), true)
+	print("BOSS EVENT TRIGGERED")
+
+
 
 #	----------
 #	SIGNALS
 #	----------
 
 func _on_enemy_spawn_timer_timeout() -> void:
-	spawn_enemy()
+	spawn_enemy_random(get_random_position_outside_viewport(32))
 
 
 func _on_lootbox_spawn_timer_timeout() -> void:
@@ -210,3 +244,13 @@ func _on_lootbox_spawn_timer_timeout() -> void:
 		),
 	)
 	spawn_loot_box(spawn_position)
+
+
+func _on_event_timer_timeout() -> void:
+	if PlayerData.level >= BOSS_SPAWN_LEVEL:
+		if randf() <= 0.5:
+			trigger_event_boss()
+		else:
+			trigger_event_horde()
+	else:
+		trigger_event_horde()

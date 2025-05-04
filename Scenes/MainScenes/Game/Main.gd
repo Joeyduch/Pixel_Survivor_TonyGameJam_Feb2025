@@ -20,6 +20,7 @@ var lootbox_upgrades_list_chance:float = 0.2
  
 
 func _ready() -> void:
+	print("READY")
 	# on game pause
 	connect("game_paused", ui._main_game_paused)
 	# on level up
@@ -36,12 +37,14 @@ func _ready() -> void:
 		world.player.life.connect("died", _on_player_life_died)
 	
 	#PlayerData.gain_experience(3) # ***** TEST TEMPORARY TEST *****
+	#world.trigger_event_boss() # ***** TEST TEMPORARY TEST *****
 
 
 func _input(event: InputEvent) -> void:
 	# pause game
 	if event.is_action_pressed("Control_Escape"):
-		toggle_pause()
+		if ui.menus.current_menu == ui.menus.MENUS.NONE or ui.menus.current_menu == ui.menus.MENUS.PAUSE:
+			toggle_pause()
 	
 	# reload on player death
 	if (event.is_action_pressed("Control_A") or event.is_action_pressed("Control_B")) and world.player:

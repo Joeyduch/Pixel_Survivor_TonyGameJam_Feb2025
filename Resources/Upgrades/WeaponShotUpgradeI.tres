@@ -8,5 +8,5 @@ script = ExtResource("1_cnpe5")
 shot_amount_bonus = 1
 upgrade_name = "Multi-Shot I"
 upgrade_icon = ExtResource("2_f8nc6")
-description = "Adds 1 more projectile per shot for a random weapon."
+description = "Adds 1 more projectile per shot for a random weapon"
 metadata/_custom_type_script = "uid://b8innuvwarqvx"

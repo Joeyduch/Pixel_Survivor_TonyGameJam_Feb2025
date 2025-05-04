@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b4d41y50yeq2v" path="res://Scenes/Objects/LootDrop/LootBox/LootBox.gd" id="2_5g7gf"]
 [ext_resource type="Texture2D" uid="uid://b8o6ssqfx2rjl" path="res://Assets/Sprites/Loot/Box_0001.png" id="2_xbrh6"]
 [ext_resource type="Texture2D" uid="uid://dispedbuo0wxu" path="res://Assets/Sprites/Loot/Box_0002.png" id="3_5g7gf"]
-[ext_resource type="Resource" uid="uid://clxe4bxeyv4b4" path="res://Resources/Upgrades/UpgradesLists/LootBoxUpgradesList.tres" id="3_xxoa2"]
+[ext_resource type="Resource" uid="uid://ji30sol3s0tr" path="res://Resources/Upgrades/UpgradesLists/LootBoxUpgradesList.tres" id="3_xxoa2"]
 [ext_resource type="AudioStream" uid="uid://dsjfw1jro1p8f" path="res://Assets/Sounds/CollectBox.wav" id="6_xxoa2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xxoa2"]

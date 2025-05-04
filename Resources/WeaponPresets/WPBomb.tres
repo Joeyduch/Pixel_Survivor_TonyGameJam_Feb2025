@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponPreset" load_steps=4 format=3 uid="uid://0d6sdvdmafd3"]
+
+[ext_resource type="Texture2D" uid="uid://d4b25idenxflq" path="res://Assets/Sprites/Projectiles/Bomb_0001.png" id="1_munhk"]
+[ext_resource type="PackedScene" uid="uid://bc6fe2cich48o" path="res://Scenes/Objects/Projectile/ProjectileBomb/ProjectileBomb.tscn" id="2_rqpui"]
+[ext_resource type="Script" uid="uid://1c7vk7gbhx6f" path="res://Classes/Weapons/WeaponPreset.gd" id="3_d7wm4"]
+
+[resource]
+script = ExtResource("3_d7wm4")
+icon = ExtResource("1_munhk")
+name = "Bombs"
+damage_modifier = 0
+base_spread = 0
+base_cooldown_time = 8.0
+base_projectiles_per_shot = 1
+projectile_scene = ExtResource("2_rqpui")
+metadata/_custom_type_script = "uid://1c7vk7gbhx6f"
