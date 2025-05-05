@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bravplvuk1u48"]
+[gd_scene load_steps=12 format=3 uid="uid://bravplvuk1u48"]
 
 [ext_resource type="Script" uid="uid://dwfeyl8c68wfg" path="res://Scenes/MainScenes/MainMenu/MainMenu.gd" id="1_005ck"]
 [ext_resource type="Script" uid="uid://dffgbtt0w0k6i" path="res://Classes/AutoTile/GenTileAutoMap.gd" id="1_xoqs3"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dtjsjxpyddr8t" path="res://Assets/Sounds/MenuTick.wav" id="2_kw7sj"]
 [ext_resource type="AudioStream" uid="uid://bpqitf15co514" path="res://Assets/Sounds/MenuSelect.wav" id="3_ybtei"]
 [ext_resource type="LabelSettings" uid="uid://cssfecsc7m5cq" path="res://Assets/LabelSettings/LSTitleRed.tres" id="4_408d7"]
+[ext_resource type="AudioStream" uid="uid://dphpxvag54dcm" path="res://Assets/Music/Moodmode_That8bitMusic.mp3" id="4_ybtei"]
 [ext_resource type="LabelSettings" uid="uid://c7pkkkm6vs40t" path="res://Assets/LabelSettings/LSText.tres" id="5_408d7"]
 [ext_resource type="Script" uid="uid://cijwfdhhnk6sq" path="res://Scenes/MainScenes/MainMenu/ChoicesContainer/ChoicesContainer.gd" id="5_oyvii"]
 [ext_resource type="PackedScene" uid="uid://cr6lft4c1ostv" path="res://Scenes/UserInterface/UIComponents/UIColorOverlay/UIColorOverlay.tscn" id="6_408d7"]
@@ -21,6 +22,11 @@ stream = ExtResource("2_kw7sj")
 
 [node name="ConfirmAudio" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("3_ybtei")
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_ybtei")
+volume_db = -10.0
+autoplay = true
 
 [node name="BackgroundMap" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_1d3mn")
@@ -88,11 +94,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -54.0
-offset_top = -23.0
+offset_top = -30.0
 offset_right = 54.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "(c) Joey Ducharme - 2025"
+text = "(c) Joey Ducharme - 2025
+music by moodmode"
 label_settings = ExtResource("5_408d7")
 horizontal_alignment = 1
 vertical_alignment = 1

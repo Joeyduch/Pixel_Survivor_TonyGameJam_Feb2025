@@ -4,6 +4,7 @@ var scene_main_game:PackedScene = preload("res://Scenes/MainScenes/Game/Main.tsc
 
 @onready var audio_selection:AudioStreamPlayer = $Audio/SelectionAudio
 @onready var audio_confirm:AudioStreamPlayer = $Audio/ConfirmAudio
+@onready var audio_music:AudioStreamPlayer = $Audio/MusicAudio
 
 @onready var background_map:AutoTileMap = $BackgroundMap
 @onready var color_overlay:UIColorOverlay = $MenuContainer/UIColorOverlay
@@ -85,6 +86,7 @@ func _on_choices_container_selection_confirmed(selected_menu_label:String) -> vo
 	if selected_menu_label == "New":
 		is_ignoring_inputs = true
 		color_overlay.fade_in()
+		audio_music.stop()
 		await color_overlay.animation_player.animation_finished
 		get_tree().change_scene_to_packed(scene_main_game)
 	

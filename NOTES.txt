@@ -2,15 +2,6 @@
 TO DO:
 
 
-- music
-	- in-game
-	- main menu
-
-
-- misc.
-	- stop player from going out of bounds
-
-
 - BUGS :(
 	- unnpausing inside the upgredes selection menu when leveling up multiple times rapidly
 	- upgradesmenu selection not wrapping

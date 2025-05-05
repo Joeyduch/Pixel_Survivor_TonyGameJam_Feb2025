@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cs3tfa5avgdx7"]
+[gd_scene load_steps=26 format=3 uid="uid://cs3tfa5avgdx7"]
 
 [ext_resource type="Script" uid="uid://c0rfdybc1iyfh" path="res://Scenes/MainScenes/Game/World.gd" id="1_6xhlf"]
 [ext_resource type="Script" uid="uid://dqwlwibfhth0n" path="res://Scenes/MainScenes/Game/Main.gd" id="1_fqa7p"]
+[ext_resource type="AudioStream" uid="uid://dqg7vs1q7brnt" path="res://Assets/Music/Moodmode_8bitMusicOn.mp3" id="2_k4mw1"]
 [ext_resource type="PackedScene" uid="uid://dtetuew7g3wsd" path="res://Scenes/Objects/Entity/Player/Player.tscn" id="3_6cwc0"]
 [ext_resource type="PackedScene" uid="uid://cwj635oh1vrhs" path="res://Scenes/Cameras/GameCamera/GameCamera.tscn" id="3_jyqft"]
 [ext_resource type="TileSet" uid="uid://bnlt5mmx0go03" path="res://Assets/TileSet/TileSetDefault.tres" id="4_du0fr"]
@@ -28,6 +29,10 @@
 [node name="Main" type="Node"]
 process_mode = 3
 script = ExtResource("1_fqa7p")
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k4mw1")
+autoplay = true
 
 [node name="Timers" type="Node" parent="."]
 process_mode = 1

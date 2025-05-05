@@ -7,6 +7,9 @@ var scene_main_menu:PackedScene = load("res://Scenes/MainScenes/MainMenu/MainMen
 @onready var world:World = $World
 @onready var ui:UI = $UI
 
+@onready var music_audio:AudioStreamPlayer = $MusicAudio
+var music_playback_position:float = 0
+
 ## list of all UpgradesList and their level plateau, in the format [[UpgradesList, level_plateau:int], ...]
 @onready var upgrades_list_plateau:Array[Array] = [
 	[preload("res://Resources/Upgrades/UpgradesLists/LifeUpgradesList.tres"), 1],
@@ -20,7 +23,7 @@ var lootbox_upgrades_list_chance:float = 0.2
  
 
 func _ready() -> void:
-	print("READY")
+	print("MAIN READY")
 	# on game pause
 	connect("game_paused", ui._main_game_paused)
 	# on level up
@@ -65,6 +68,7 @@ func reload_scene() -> void:
 func quit_to_menu() -> void:
 	toggle_pause()
 	ui.hud.color_overlay.fade_in()
+	music_audio.stop()
 	await ui.hud.color_overlay.animation_player.animation_finished
 	PlayerData.reset()
 	get_tree().change_scene_to_packed(scene_main_menu)
@@ -74,6 +78,13 @@ func toggle_pause() -> void:
 	var is_now_paused:bool = !get_tree().paused
 	get_tree().set_pause(is_now_paused)
 	game_paused.emit(is_now_paused)
+	
+	#music
+	if is_now_paused:
+		music_playback_position = music_audio.get_playback_position()
+		music_audio.stop()
+	else:
+		music_audio.play(music_playback_position)
 
 
 func give_upgrade(upgrade:BaseUpgrade) -> void:
@@ -144,3 +155,4 @@ func _on_player_weapon_given(_new_weapon:BaseWeapon, all_weapons:Array[BaseWeapo
 func _on_player_life_died() -> void:
 	ui.hud.color_overlay.fade_in()
 	ui.hud.death_screen.set_visible(true)
+	music_audio.stop()

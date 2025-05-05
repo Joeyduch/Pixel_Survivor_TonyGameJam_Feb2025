@@ -63,6 +63,8 @@ const BOSS_SPAWN_LEVEL:int = 12
 @onready var projectile_parent:Node = $Projectiles
 @onready var particles_parent:Node = $Particles
 
+var map_size:Vector2i = Vector2i(8,8) # changed at _ready
+
 
 
 func _ready() -> void:
@@ -76,7 +78,7 @@ func _ready() -> void:
 		event_timer.connect("timeout", _on_event_timer_timeout)
 	
 	# setup camera & player
-	var map_size:Vector2i = GameData.settings["map_size"]
+	map_size = GameData.settings["map_size"]
 	if player:
 		# player spawn position
 		player.position = Vector2(
