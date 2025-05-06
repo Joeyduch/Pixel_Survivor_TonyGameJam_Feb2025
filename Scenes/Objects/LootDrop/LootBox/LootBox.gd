@@ -1,6 +1,6 @@
 class_name LootBox extends LootDrop
 
-@export var loot_upgrades_list:UpgradesList = preload("res://Resources/Upgrades/UpgradesLists/LootBoxUpgradesList.tres")
+var loot_upgrades_list:UpgradesList = load("res://Resources/Upgrades/UpgradesLists/LifeUpgradesList.tres")
 
 func collect(player_body:Entity) -> void:
 	super(player_body)

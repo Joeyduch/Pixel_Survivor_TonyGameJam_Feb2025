@@ -17,10 +17,10 @@ var music_playback_position:float = 0
 	[preload("res://Resources/Upgrades/UpgradesLists/WeaponUpgradesList.tres"), 3],
 	[preload("res://Resources/Upgrades/UpgradesLists/NewWeaponUpgradesList.tres"), 4],
 ]
-var lootbox_upgrades_list:UpgradesList = preload("res://Resources/Upgrades/UpgradesLists/LootBoxUpgradesList.tres")
+var lootbox_upgrades_list:UpgradesList = preload("res://Resources/Upgrades/UpgradesLists/BoxUpgradesList.tres") as UpgradesList
 var lootbox_upgrades_list_chance:float = 0.2
 
- 
+
 
 func _ready() -> void:
 	print("MAIN READY")
@@ -112,8 +112,10 @@ func _player_data_leveled_up(new_level:int, _exp_to_level_up:int) -> void:
 	# set new UpgradeLists depending on level plateau
 	var upgrades_lists_array:Array[UpgradesList] = []
 	# - random lootbox upgrades
-	if new_level == 1 or randf() <= lootbox_upgrades_list_chance:
-		upgrades_lists_array.append(lootbox_upgrades_list)
+	var lootbox_upgrades:UpgradesList = lootbox_upgrades_list
+	if lootbox_upgrades:
+		if new_level == 1 or randf() <= lootbox_upgrades_list_chance:
+			upgrades_lists_array.append(lootbox_upgrades)
 	# - upgrades list plateau
 	for upgrade_plateau:Array[Variant] in upgrades_list_plateau:
 		var upgrade_list:UpgradesList = upgrade_plateau[0]

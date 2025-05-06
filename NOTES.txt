@@ -1,6 +1,11 @@
 ------------------------------
 TO DO:
 
+- ? new player sprite ?
+
+
+- ? redesign upgrade HUD pop-up ?
+
 
 - BUGS :(
 	- unnpausing inside the upgredes selection menu when leveling up multiple times rapidly
