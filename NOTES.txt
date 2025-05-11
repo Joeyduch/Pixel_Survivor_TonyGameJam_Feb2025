@@ -1,10 +1,7 @@
 ------------------------------
 TO DO:
 
-- ? new player sprite ?
-
-
-- ? redesign upgrade HUD pop-up ?
+- Change title label the Pixel Survivor
 
 
 - BUGS :(
